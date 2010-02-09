@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A64A4D41120967500D4E22D /* SGLayerMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4CF1120967500D4E22D /* SGLayerMapView.h */; };
+		4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
+		4A64A4D61120967500D4E22D /* SGMapKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */; };
+		4AED2973112124AE00672F12 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2972112124AE00672F12 /* CoreLocation.framework */; };
+		4AED2975112124AE00672F12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2974112124AE00672F12 /* MapKit.framework */; };
+		4AED2977112124AE00672F12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A64A4CF1120967500D4E22D /* SGLayerMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLayerMapView.h; sourceTree = "<group>"; };
+		4A64A4D01120967500D4E22D /* SGLayerMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGLayerMapView.m; sourceTree = "<group>"; };
+		4A64A4D11120967500D4E22D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit_Prefix.pch; sourceTree = "<group>"; };
+		4A64B5F51120D55D00D4E22D /* build_mapkit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_mapkit; sourceTree = "<group>"; };
+		4A64B64F1121001D00D4E22D /* TOCmaster.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = TOCmaster.css; sourceTree = "<group>"; };
+		4A64B6531121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6541121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6561121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6571121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6581121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6591121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B65D1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B65E1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6601121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6611121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6621121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6631121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6651121001D00D4E22D /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		4A64B6661121001D00D4E22D /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4A64B6671121001D00D4E22D /* shelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shelf.png; sourceTree = "<group>"; };
+		4A64B6691121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B66C1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B66D1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B66E1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B66F1121001D00D4E22D /* SGClient.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = SGClient.html; sourceTree = "<group>"; };
+		4A64B6731121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6741121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6751121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6761121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B67A1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B67B1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B67C1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B67D1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6811121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6821121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6831121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6861121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6871121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6881121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B68A1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B68B1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B68F1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6901121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6911121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6921121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6961121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6971121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6981121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6991121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B69B1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B69E1121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B69F1121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6A11121001D00D4E22D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		4A64B6A21121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6A31121001D00D4E22D /* toc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = toc.html; sourceTree = "<group>"; };
+		4A64B6A51121001D00D4E22D /* CLLocationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationAdditions.h; sourceTree = "<group>"; };
+		4A64B6A61121001D00D4E22D /* GeoJSON+NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoJSON+NSArray.h"; sourceTree = "<group>"; };
+		4A64B6A71121001D00D4E22D /* GeoJSON+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoJSON+NSDictionary.h"; sourceTree = "<group>"; };
+		4A64B6A81121001D00D4E22D /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayAdditions.h; sourceTree = "<group>"; };
+		4A64B6A91121001D00D4E22D /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		4A64B6AA1121001D00D4E22D /* SGAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAdditions.h; sourceTree = "<group>"; };
+		4A64B6AB1121001D00D4E22D /* SGAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAuthorization.h; sourceTree = "<group>"; };
+		4A64B6AC1121001D00D4E22D /* SGClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGClient.h; sourceTree = "<group>"; };
+		4A64B6AD1121001D00D4E22D /* SGGeoJSONEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGeoJSONEncoder.h; sourceTree = "<group>"; };
+		4A64B6AE1121001D00D4E22D /* SGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLayer.h; sourceTree = "<group>"; };
+		4A64B6AF1121001D00D4E22D /* SGLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLocationService.h; sourceTree = "<group>"; };
+		4A64B6B01121001D00D4E22D /* SGLocationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLocationTypes.h; sourceTree = "<group>"; };
+		4A64B6B11121001D00D4E22D /* SGOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGOAuth.h; sourceTree = "<group>"; };
+		4A64B6B21121001D00D4E22D /* SGRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRecord.h; sourceTree = "<group>"; };
+		4A64B6B31121001D00D4E22D /* SGRecordAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRecordAnnotation.h; sourceTree = "<group>"; };
+		4A64B6B51121001D00D4E22D /* libSGClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSGClient.a; sourceTree = "<group>"; };
+		4A64B6B71121001D00D4E22D /* libSGClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSGClient.a; sourceTree = "<group>"; };
+		4A64B6B81121001D00D4E22D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4AED2972112124AE00672F12 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4AED2974112124AE00672F12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4AED2976112124AE00672F12 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libSGMapKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSGMapKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				4AED2973112124AE00672F12 /* CoreLocation.framework in Frameworks */,
+				4AED2975112124AE00672F12 /* MapKit.framework in Frameworks */,
+				4AED2977112124AE00672F12 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libSGMapKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SGMapClient */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B64C1121001D00D4E22D /* SGClient */,
+				4A64B5F51120D55D00D4E22D /* build_mapkit */,
+				4A64A4CD1120967500D4E22D /* Classes */,
+				4A64A4D11120967500D4E22D /* README */,
+				4A64A4D21120967500D4E22D /* Resources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = SGMapClient;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				4AED2972112124AE00672F12 /* CoreLocation.framework */,
+				4AED2974112124AE00672F12 /* MapKit.framework */,
+				4AED2976112124AE00672F12 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A64A4CD1120967500D4E22D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A64A4CE1120967500D4E22D /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A64A4CE1120967500D4E22D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A64A4CF1120967500D4E22D /* SGLayerMapView.h */,
+				4A64A4D01120967500D4E22D /* SGLayerMapView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A64A4D21120967500D4E22D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A64B64C1121001D00D4E22D /* SGClient */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B64D1121001D00D4E22D /* Documentation */,
+				4A64B6A41121001D00D4E22D /* Headers */,
+				4A64B6B41121001D00D4E22D /* iphoneos */,
+				4A64B6B61121001D00D4E22D /* iphonesimulator */,
+				4A64B6B81121001D00D4E22D /* README */,
+			);
+			path = SGClient;
+			sourceTree = "<group>";
+		};
+		4A64B64D1121001D00D4E22D /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B64E1121001D00D4E22D /* css */,
+				4A64B6501121001D00D4E22D /* GeoJSON+NSArray_h */,
+				4A64B65A1121001D00D4E22D /* GeoJSON+NSDictionary_h */,
+				4A64B6641121001D00D4E22D /* Images */,
+				4A64B6681121001D00D4E22D /* SGAuthorization_h */,
+				4A64B66F1121001D00D4E22D /* SGClient.html */,
+				4A64B6701121001D00D4E22D /* SGGeoJSONEncoder_h */,
+				4A64B6771121001D00D4E22D /* SGLayer_h */,
+				4A64B67E1121001D00D4E22D /* SGLocationService_h */,
+				4A64B6891121001D00D4E22D /* SGLocationTypes_h */,
+				4A64B68C1121001D00D4E22D /* SGOAuth_h */,
+				4A64B6931121001D00D4E22D /* SGRecord_h */,
+				4A64B69A1121001D00D4E22D /* SGRecordAnnotation_h */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		4A64B64E1121001D00D4E22D /* css */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B64F1121001D00D4E22D /* TOCmaster.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		4A64B6501121001D00D4E22D /* GeoJSON+NSArray_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6511121001D00D4E22D /* Categories */,
+				4A64B6581121001D00D4E22D /* index.html */,
+				4A64B6591121001D00D4E22D /* toc.html */,
+			);
+			path = "GeoJSON+NSArray_h";
+			sourceTree = "<group>";
+		};
+		4A64B6511121001D00D4E22D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6521121001D00D4E22D /* NSArray_GeoJSONObject_ */,
+				4A64B6551121001D00D4E22D /* NSMutableArray_GeoJSONObject_ */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4A64B6521121001D00D4E22D /* NSArray_GeoJSONObject_ */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6531121001D00D4E22D /* index.html */,
+				4A64B6541121001D00D4E22D /* toc.html */,
+			);
+			path = NSArray_GeoJSONObject_;
+			sourceTree = "<group>";
+		};
+		4A64B6551121001D00D4E22D /* NSMutableArray_GeoJSONObject_ */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6561121001D00D4E22D /* index.html */,
+				4A64B6571121001D00D4E22D /* toc.html */,
+			);
+			path = NSMutableArray_GeoJSONObject_;
+			sourceTree = "<group>";
+		};
+		4A64B65A1121001D00D4E22D /* GeoJSON+NSDictionary_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B65B1121001D00D4E22D /* Categories */,
+				4A64B6621121001D00D4E22D /* index.html */,
+				4A64B6631121001D00D4E22D /* toc.html */,
+			);
+			path = "GeoJSON+NSDictionary_h";
+			sourceTree = "<group>";
+		};
+		4A64B65B1121001D00D4E22D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B65C1121001D00D4E22D /* NSDictionary_SGGeoJSONObject_ */,
+				4A64B65F1121001D00D4E22D /* NSMutableDictionary_SGGeoJSONObject_ */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4A64B65C1121001D00D4E22D /* NSDictionary_SGGeoJSONObject_ */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B65D1121001D00D4E22D /* index.html */,
+				4A64B65E1121001D00D4E22D /* toc.html */,
+			);
+			path = NSDictionary_SGGeoJSONObject_;
+			sourceTree = "<group>";
+		};
+		4A64B65F1121001D00D4E22D /* NSMutableDictionary_SGGeoJSONObject_ */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6601121001D00D4E22D /* index.html */,
+				4A64B6611121001D00D4E22D /* toc.html */,
+			);
+			path = NSMutableDictionary_SGGeoJSONObject_;
+			sourceTree = "<group>";
+		};
+		4A64B6641121001D00D4E22D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6651121001D00D4E22D /* bg.png */,
+				4A64B6661121001D00D4E22D /* logo.png */,
+				4A64B6671121001D00D4E22D /* shelf.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		4A64B6681121001D00D4E22D /* SGAuthorization_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6691121001D00D4E22D /* index.html */,
+				4A64B66A1121001D00D4E22D /* Protocols */,
+				4A64B66E1121001D00D4E22D /* toc.html */,
+			);
+			path = SGAuthorization_h;
+			sourceTree = "<group>";
+		};
+		4A64B66A1121001D00D4E22D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B66B1121001D00D4E22D /* SGAuthorization */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4A64B66B1121001D00D4E22D /* SGAuthorization */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B66C1121001D00D4E22D /* index.html */,
+				4A64B66D1121001D00D4E22D /* toc.html */,
+			);
+			path = SGAuthorization;
+			sourceTree = "<group>";
+		};
+		4A64B6701121001D00D4E22D /* SGGeoJSONEncoder_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6711121001D00D4E22D /* Classes */,
+				4A64B6751121001D00D4E22D /* index.html */,
+				4A64B6761121001D00D4E22D /* toc.html */,
+			);
+			path = SGGeoJSONEncoder_h;
+			sourceTree = "<group>";
+		};
+		4A64B6711121001D00D4E22D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6721121001D00D4E22D /* SGGeoJSONEncoder */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A64B6721121001D00D4E22D /* SGGeoJSONEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6731121001D00D4E22D /* index.html */,
+				4A64B6741121001D00D4E22D /* toc.html */,
+			);
+			path = SGGeoJSONEncoder;
+			sourceTree = "<group>";
+		};
+		4A64B6771121001D00D4E22D /* SGLayer_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6781121001D00D4E22D /* Classes */,
+				4A64B67C1121001D00D4E22D /* index.html */,
+				4A64B67D1121001D00D4E22D /* toc.html */,
+			);
+			path = SGLayer_h;
+			sourceTree = "<group>";
+		};
+		4A64B6781121001D00D4E22D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6791121001D00D4E22D /* SGLayer */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A64B6791121001D00D4E22D /* SGLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B67A1121001D00D4E22D /* index.html */,
+				4A64B67B1121001D00D4E22D /* toc.html */,
+			);
+			path = SGLayer;
+			sourceTree = "<group>";
+		};
+		4A64B67E1121001D00D4E22D /* SGLocationService_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B67F1121001D00D4E22D /* Classes */,
+				4A64B6831121001D00D4E22D /* index.html */,
+				4A64B6841121001D00D4E22D /* Protocols */,
+				4A64B6881121001D00D4E22D /* toc.html */,
+			);
+			path = SGLocationService_h;
+			sourceTree = "<group>";
+		};
+		4A64B67F1121001D00D4E22D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6801121001D00D4E22D /* SGLocationService */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A64B6801121001D00D4E22D /* SGLocationService */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6811121001D00D4E22D /* index.html */,
+				4A64B6821121001D00D4E22D /* toc.html */,
+			);
+			path = SGLocationService;
+			sourceTree = "<group>";
+		};
+		4A64B6841121001D00D4E22D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6851121001D00D4E22D /* SGLocationServiceDelegate */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4A64B6851121001D00D4E22D /* SGLocationServiceDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6861121001D00D4E22D /* index.html */,
+				4A64B6871121001D00D4E22D /* toc.html */,
+			);
+			path = SGLocationServiceDelegate;
+			sourceTree = "<group>";
+		};
+		4A64B6891121001D00D4E22D /* SGLocationTypes_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B68A1121001D00D4E22D /* index.html */,
+				4A64B68B1121001D00D4E22D /* toc.html */,
+			);
+			path = SGLocationTypes_h;
+			sourceTree = "<group>";
+		};
+		4A64B68C1121001D00D4E22D /* SGOAuth_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B68D1121001D00D4E22D /* Classes */,
+				4A64B6911121001D00D4E22D /* index.html */,
+				4A64B6921121001D00D4E22D /* toc.html */,
+			);
+			path = SGOAuth_h;
+			sourceTree = "<group>";
+		};
+		4A64B68D1121001D00D4E22D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B68E1121001D00D4E22D /* SGOAuth */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A64B68E1121001D00D4E22D /* SGOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B68F1121001D00D4E22D /* index.html */,
+				4A64B6901121001D00D4E22D /* toc.html */,
+			);
+			path = SGOAuth;
+			sourceTree = "<group>";
+		};
+		4A64B6931121001D00D4E22D /* SGRecord_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6941121001D00D4E22D /* Classes */,
+				4A64B6981121001D00D4E22D /* index.html */,
+				4A64B6991121001D00D4E22D /* toc.html */,
+			);
+			path = SGRecord_h;
+			sourceTree = "<group>";
+		};
+		4A64B6941121001D00D4E22D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6951121001D00D4E22D /* SGRecord */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A64B6951121001D00D4E22D /* SGRecord */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6961121001D00D4E22D /* index.html */,
+				4A64B6971121001D00D4E22D /* toc.html */,
+			);
+			path = SGRecord;
+			sourceTree = "<group>";
+		};
+		4A64B69A1121001D00D4E22D /* SGRecordAnnotation_h */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B69B1121001D00D4E22D /* index.html */,
+				4A64B69C1121001D00D4E22D /* Protocols */,
+				4A64B6A31121001D00D4E22D /* toc.html */,
+			);
+			path = SGRecordAnnotation_h;
+			sourceTree = "<group>";
+		};
+		4A64B69C1121001D00D4E22D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B69D1121001D00D4E22D /* SGAnnotation */,
+				4A64B6A01121001D00D4E22D /* SGRecordAnnotation */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4A64B69D1121001D00D4E22D /* SGAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B69E1121001D00D4E22D /* index.html */,
+				4A64B69F1121001D00D4E22D /* toc.html */,
+			);
+			path = SGAnnotation;
+			sourceTree = "<group>";
+		};
+		4A64B6A01121001D00D4E22D /* SGRecordAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6A11121001D00D4E22D /* index.html */,
+				4A64B6A21121001D00D4E22D /* toc.html */,
+			);
+			path = SGRecordAnnotation;
+			sourceTree = "<group>";
+		};
+		4A64B6A41121001D00D4E22D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6A51121001D00D4E22D /* CLLocationAdditions.h */,
+				4A64B6A61121001D00D4E22D /* GeoJSON+NSArray.h */,
+				4A64B6A71121001D00D4E22D /* GeoJSON+NSDictionary.h */,
+				4A64B6A81121001D00D4E22D /* NSArrayAdditions.h */,
+				4A64B6A91121001D00D4E22D /* NSStringAdditions.h */,
+				4A64B6AA1121001D00D4E22D /* SGAdditions.h */,
+				4A64B6AB1121001D00D4E22D /* SGAuthorization.h */,
+				4A64B6AC1121001D00D4E22D /* SGClient.h */,
+				4A64B6AD1121001D00D4E22D /* SGGeoJSONEncoder.h */,
+				4A64B6AE1121001D00D4E22D /* SGLayer.h */,
+				4A64B6AF1121001D00D4E22D /* SGLocationService.h */,
+				4A64B6B01121001D00D4E22D /* SGLocationTypes.h */,
+				4A64B6B11121001D00D4E22D /* SGOAuth.h */,
+				4A64B6B21121001D00D4E22D /* SGRecord.h */,
+				4A64B6B31121001D00D4E22D /* SGRecordAnnotation.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4A64B6B41121001D00D4E22D /* iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6B51121001D00D4E22D /* libSGClient.a */,
+			);
+			path = iphoneos;
+			sourceTree = "<group>";
+		};
+		4A64B6B61121001D00D4E22D /* iphonesimulator */ = {
+			isa = PBXGroup;
+			children = (
+				4A64B6B71121001D00D4E22D /* libSGClient.a */,
+			);
+			path = iphonesimulator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A64A4D41120967500D4E22D /* SGLayerMapView.h in Headers */,
+				4A64A4D61120967500D4E22D /* SGMapKit_Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* SGMapKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SGMapKit" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SGMapKit;
+			productName = SGMapClient;
+			productReference = D2AAC07E0554694100DB518D /* libSGMapKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapClient" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* SGMapClient */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* SGMapKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/SGMapKit.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Resources/SGMapKit_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SGClient/$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/SGClient/iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = SGMapKit;
+				SDKROOT = iphoneos3.1;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/SGMapKit.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Resources/SGMapKit_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SGClient/$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/SGClient/iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = SGMapKit;
+				SDKROOT = iphoneos3.1;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.2;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SGMapKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
