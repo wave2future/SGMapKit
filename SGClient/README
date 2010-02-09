@@ -1,4 +1,4 @@
-SGClient v0.1.8
+SGClient v0.3.0
 
 ================================================================================
 ABSTRACT:
@@ -23,8 +23,6 @@ iPhone SDK 3.1
 Frameworks
 - CoreLocation
 - Foundation
-
-1. Run ./build_client
 
 ================================================================================
 PACKAGING LIST:

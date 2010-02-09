@@ -1,4 +1,4 @@
-SGMapKit v0.3.0
+SGMapKit v0.3.1
 
 ================================================================================
 ABSTRACT:
@@ -53,6 +53,9 @@ its documentation.
 	
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+
+Version 0.3.1
+- Restructured project.
 
 Version 0.3.0
 - Upgraded SGLocationService to use version 0.1 of the SimpleGeo API
