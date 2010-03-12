@@ -1,9 +1,35 @@
 //
-// SGLocationService.h
-// SGLocatorServices
+//  SGLocationService.h
+//  SGClient
 //
-// Created by Derek Smith on 9/15/09.
-// Copyright 2010 SimpleGeo. All rights reserved.
+//  Copyright (c) 2009-2010, SimpleGeo
+//  All rights reserved.
+//
+//  Redistribution and use in source and binary forms, with or without 
+//  modification, are permitted provided that the following conditions are met:
+//
+//  Redistributions of source code must retain the above copyright notice, 
+//  this list of conditions and the following disclaimer. Redistributions 
+//  in binary form must reproduce the above copyright notice, this list of
+//  conditions and the following disclaimer in the documentation and/or 
+//  other materials provided with the distribution.
+//  
+//  Neither the name of the SimpleGeo nor the names of its contributors may
+//  be used to endorse or promote products derived from this software 
+//  without specific prior written permission.
+//   
+//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+//  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+//  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+//  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS 
+//  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+//  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
+//  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+//  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+//  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+//  Created by Derek Smith.
 //
 
 #import <Foundation/Foundation.h>
@@ -243,6 +269,28 @@
                                  limit:(NSInteger)limit;
 
 /*!
+* @method retrieveRecordsForGeohash:layers:types:limit:
+* @abstract Gets records that are located in a specific geohash andand within 
+* a given interval. To make use of our time based index,
+* the difference between start and end must not be greater than 60 minutes.
+* @param geohash The geohash that should be searched.
+* @param layers An array of layer ids that will help filter the search.
+* @param types An array of types that will help filter the search.
+* @param start An Epoch timestamp that is the beginning of the time interval in seconds.
+* @param end An Epoch timestamp that is the end of the time interval in seconds.
+* @param limit The amount of records to obtain. 
+* @result A response id that is used to identifier the return value from SimpleGeo. 
+* You can use this value in @link SGLocationServiceDelegate delegate @/link.
+*/
+- (NSString*) retrieveRecordsForGeohash:(SGGeohash)geohash 
+                                 layers:(NSArray*)layers
+                                  types:(NSArray*)types
+                                  limit:(NSInteger)limitend
+                                  start:(double)start
+                                 end:(double)end;
+
+
+/*!
 * @method retrieveRecordsForCoordinate:radius:layers:types:limit:
 * @abstract Get records that are located within a radius of coordinate.
 * @param coord The origin of the radius.
@@ -258,6 +306,30 @@
                                    layers:(NSArray*)layers
                                     types:(NSArray*)types
                                     limit:(NSInteger)limit;
+
+/*!
+* @method retrieveRecordsForCoordinate:radius:layers:types:limit:
+* @abstract Get records that are located within a radius of a coordinate and within
+* a given interval. To make use of our time based index, the difference between
+* start and end must not be greater than 60 minutes.
+* @param coord The origin of the radius.
+* @param radius The radius of the search space. (km)
+* @param layers An array of layer ids that will help filter the search.
+* @param types An array of types that will help filter the search.
+* @param limit￼The amount of records to obtain. 
+* @param start An Epoch timestamp that is the beginning of the time interval in seconds.
+* @param end An Epoch timestamp that is the end of the time interval in seconds.
+* @result A response id that is used to identifier the return value from SimpleGeo. 
+* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
+*/
+- (NSString*) retrieveRecordsForCoordinate:(CLLocationCoordinate2D)coord
+                                    radius:(double)radius
+                                    layers:(NSArray*)layers
+                                     types:(NSArray*)types
+                                     limit:(NSInteger)limit
+                                     start:(double)start
+                                    end:(double)end;
+
 
 
 /*!

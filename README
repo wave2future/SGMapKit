@@ -1,4 +1,4 @@
-SGMapKit v0.3.1
+SGMapKit v0.3.2
 
 ================================================================================
 ABSTRACT:
@@ -53,6 +53,12 @@ its documentation.
 	
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+Version 0.3.3
+- The SGLayerMapView can now do nearby queries with a start/end
+parameter
+
+Version 0.3.2
+- Added license
 
 Version 0.3.1
 - Restructured project.

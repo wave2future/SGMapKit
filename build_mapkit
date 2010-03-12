@@ -2,7 +2,7 @@
 
 MAPKIT_PATH=.
 NAME=SGMapKit
-VERSION=0.3.0
+VERSION=0.3.3
 MAPKIT_DIR=$MAPKIT_PATH/$NAME-v$VERSION
 
 HEADER_DIR=$MAPKIT_DIR/Headers
@@ -58,6 +58,7 @@ rm headerDoc2HTML.config
 rm $MAPKIT_DIR/this.hdoc
 
 cp README $MAPKIT_DIR
+cp LICENSE.txt $MAPKIT_DIR
 
 for i in $*
 do
