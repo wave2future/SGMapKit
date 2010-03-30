@@ -106,6 +106,15 @@ when a HTTP request fails or succeeds.
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/deleteRecordAnnotations:" target="_top">-deleteRecordAnnotations:</a></tt></dt>
 <dd><p>&#65532;Deletes an array of <!-- a logicalPath="//simplegeo/ooc/intf/SGAnnotationRecord" -->SGAnnotationRecord<!-- /a -->  from SimpleGeo.
 </p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:" target="_top">-densityForCoordinate:day:</a></tt></dt>
+<dd><p>Returns a GeoJSON FeatureCollection that contains SpotRank data for a specific point. 
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:hour:" target="_top">-densityForCoordinate:day:hour:</a></tt></dt>
+<dd><p>Returns a GeoJSON Feature that contains SpotRank data for a specific point.
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/doc/title:instm/SGLocationService/densityForCoordinate:day:hour:" target="_top">-densityForCoordinate:day:hour:</a></tt></dt>
+<dd><p>Returns a GeoJSON FeatureCollection that contains SpotRank data for a specific point. 
+</p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/layerInformation:" target="_top">-layerInformation:</a></tt></dt>
 <dd><p>&#65532;Retrieves information for a given layer.
 </p></dd>
@@ -323,6 +332,127 @@ You can use this value in <a href="../../../../Documentation/SGLocationService_h
 <font face="Lucida Grande,Helvetica,Arial">Discussion</font>
 </h5>
 <!-- begin discussion --><p>&#65532;See <a href="../../../../Documentation/SGLocationService_h/Classes/SGLocationService/index.html#//simplegeo/occ/instm/SGLocationService/deleteRecord:layer:" logicalPath="//simplegeo/occ/instm/SGLocationService/deleteRecord:layer:">deleteRecord:layer:</a>
+<!-- end discussion -->
+</p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:;   name=SGLocationService::densityForCoordinate:day: --><a name="//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="densityForCoordinate:day:">densityForCoordinate:day:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Returns a GeoJSON FeatureCollection that contains SpotRank data for a specific point. 
+<!-- end abstract --></p>
+<p></p>
+<b>See Also:</b><div class="list_indent"><dl>
+<dt>
+<a href="../../../../Documentation/SGLocationService_h/Classes/SGLocationService/index.html#//simplegeo/doc/title:instm/SGLocationService/densityForCoordinate:day:hour:" logicalPath="//simplegeo/doc/title:instm/SGLocationService/densityForCoordinate:day:hour:"><p>densityForCoordinate:day:hour:</p></a>
+</dt>
+<dd></dd>
+</dl></div>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/densityForCoordinate //simplegeo/occ/clm/densityForCoordinate //simplegeo/occ/intfcm/densityForCoordinate //simplegeo/occ/intfm/densityForCoordinate //simplegeo/occ/func/densityForCoordinate //simplegeo/occ/ftmplt/densityForCoordinate //simplegeo/occ/defn/densityForCoordinate //simplegeo/occ/macro/densityForCoordinate" --><span class="function">densityForCoordinate</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<span class="param">coord</span> 
+        <!-- a logicalPath="//simplegeo/occ/instm/day //simplegeo/occ/clm/day //simplegeo/occ/intfcm/day //simplegeo/occ/intfm/day //simplegeo/occ/func/day //simplegeo/occ/ftmplt/day //simplegeo/occ/defn/day //simplegeo/occ/macro/day" --><span class="function">day</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>)<!-- a logicalPath="//simplegeo/occ/econst/day //simplegeo/occ/data/day" --><span class="var">day</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>coord</code></dt>
+<dd><p>&#65532;The desired location.</p></dd>
+<dt><code>day</code></dt>
+<dd><p>See the defined SpotRank days in <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationTypes" -->SGLocationTypes<!-- /a --> .
+(e.g. @"mon")&#65532;. Default is nil.s</p></dd>
+</dl>
+</div>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>&#65532;See <!-- a logicalPath="http://www.skyhookwireless.com/spotrank/index.php" -->SpotRank<!-- /a --> for
+information about the data set. The data returned is a collection of tiles, bounding boxes with density data.
+<!-- end discussion -->
+</p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:hour:;   name=SGLocationService::densityForCoordinate:day:hour: --><a name="//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:hour:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="densityForCoordinate:day:hour:">densityForCoordinate:day:hour:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Returns a GeoJSON Feature that contains SpotRank data for a specific point.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/densityForCoordinate //simplegeo/occ/clm/densityForCoordinate //simplegeo/occ/intfcm/densityForCoordinate //simplegeo/occ/intfm/densityForCoordinate //simplegeo/occ/func/densityForCoordinate //simplegeo/occ/ftmplt/densityForCoordinate //simplegeo/occ/defn/densityForCoordinate //simplegeo/occ/macro/densityForCoordinate" --><span class="function">densityForCoordinate</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<span class="param">coord</span> 
+        <!-- a logicalPath="//simplegeo/occ/instm/day //simplegeo/occ/clm/day //simplegeo/occ/intfcm/day //simplegeo/occ/intfm/day //simplegeo/occ/func/day //simplegeo/occ/ftmplt/day //simplegeo/occ/defn/day //simplegeo/occ/macro/day" --><span class="function">day</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>)<span class="param">day</span> <!-- a logicalPath="//simplegeo/occ/instm/hour //simplegeo/occ/clm/hour //simplegeo/occ/intfcm/hour //simplegeo/occ/intfm/hour //simplegeo/occ/func/hour //simplegeo/occ/ftmplt/hour //simplegeo/occ/defn/hour //simplegeo/occ/macro/hour" --><span class="function">hour</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/int //simplegeo/occ/tdef/int //simplegeo/occ/tag/int //simplegeo/occ/econst/int //simplegeo/occ/struct/int //simplegeo/occ/clconst/int //simplegeo/occ/intf/int" --><span class="type">int</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/hour //simplegeo/occ/data/hour" --><span class="var">hour</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>coord</code></dt>
+<dd><p>&#65532;The desired location.</p></dd>
+<dt><code>day</code></dt>
+<dd><p>See the defined SpotRank days in <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationTypes" -->SGLocationTypes<!-- /a --> .
+(e.g. @"mon")&#65532;. Default is nil.s</p></dd>
+<dt><code>hour</code></dt>
+<dd><p>&#65532;An integer value between 0 and 24. The timezone depends on the location of the coord. Deafault is 12.</p></dd>
+</dl>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->A response id that is used to identifier the return value from SimpleGeo. 
+You can use this value in <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">delegate</a>. 
+
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>&#65532;See <!-- a logicalPath="http://www.skyhookwireless.com/spotrank/index.php" -->SpotRank<!-- /a -->  for
+information about the data set. If <!-- a logicalPath="hour" -->hour<!-- /a --> is not specified, then a collection of
+of tiles, bounding boxes with density data, will be returned for the entire day.
+<!-- end discussion -->
+</p>
+<p></p>
+<hr>
+<!-- headerDoc=title:instm;  uid=//simplegeo/doc/title:instm/SGLocationService/densityForCoordinate:day:hour:;   name=SGLocationService::densityForCoordinate:day:hour: --><a name="//simplegeo/doc/title:instm/SGLocationService/densityForCoordinate:day:hour:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="densityForCoordinate:day:hour:">densityForCoordinate:day:hour:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Returns a GeoJSON FeatureCollection that contains SpotRank data for a specific point. 
+<!-- end abstract --></p>
+<p></p>
+<b>See Also:</b><div class="list_indent"><dl>
+<dt>
+<a href="../../../../Documentation/SGLocationService_h/Classes/SGLocationService/index.html#//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:" logicalPath="//simplegeo/occ/instm/SGLocationService/densityForCoordinate:day:"><p>densityForCoordinate:day:</p></a>
+</dt>
+<dd></dd>
+</dl></div>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/densityForCoordinate //simplegeo/occ/clm/densityForCoordinate //simplegeo/occ/intfcm/densityForCoordinate //simplegeo/occ/intfm/densityForCoordinate //simplegeo/occ/func/densityForCoordinate //simplegeo/occ/ftmplt/densityForCoordinate //simplegeo/occ/defn/densityForCoordinate //simplegeo/occ/macro/densityForCoordinate" --><span class="function">densityForCoordinate</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<span class="param">coord</span> 
+        <!-- a logicalPath="//simplegeo/occ/instm/day //simplegeo/occ/clm/day //simplegeo/occ/intfcm/day //simplegeo/occ/intfm/day //simplegeo/occ/func/day //simplegeo/occ/ftmplt/day //simplegeo/occ/defn/day //simplegeo/occ/macro/day" --><span class="function">day</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>)<!-- a logicalPath="//simplegeo/occ/econst/day //simplegeo/occ/data/day" --><span class="var">day</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>coord</code></dt>
+<dd><p>&#65532;The desired location.</p></dd>
+<dt><code>day</code></dt>
+<dd><p>See the defined SpotRank days in <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationTypes" -->SGLocationTypes<!-- /a --> .
+(e.g. @"mon")&#65532;. Default is nil.s</p></dd>
+</dl>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->A response id that is used to identifier the return value from SimpleGeo. 
+You can use this value in <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">delegate</a>. 
+
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>&#65532;See <!-- a logicalPath="http://www.skyhookwireless.com/spotrank/index.php" -->SpotRank<!-- /a --> for
+information about the data set. The data returned is a collection of tiles, bounding boxes with density data.
 <!-- end discussion -->
 </p>
 <p></p>
@@ -1062,7 +1192,7 @@ You can use this value in <a href="../../../../Documentation/SGLocationService_h
 
 <!-- end of footer -->
 </p>
-<p>&copy; SimpleGeo Last Updated: 03/12/2010
+<p>&copy; SimpleGeo Last Updated: 03/30/2010
 </p>
 </div>
 </body>
