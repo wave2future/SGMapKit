@@ -91,6 +91,10 @@ Headers
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
 
+Version 0.3.5
+- Changed the nearby methods to use the single layer endpoint instead of the
+multi-layer endpoint.
+
 Version 0.3.4
 - Added the SpotRank endpoint
 
