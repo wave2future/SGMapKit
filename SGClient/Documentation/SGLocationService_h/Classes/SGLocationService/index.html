@@ -95,8 +95,16 @@ to update the SGRecord by calling <!-- a logicalPath="//simplegeo/ooc/instm/SGRe
 <dd><p>Adds an instance of <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">SGLocationServiceDelegate</a>  to be notified
 when a HTTP request fails or succeeds.
 </p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/boundary:" target="_top">-boundary:</a></tt></dt>
+<dd><p>Returns a feature object from the SimpleGeo gazetteer, <a href="../../../../Documentation/SGLocationService_h/Classes/SGLocationService/index.html#//simplegeo/occ/instm/SGLocationService/contains:" logicalPath="//simplegeo/occ/instm/SGLocationService/contains:">contains:</a> , along with the geometry
+of the feature in GeoJSON format in the geometry field. 
+</p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/clm/SGLocationService/callbackOnMainThread:" target="_top">+callbackOnMainThread:</a></tt></dt>
 <dd><p>Determines whether or not to use the main thread to call delegate methods. Default is YES.
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/contains:" target="_top">-contains:</a></tt></dt>
+<dd><p>&#65532;Does a "pushpin" query through a series of polygon layers and identifies the "cone" of
+administrative and other boundaries in which the point lies.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/deleteRecord:layer:" target="_top">-deleteRecord:layer:</a></tt></dt>
 <dd></dd>
@@ -117,6 +125,10 @@ when a HTTP request fails or succeeds.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/layerInformation:" target="_top">-layerInformation:</a></tt></dt>
 <dd><p>&#65532;Retrieves information for a given layer.
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/overlapsType:inPolygon:withLimit:" target="_top">-overlapsType:inPolygon:withLimit:</a></tt></dt>
+<dd><p>Queries a series of polygon layers and identifies the "cone" of administrative and
+other boundaries that overlap with the given bounding box.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLocationService/removeDelegate:" target="_top">-removeDelegate:</a></tt></dt>
 <dd><p>Removes the <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">SGLocationServiceDelegate</a>  from the group
@@ -209,6 +221,33 @@ when a HTTP request fails or succeeds.
 </div>
 <p></p>
 <hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLocationService/boundary:;   name=SGLocationService::boundary: --><a name="//simplegeo/occ/instm/SGLocationService/boundary:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="boundary:">boundary:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Returns a feature object from the SimpleGeo gazetteer, <a href="../../../../Documentation/SGLocationService_h/Classes/SGLocationService/index.html#//simplegeo/occ/instm/SGLocationService/contains:" logicalPath="//simplegeo/occ/instm/SGLocationService/contains:">contains:</a>, along with the geometry
+of the feature in GeoJSON format in the geometry field. 
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/boundary //simplegeo/occ/clm/boundary //simplegeo/occ/intfcm/boundary //simplegeo/occ/intfm/boundary //simplegeo/occ/func/boundary //simplegeo/occ/ftmplt/boundary //simplegeo/occ/defn/boundary //simplegeo/occ/macro/boundary" --><span class="function">boundary</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>)<!-- a logicalPath="//simplegeo/occ/econst/featureId //simplegeo/occ/data/featureId" --><span class="var">featureId</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>featureId</code></dt>
+<dd><p>&#65532;A string that uniquely identifies the feature in the SimpleGeo gazetteer.</p></dd>
+</dl>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->A response id that is used to identifier the return value from SimpleGeo. 
+You can use this value in <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">delegate</a>. 
+
+<!-- end return value --></p>
+<p></p>
+<hr>
 <!-- headerDoc=clm;  uid=//simplegeo/occ/clm/SGLocationService/callbackOnMainThread:;   name=SGLocationService::callbackOnMainThread: --><a name="//simplegeo/occ/clm/SGLocationService/callbackOnMainThread:"></a>
 <table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
 <h3><a name="callbackOnMainThread:">callbackOnMainThread:</a></h3>
@@ -237,6 +276,57 @@ where it might be benefical to extend the life of that thread (e.g. loading obje
 <p>There are only two delegate methods defined by <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">SGLocationServiceDelegate</a>.
 If you plan on updating any UIViews, Apple recomends to us the main thread. So be careful. If you plan on updating
 a UITableView within your implementation of the delegate methods, be sure that this value is set to YES.
+<!-- end discussion -->
+</p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLocationService/contains:;   name=SGLocationService::contains: --><a name="//simplegeo/occ/instm/SGLocationService/contains:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="contains:">contains:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>&#65532;Does a "pushpin" query through a series of polygon layers and identifies the "cone" of
+administrative and other boundaries in which the point lies.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/contains //simplegeo/occ/clm/contains //simplegeo/occ/intfcm/contains //simplegeo/occ/intfm/contains //simplegeo/occ/func/contains //simplegeo/occ/ftmplt/contains //simplegeo/occ/defn/contains //simplegeo/occ/macro/contains" --><span class="function">contains</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/coord //simplegeo/occ/data/coord" --><span class="var">coord</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>coord</code></dt>
+<dd><p>&#65532;The desired coordinate.</p></dd>
+</dl>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->A response id that is used to identifier the return value from SimpleGeo. 
+You can use this value in <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">delegate</a>. 
+
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>&#65532;Returns a NSArray where the elements contains these key fields: id, name, 
+abbr, type and bounds.
+</p>
+<p>id: A string that uniquely identifies the feature in the SimpleGeo gazetteer. This ID can be used to query the exact shape of the polygon itself via the `boundary` API call. 
+name: A well-known name English-language name for the entity. This may change in the future.
+abbr: If present, an official abbreviation for the entity, e.g. an ISO code, postal code, or similar.
+bounds: A list containing the (west, south, east, north) bounds of the polygon, in that order. 
+type: A string describing the type of feature identified. May or may not be one of:
+Country: A national boundary.
+Province: A state or province.
+County: A county, parish, or similar sub-provincial administrative entity. US only at present.
+City: An incorporated city, town, village, hamlet, etc. US only at present.
+Urban Area: An approximate metropolitan region, from the 1:10M NaturalEarth cultural dataset. May be useful for places outside the US where no incorporated place boundary is (yet) available.
+Neighborhood: A usually approximate boundary for a (usually informal) sub-division of a city. US only at present.
+Postal Code: A postal delivery region. In the US, a ZIP code. US only at present. 
+Legislative District: In the US, a congressional district for the currently sitting US Congress.
+Census Tract: As defined by the US Census Bureau in the most recently published census (2000). 
+</p>
+<p>Other values are possible, so this list will be updated from time to time.
 <!-- end discussion -->
 </p>
 <p></p>
@@ -481,6 +571,47 @@ information about the data set. The data returned is a collection of tiles, boun
 You can use this value in <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">delegate</a>. 
 
 <!-- end return value --></p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLocationService/overlapsType:inPolygon:withLimit:;   name=SGLocationService::overlapsType:inPolygon:withLimit: --><a name="//simplegeo/occ/instm/SGLocationService/overlapsType:inPolygon:withLimit:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="overlapsType:inPolygon:withLimit:">overlapsType:inPolygon:withLimit:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Queries a series of polygon layers and identifies the "cone" of administrative and
+other boundaries that overlap with the given bounding box.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/overlapsType //simplegeo/occ/clm/overlapsType //simplegeo/occ/intfcm/overlapsType //simplegeo/occ/intfm/overlapsType //simplegeo/occ/func/overlapsType //simplegeo/occ/ftmplt/overlapsType //simplegeo/occ/defn/overlapsType //simplegeo/occ/macro/overlapsType" --><span class="function">overlapsType</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>)<span class="param">type</span> <!-- a logicalPath="//simplegeo/occ/instm/inPolygon //simplegeo/occ/clm/inPolygon //simplegeo/occ/intfcm/inPolygon //simplegeo/occ/intfm/inPolygon //simplegeo/occ/func/inPolygon //simplegeo/occ/ftmplt/inPolygon //simplegeo/occ/defn/inPolygon //simplegeo/occ/macro/inPolygon" --><span class="function">inPolygon</span><!-- /a -->:(<a href="../../../../Documentation/SGLocationTypes_h/index.html#//simplegeo/c/tdef/SGEnvelope" logicalPath="//simplegeo/occ/cl/SGEnvelope //simplegeo/occ/tdef/SGEnvelope"><span class="type">SGEnvelope</span></a>)<span class="param">envelope</span> 
+        <!-- a logicalPath="//simplegeo/occ/instm/withLimit //simplegeo/occ/clm/withLimit //simplegeo/occ/intfcm/withLimit //simplegeo/occ/intfm/withLimit //simplegeo/occ/func/withLimit //simplegeo/occ/ftmplt/withLimit //simplegeo/occ/defn/withLimit //simplegeo/occ/macro/withLimit" --><span class="function">withLimit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/int //simplegeo/occ/tdef/int //simplegeo/occ/tag/int //simplegeo/occ/econst/int //simplegeo/occ/struct/int //simplegeo/occ/clconst/int //simplegeo/occ/intf/int" --><span class="type">int</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/limit //simplegeo/occ/data/limit" --><span class="var">limit</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>type</code></dt>
+<dd><p>If only one feature type is desired, the results can be constrained to that feature type.</p></dd>
+<dt><code>envelope</code></dt>
+<dd><p>&#65532;The bounds to use when querying the polygon layers.</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>The amount of features to return. Note that this is not a strict count of how many 
+features will be returned, but rather the maximum amount that will be returned. The maximum 
+number of features returned is 1000.  The results are not paginated, so if you need more than
+1000 results, consider breaking down your bounding box into multiple queries.</p></dd>
+</dl>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->A response id that is used to identifier the return value from SimpleGeo. 
+You can use this value in <a href="../../../../Documentation/SGLocationService_h/Protocols/SGLocationServiceDelegate/index.html#//simplegeo/occ/intf/SGLocationServiceDelegate" logicalPath="//simplegeo/occ/intf/SGLocationServiceDelegate">delegate</a>. 
+
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>&#65532;The results are returned in the same form as the <a href="../../../../Documentation/SGLocationService_h/Classes/SGLocationService/index.html#//simplegeo/occ/instm/SGLocationService/contains:" logicalPath="//simplegeo/occ/instm/SGLocationService/contains:">contains:</a>.
+<!-- end discussion -->
+</p>
 <p></p>
 <hr>
 <!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLocationService/removeDelegate:;   name=SGLocationService::removeDelegate: --><a name="//simplegeo/occ/instm/SGLocationService/removeDelegate:"></a>
@@ -1192,7 +1323,7 @@ You can use this value in <a href="../../../../Documentation/SGLocationService_h
 
 <!-- end of footer -->
 </p>
-<p>&copy; SimpleGeo Last Updated: 03/31/2010
+<p>&copy; SimpleGeo Last Updated: 05/07/2010
 </p>
 </div>
 </body>

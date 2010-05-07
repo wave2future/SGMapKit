@@ -141,6 +141,20 @@
 */
 - (BOOL) isPoint;
 
+/*!
+* @method isPolygon
+* @abstract Determines whether this GeoJSON object is a polygon. ￼
+* @result ￼YES if the object is a polygon; otherwise NO.
+*/
+- (BOOL) isPolygon;
+
+/*!
+* @method isMultiPolygon
+* @abstract Determines whether this GeoJSON object is a multipolygon. ￼
+* @result ￼YES if the object is a multipolygon; otherwise NO.
+*/
+- (BOOL) isMultiPolygon;
+
 @end
 
 /*!

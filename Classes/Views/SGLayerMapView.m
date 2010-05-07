@@ -172,7 +172,7 @@
 - (void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapView:regionDidChangeAnimated:)])
-        [_trueDelegate mapView:mapView regionWillChangeAnimated:animated];    
+        [_trueDelegate mapView:mapView regionDidChangeAnimated:animated];    
 
     [self _retrieveLayers];
 }

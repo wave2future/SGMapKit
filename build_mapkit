@@ -2,7 +2,7 @@
 
 MAPKIT_PATH=.
 NAME=SGMapKit
-VERSION=0.3.3
+VERSION=0.3.4
 MAPKIT_DIR=$MAPKIT_PATH/$NAME-v$VERSION
 
 HEADER_DIR=$MAPKIT_DIR/Headers
@@ -29,7 +29,7 @@ do
   cp $header_file $HEADER_DIR/
 done
 
-SDKs=( iphoneos3.1 iphonesimulator3.1 )
+SDKs=( iphoneos3.1.3 iphonesimulator3.1.3 )
 
 for sdk in ${SDKs[@]}
 do

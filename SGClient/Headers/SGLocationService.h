@@ -363,6 +363,9 @@
 */
 - (NSString*) reverseGeocode:(CLLocationCoordinate2D)coord;
 
+#pragma mark -
+#pragma mark SpotRank
+
 /*!
 * @method densityForCoordinate:day:hour:
 * @abstract Returns a GeoJSON Feature that contains SpotRank data for a specific point.
@@ -390,6 +393,64 @@
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) densityForCoordinate:(CLLocationCoordinate2D)coord day:(NSString*)day;
+
+#pragma mark -
+#pragma mark PushPin
+
+/*!
+* @method contains:
+* @abstract ￼Does a "pushpin" query through a series of polygon layers and identifies the "cone" of
+* administrative and other boundaries in which the point lies.
+* @discussion ￼Returns a NSArray where the elements contains these key fields: id, name, 
+* abbr, type and bounds.
+*
+* id: A string that uniquely identifies the feature in the SimpleGeo gazetteer. This ID can be used to query the exact shape of the polygon itself via the `boundary` API call. 
+* name: A well-known name English-language name for the entity. This may change in the future.
+* abbr: If present, an official abbreviation for the entity, e.g. an ISO code, postal code, or similar.
+* bounds: A list containing the (west, south, east, north) bounds of the polygon, in that order. 
+* type: A string describing the type of feature identified. May or may not be one of:
+* Country: A national boundary.
+* Province: A state or province.
+* County: A county, parish, or similar sub-provincial administrative entity. US only at present.
+* City: An incorporated city, town, village, hamlet, etc. US only at present.
+* Urban Area: An approximate metropolitan region, from the 1:10M NaturalEarth cultural dataset. May be useful for places outside the US where no incorporated place boundary is (yet) available.
+* Neighborhood: A usually approximate boundary for a (usually informal) sub-division of a city. US only at present.
+* Postal Code: A postal delivery region. In the US, a ZIP code. US only at present. 
+* Legislative District: In the US, a congressional district for the currently sitting US Congress.
+* Census Tract: As defined by the US Census Bureau in the most recently published census (2000). 
+*
+* Other values are possible, so this list will be updated from time to time.
+* @param coord ￼The desired coordinate.
+* @result A response id that is used to identifier the return value from SimpleGeo. 
+* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
+*/
+- (NSString*) contains:(CLLocationCoordinate2D)coord;
+
+/*!
+* @method boundary:
+* @abstract Returns a feature object from the SimpleGeo gazetteer, @link contains: contains: @/link, along with the geometry
+* of the feature in GeoJSON format in the geometry field. 
+* @param featureId ￼A string that uniquely identifies the feature in the SimpleGeo gazetteer.
+* @result A response id that is used to identifier the return value from SimpleGeo. 
+* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
+*/
+- (NSString*) boundary:(NSString*)featureId;
+
+/*!
+* @method overlapsType:inPolygon:withLimit:
+* @abstract Queries a series of polygon layers and identifies the "cone" of administrative and
+* other boundaries that overlap with the given bounding box.
+* @discussion ￼The results are returned in the same form as the @link contains: contains: @/link.
+* @param type If only one feature type is desired, the results can be constrained to that feature type.
+* @param envelope ￼The bounds to use when querying the polygon layers.
+* @param limit The amount of features to return. Note that this is not a strict count of how many 
+* features will be returned, but rather the maximum amount that will be returned. The maximum 
+* number of features returned is 1000.  The results are not paginated, so if you need more than
+* 1000 results, consider breaking down your bounding box into multiple queries. 
+* @result A response id that is used to identifier the return value from SimpleGeo. 
+* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
+*/
+- (NSString*) overlapsType:(NSString*)type inPolygon:(SGEnvelope)envelope withLimit:(int)limit;
 
 @end
 

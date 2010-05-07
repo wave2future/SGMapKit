@@ -1,4 +1,4 @@
-SGClient v0.3.2
+SGClient v0.3.6
 
 ================================================================================
 ABSTRACT:
@@ -90,6 +90,9 @@ Headers
 
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+
+Version 0.3.6
+- Added access to the new PushPin endpoints: contains, overlaps and boundary
 
 Version 0.3.5
 - Changed the nearby methods to use the single layer endpoint instead of the

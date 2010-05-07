@@ -89,8 +89,14 @@ function hidetoc() {
 <dd><p>Determines whether this GeoJSON object is a collection
 of features.&#65532;
 </p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isMultiPolygon" target="_top">-isMultiPolygon</a></tt></dt>
+<dd><p>Determines whether this GeoJSON object is a multipolygon. &#65532;
+</p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isPoint" target="_top">-isPoint</a></tt></dt>
 <dd><p>Determines whether this GeoJSON object is a point. &#65532;
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isPolygon" target="_top">-isPolygon</a></tt></dt>
+<dd><p>Determines whether this GeoJSON object is a polygon. &#65532;
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/layerLink" target="_top">-layerLink</a></tt></dt>
 <dd><p>Use this URL string to obtain information about the layer
@@ -275,6 +281,24 @@ NO.
 <!-- end return value --></p>
 <p></p>
 <hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isMultiPolygon;   name=NSDictionary(SGGeoJSONObject)::isMultiPolygon --><a name="//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isMultiPolygon"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="isMultiPolygon">isMultiPolygon</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Determines whether this GeoJSON object is a multipolygon. &#65532;
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/BOOL //simplegeo/occ/tdef/BOOL //simplegeo/occ/tag/BOOL //simplegeo/occ/econst/BOOL //simplegeo/occ/struct/BOOL //simplegeo/occ/clconst/BOOL //simplegeo/occ/intf/BOOL" --><span class="type">BOOL</span><!-- /a -->) <!-- a logicalPath="//simplegeo/occ/econst/isMultiPolygon //simplegeo/occ/data/isMultiPolygon" --><span class="var">isMultiPolygon</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->&#65532;YES if the object is a multipolygon; otherwise NO.
+
+<!-- end return value --></p>
+<p></p>
+<hr>
 <!-- headerDoc=instm;  uid=//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isPoint;   name=NSDictionary(SGGeoJSONObject)::isPoint --><a name="//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isPoint"></a>
 <table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
 <h3><a name="isPoint">isPoint</a></h3>
@@ -289,6 +313,24 @@ NO.
 </div>
 <h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
 <p><!-- begin return value -->&#65532;YES if the object is a point; otherwise NO.
+
+<!-- end return value --></p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isPolygon;   name=NSDictionary(SGGeoJSONObject)::isPolygon --><a name="//simplegeo/occ/instm/NSDictionary(SGGeoJSONObject)/isPolygon"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="isPolygon">isPolygon</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>Determines whether this GeoJSON object is a polygon. &#65532;
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/BOOL //simplegeo/occ/tdef/BOOL //simplegeo/occ/tag/BOOL //simplegeo/occ/econst/BOOL //simplegeo/occ/struct/BOOL //simplegeo/occ/clconst/BOOL //simplegeo/occ/intf/BOOL" --><span class="type">BOOL</span><!-- /a -->) <!-- a logicalPath="//simplegeo/occ/econst/isPolygon //simplegeo/occ/data/isPolygon" --><span class="var">isPolygon</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->&#65532;YES if the object is a polygon; otherwise NO.
 
 <!-- end return value --></p>
 <p></p>
@@ -370,7 +412,7 @@ object.
 
 <!-- end of footer -->
 </p>
-<p>&copy; SimpleGeo Last Updated: 03/31/2010
+<p>&copy; SimpleGeo Last Updated: 05/07/2010
 </p>
 </div>
 </body>

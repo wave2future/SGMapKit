@@ -642,7 +642,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = SGMapKit;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos3.1.3;
 			};
 			name = Debug;
 		};
@@ -663,7 +663,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = SGMapKit;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos3.1.3;
 			};
 			name = Release;
 		};
