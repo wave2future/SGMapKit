@@ -94,6 +94,8 @@ typedef struct {
 
 } SGGeohash;
 
+extern NSString* SGGeohashToString(SGGeohash geohash);
+
 /*!
 * @function SGGeohashMake(double, double, SGLocationZoomLevel)
 * @abstract Creates a new SGGeohash structure.

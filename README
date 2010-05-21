@@ -1,4 +1,4 @@
-SGMapKit v0.3.4
+SGMapKit v0.3.5
 
 ================================================================================
 ABSTRACT:
@@ -18,7 +18,7 @@ inform the linker to load the categories from the static library.
 ================================================================================
 BUILD REQUIREMENTS:
 
-iPhone SDK 3.1.3
+iPhone SDK 3.1
 
 Frameworks
 - CoreLocation
@@ -53,6 +53,9 @@ its documentation.
 	
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+Version 0.3.5
+- retrieveLayers now uses pagination
+
 Version 0.3.4
 - Fixed a bug with the MKMapViewDelegate method mapView:regionDidChangeAnimated:
 

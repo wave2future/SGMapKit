@@ -37,13 +37,12 @@
 @interface SGLayerMapView (Private)
 
 - (BOOL) shouldUpdateMapWithRegion:(SGGeohash)region;
-- (void) _retrieveLayers;
+- (void) retrieveLayers;
 
-- (NSString*) _getKeyForAnnotation:(id<SGRecordAnnotation>)annotation;
-- (void) _addNewRecordAnnotations;
+- (NSString*) getKeyForAnnotation:(id<SGRecordAnnotation>)annotation;
+- (void) addNewRecordAnnotations;
 
 @end
-
 
 @implementation SGLayerMapView
 
@@ -55,18 +54,19 @@
     if(self = [super initWithFrame:frame]) {
         
         limit = 25;
-        _sgLayers = [[NSMutableDictionary alloc] init];
-        _presentAnnotations = [[NSMutableArray alloc] init];
-        _trueDelegate = nil;
+        sgLayers = [[NSMutableDictionary alloc] init];
+        presentAnnotations = [[NSMutableArray alloc] init];
+        trueDelegate = nil;
         reloadTimeInterval = 0.0;
         
         [[SGLocationService sharedLocationService] addDelegate:self];
         
-        _layerResponseIds = [[NSMutableArray alloc] init];
-        _newRecordAnnotations = [[NSMutableArray alloc] init];
+        layerResponseIds = [[NSMutableArray alloc] init];
+        newRecordAnnotations = [[NSMutableArray alloc] init];
         
-        _shouldRetrieveRecords = YES;
-        _timer = nil;
+        addRetrievedRecordsToLayer = YES;
+        shouldRetrieveRecords = YES;
+        timer = nil;
         
         requestStartTime = 0.0;
         requestEndTime = 0.0;
@@ -79,30 +79,29 @@
 
 - (void) startRetrieving
 {
-    _shouldRetrieveRecords = YES;
-    [self _retrieveLayers];
+    shouldRetrieveRecords = YES;
+    [self retrieveLayers];
     
-    if(!_timer && reloadTimeInterval >= 0.0)
-        _timer = [[NSTimer scheduledTimerWithTimeInterval:reloadTimeInterval
+    if(!timer && reloadTimeInterval >= 0.0)
+        timer = [[NSTimer scheduledTimerWithTimeInterval:reloadTimeInterval
                                                   target:self
-                                                selector:@selector(_retrieveLayers) 
+                                                selector:@selector(retrieveLayers) 
                                                 userInfo:nil 
                                                  repeats:YES] retain];
 }
 
 - (void) stopRetrieving
 {
-    _shouldRetrieveRecords = NO;
+    shouldRetrieveRecords = NO;
 
-    if(_timer) {
+    if(timer) {
         
-        [_timer invalidate];
-        [_timer release];
-        _timer = nil;
+        [timer invalidate];
+        [timer release];
+        timer = nil;
     }
     
 }
-
 
 #pragma mark -
 #pragma mark Accessor methods 
@@ -121,12 +120,12 @@
  
 - (void) setDelegate:(id<MKMapViewDelegate>)delegate
 {
-    _trueDelegate = delegate;
+    trueDelegate = delegate;
 }
 
 - (id<MKMapViewDelegate>) delegate
 {
-    return _trueDelegate;
+    return trueDelegate;
 }
 
 - (void) addLayers:(NSArray*)layers
@@ -144,70 +143,65 @@
 - (void) addLayer:(SGLayer*)sgLayer
 {
     if(sgLayer)
-        [_sgLayers setObject:sgLayer forKey:sgLayer.layerId];
+        [sgLayers setObject:sgLayer forKey:sgLayer.layerId];
 }
 
 - (void) removeLayer:(SGLayer*)sgLayer
 {
-    if(sgLayer){ 
-     
-        [_sgLayers removeObjectForKey:sgLayer];
-        [self removeAnnotations:[sgLayer recordAnnotations]];
-        
+    if(sgLayer){
+        [sgLayers removeObjectForKey:sgLayer];
+        [self removeAnnotations:[sgLayer recordAnnotations]];   
     }
-
 }
 
-
 #pragma mark -
-#pragma mark MKMapView delegate methods 
- 
+#pragma mark MKMapView delegate methods
 
 - (void) mapView:(MKMapView*)mapView regionWillChangeAnimated:(BOOL)animated
 {
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapView:regionWillChangeAnimated:)])
-        [_trueDelegate mapView:mapView regionWillChangeAnimated:animated];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:regionWillChangeAnimated:)])
+        [trueDelegate mapView:mapView regionWillChangeAnimated:animated];
 }
 
 - (void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapView:regionDidChangeAnimated:)])
-        [_trueDelegate mapView:mapView regionDidChangeAnimated:animated];    
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:regionDidChangeAnimated:)])
+        [trueDelegate mapView:mapView regionDidChangeAnimated:animated];    
 
-    [self _retrieveLayers];
+    [self retrieveLayers];
 }
 
 - (MKAnnotationView*) mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     MKAnnotationView* view = nil;
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapView:viewForAnnotation:)])
-        view = [_trueDelegate mapView:mapView viewForAnnotation:annotation];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:viewForAnnotation:)])
+        view = [trueDelegate mapView:mapView viewForAnnotation:annotation];
 
     return view;
 }
 
 - (void) mapViewDidFailLoadingMap:(MKMapView*)mapView withError:(NSError*)error
 {
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapViewDidFailLoadingMap:withError:)])
-        [_trueDelegate mapViewDidFailLoadingMap:mapView withError:error];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapViewDidFailLoadingMap:withError:)])
+        [trueDelegate mapViewDidFailLoadingMap:mapView withError:error];
 }
 
 - (void) mapViewDidFinishLoadingMap:(MKMapView*)mapView
 {
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapViewDidFinishLoadingMap:)])
-        [_trueDelegate mapViewDidFinishLoadingMap:mapView];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapViewDidFinishLoadingMap:)])
+        [trueDelegate mapViewDidFinishLoadingMap:mapView];
 }
 
 - (void) mapViewWillStartLoadingMap:(MKMapView*)mapView
 {
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapViewWillStartLoadingMap:)])
-        [_trueDelegate mapViewWillStartLoadingMap:mapView];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapViewWillStartLoadingMap:)])
+        [trueDelegate mapViewWillStartLoadingMap:mapView];
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapView:annotationView:calloutAccessoryControlTapped:)])
-        [_trueDelegate mapView:mapView annotationView:view calloutAccessoryControlTapped:control];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:annotationView:calloutAccessoryControlTapped:)])
+        [trueDelegate mapView:mapView annotationView:view calloutAccessoryControlTapped:control];
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray*)views
@@ -218,22 +212,19 @@
         
         annotation = (id<SGRecordAnnotation>)annotationView.annotation;
         if([annotation conformsToProtocol:@protocol(SGRecordAnnotation)])
-            [_presentAnnotations addObject:[self _getKeyForAnnotation:annotation]];
+            [presentAnnotations addObject:[self getKeyForAnnotation:annotation]];
     }    
     
-    if(_trueDelegate && [_trueDelegate respondsToSelector:@selector(mapView:didAddAnnotationViews:)])
-        [_trueDelegate mapView:mapView didAddAnnotationViews:views];
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didAddAnnotationViews:)])
+        [trueDelegate mapView:mapView didAddAnnotationViews:views];
 }
-
 
 #pragma mark -
 #pragma mark SGLocationService delegate methods 
  
-
 - (void) locationService:(SGLocationService*)service succeededForResponseId:(NSString*)requestId responseObject:(NSObject*)objects
 {    
-    if([_layerResponseIds count] && [_layerResponseIds containsObject:requestId]) {    
-        
+    if([layerResponseIds count] && [layerResponseIds containsObject:requestId]) {    
         NSDictionary* geoJSONObject = (NSDictionary*)objects;
         NSArray* nearbyRecords = nil;
         if([geoJSONObject isFeatureCollection])
@@ -242,70 +233,61 @@
             nearbyRecords = [NSArray arrayWithObject:geoJSONObject];
             
         if(nearbyRecords && [nearbyRecords count]) {
-            
             NSDictionary* lastGeoJSONRecord = [nearbyRecords lastObject];
             NSString* recordLayerName = [SGGeoJSONEncoder layerNameFromLayerLink:[lastGeoJSONRecord layerLink]];
-            SGLayer* recordLayer = [_sgLayers objectForKey:recordLayerName];
+            SGLayer* recordLayer = [sgLayers objectForKey:recordLayerName];
             
-            SGLog(@"SGLayerMapView - retrieved %i for %@", [nearbyRecords count], [recordLayer description]);
+            SGLog(@"SGLayerMapView - retrieved %i for %@", [nearbyRecords count], recordLayerName);
             
             NSMutableArray* newRecords = [NSMutableArray array];
-            id<SGRecordAnnotation> recordAnnotation;
+            id<SGRecordAnnotation> recordAnnotation = nil;
+            NSString* annotationKey = nil;
             for(NSDictionary* recordDictionary in nearbyRecords) {
-
                     recordAnnotation = [recordLayer recordAnnotationFromGeoJSONObject:recordDictionary];
-                    if(![_presentAnnotations containsObject:[self _getKeyForAnnotation:recordAnnotation]])
+                    annotationKey = [self getKeyForAnnotation:recordAnnotation];
+                    if(![presentAnnotations containsObject:annotationKey])
                         [newRecords addObject:recordAnnotation];
-                 
             }
             
             if(addRetrievedRecordsToLayer)
                 [recordLayer addRecordAnnotations:newRecords];
             
-            [_newRecordAnnotations addObjectsFromArray:newRecords];
+            [newRecordAnnotations addObjectsFromArray:newRecords];
         }
         
-        [_layerResponseIds removeObject:requestId];
-        if(![_layerResponseIds count])
-            [self _addNewRecordAnnotations];
-                
+        [layerResponseIds removeObject:requestId];
+        if(![layerResponseIds count])
+            [self addNewRecordAnnotations];
     }
 }
 
 - (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error
 {
-    if([_layerResponseIds count] && [_layerResponseIds containsObject:requestId]) {   
-        
-        [_layerResponseIds removeObject:requestId];
+    if([layerResponseIds count] && [layerResponseIds containsObject:requestId]) {   
+        [layerResponseIds removeObject:requestId];
      
-        if(![_layerResponseIds count])
-            [self _addNewRecordAnnotations];
-
+        if(![layerResponseIds count])
+            [self addNewRecordAnnotations];
     }
 }
 
-
 #pragma mark -
 #pragma mark Zoombox helpers 
- 
 
 - (BOOL) shouldUpdateMapWithRegion:(SGGeohash)region
 {
     return YES;
 }
 
-
 #pragma mark -
 #pragma mark Helper methods 
  
-- (void) _addNewRecordAnnotations
+- (void) addNewRecordAnnotations
 {
-        
-    if([_newRecordAnnotations count]) {
-        
+    if([newRecordAnnotations count]) {
         BOOL workingOnMainThread = [NSThread isMainThread];
         
-        SGLog(@"SGLayerMapView - Discovered %i new location records.", [_newRecordAnnotations count]);
+        SGLog(@"SGLayerMapView - Discovered %i new location records.", [newRecordAnnotations count]);
         
         NSArray* annotations = [self annotations];
         if(annotations && [annotations count]) {
@@ -325,7 +307,7 @@
                 if(recordViewPoint.x > point.x || recordViewPoint.x < -leeway  ||
                    recordViewPoint.y > point.y || recordViewPoint.y < -leeway) {
                     
-                    [_presentAnnotations removeObject:[self _getKeyForAnnotation:annotatedRecord]];
+                    [presentAnnotations removeObject:[self getKeyForAnnotation:annotatedRecord]];
                     [annotationsToRemove addObject:annotatedRecord];
                 }
             }
@@ -339,21 +321,21 @@
         }
         
         if(workingOnMainThread)
-            [self addAnnotations:_newRecordAnnotations];        
+            [self addAnnotations:newRecordAnnotations];        
         else 
             [self performSelectorOnMainThread:@selector(addAnnotations:)
-                                   withObject:_newRecordAnnotations
+                                   withObject:newRecordAnnotations
                                 waitUntilDone:NO];
         
     }
     
-    [_newRecordAnnotations removeAllObjects];
+    [newRecordAnnotations removeAllObjects];
     
 }
 
-- (void) _retrieveLayers
+- (void) retrieveLayers
 {
-    if(_shouldRetrieveRecords && ![_newRecordAnnotations count] && ![_layerResponseIds count]) {
+    if(shouldRetrieveRecords && ![newRecordAnnotations count] && ![layerResponseIds count]) {
         
         // We just care about the center point.
         MKCoordinateRegion region = self.region;
@@ -372,23 +354,38 @@
             // A little leeway
             radius += (radius * 0.1);
             
-            NSArray* layers = [_sgLayers allValues];
-            for(SGLayer* recordLayer in layers) {                
-                [_layerResponseIds addObject:[recordLayer retrieveRecordsForCoordinate:centerLocation.coordinate
-                                                                                radius:radius
-                                                                                 types:nil
-                                                                                 limit:limit
-                                                                                 start:requestStartTime
-                                                                                   end:requestEndTime]];
+            SGLatLonNearbyQuery* query = [[SGLatLonNearbyQuery alloc] init];
+            query.radius = radius;
+            query.limit;
+            query.start = requestStartTime;
+            query.end = requestEndTime;
+            query.coordinate = centerLocation.coordinate;
+            
+            NSArray* layers = [sgLayers allValues];
+            for(SGLayer* recordLayer in layers) {
+                NSString* requestId = nil;
+
+                if(recordLayer.recentNearbyQuery && [recordLayer.recentNearbyQuery isKindOfClass:[SGLatLonNearbyQuery class]]) {
+                    SGLatLonNearbyQuery* layerQuery = (SGLatLonNearbyQuery*)recordLayer.recentNearbyQuery;
+                    if(layerQuery.coordinate.latitude == query.coordinate.latitude &&
+                       layerQuery.coordinate.longitude == query.coordinate.longitude)
+                        requestId = [recordLayer nextNearby];
+                }
+                
+                if(!requestId)
+                    requestId = [recordLayer nearby:query];
+                
+                [layerResponseIds addObject:requestId];
             }
             
             [centerLocation release];
             [cornerLocation release];
+            [query release];
         }
     }        
 }
 
-- (NSString*) _getKeyForAnnotation:(id<SGRecordAnnotation>)annotation
+- (NSString*) getKeyForAnnotation:(id<SGRecordAnnotation>)annotation
 {
     return [NSString stringWithFormat:@"%@-%@", annotation.layer, annotation.recordId];
 }
@@ -396,10 +393,10 @@
 - (void) dealloc
 {
     [self stopRetrieving];
-    [_sgLayers release];
-    [_presentAnnotations release];
-    [_layerResponseIds release];
-    [_newRecordAnnotations release];
+    [sgLayers release];
+    [presentAnnotations release];
+    [layerResponseIds release];
+    [newRecordAnnotations release];
     
     [[SGLocationService sharedLocationService] removeDelegate:self];
     

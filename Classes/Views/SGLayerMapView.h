@@ -65,19 +65,19 @@
     double requestEndTime;
  
     @private
-    NSMutableDictionary* _sgLayers;
-    NSMutableArray* _presentAnnotations;
+    NSMutableDictionary* sgLayers;
+    NSMutableArray* presentAnnotations;
     
-    NSMutableArray* _layerResponseIds;
-    NSMutableArray* _newRecordAnnotations;
+    NSMutableArray* layerResponseIds;
+    NSMutableArray* newRecordAnnotations;
     
-    id<MKMapViewDelegate> _trueDelegate;
+    id<MKMapViewDelegate> trueDelegate;
  
-    SGGeohash _previousRegion;
+    SGGeohash previousRegion;
  
-    BOOL _shouldRetrieveRecords;
+    BOOL shouldRetrieveRecords;
     
-    NSTimer* _timer;
+    NSTimer* timer;
  
 }
 

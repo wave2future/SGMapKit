@@ -4,6 +4,7 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+    #import "SGClient.h"
 #endif
 
 #ifdef SG_DEBUG

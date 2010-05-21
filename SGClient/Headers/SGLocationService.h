@@ -36,6 +36,7 @@
 #import "SGRecordAnnotation.h"
 #import "SGLocationTypes.h"
 #import "SGAuthorization.h"
+#import "SGNearbyQuery.h"
 
 @protocol SGLocationServiceDelegate;
 
@@ -81,7 +82,7 @@
 * @property
 * @abstract The operation queue that is used to send HTTP requests.
 */
-@property (nonatomic, readonly) NSOperationQueue* operationQueue;
+@property (nonatomic, retain) NSOperationQueue* operationQueue;
 
 /*!
 * @property
@@ -136,7 +137,7 @@
 * SimpleGeo.
 * @discussion See @link retrieveRecord:layer: retrieveRecord:layer: @/link
 * @param record The record.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) retrieveRecordAnnotation:(id<SGRecordAnnotation>)record;
@@ -147,7 +148,7 @@
 * from Simplegeo.
 * @discussion See @link retrieveRecord:layer: retrieveRecord:layer: @/link
 * @param records ￼
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) retrieveRecordAnnotations:(NSArray*)records;
@@ -158,7 +159,7 @@
 * @discussion Use this method to retrieve information about a single record that is already stored in SimpleGeo. 
 * @param recordId The id of the record.
 * @param layer The layer in which the record is located in.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) retrieveRecord:(NSString*)recordId layer:(NSString*)layer;
@@ -169,7 +170,7 @@
 * SimpleGeo.
 * @discussion See @link updateRecord:layer:properites: updateRecord:layer:properites: @/link
 * @param record The record to update.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) updateRecordAnnotation:(id<SGRecordAnnotation>)record;
@@ -178,9 +179,9 @@
 * @method updateRecordAnnotations:
 * @abstract Updates an array of @link //simplegeo/ooc/intf/SGRecordAnnotation SGRecordAnnotations @/link in
 * SimpleGeo.
-* @discussion See @link updateRecord:layer:properties: updateRecord:layer:properties: @/link
+* @discussion See @link updateRecord:layer:coord:properties: updateRecord:layer:coord:properties: @/link
 * @param records ￼An array of records.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) updateRecordAnnotations:(NSArray*)records;
@@ -189,11 +190,13 @@
 * @method updateRecord:layer:properties:
 * @abstract Updates a record with the given properties.
 * @discussion Use this method to update records in SimpleGeo. If the record id is not found in the layer
-* then a new record will be created. 
+* then a new record will be created.
 * @param recordId The id of the record.
 * @param layer The layer in which the record is located in.
-* @param properties The new properties for the record.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @param properties The new properties for the record. Every record is required to contain
+* a type. The type of the record needs to be declared in the properties dictionary. If no
+* type is declared, the value is assumed to be of type "object".
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) updateRecord:(NSString*)recordId layer:(NSString*)layer coord:(CLLocationCoordinate2D)coord properties:(NSDictionary*)properties;
@@ -203,7 +206,7 @@
 * @abstract ￼Deletes a @link //simplegeo/ooc/intf/SGAnnotationRecord SGAnnotationRecord @/link from SimpleGeo.
 * @discussion ￼See @link deleteRecord:layer: deleteRecord:layer: @/link
 * @param record ￼The record to delete.
-* @result ￼A response id that is used to identifier the return value from SimpleGeo. 
+* @result ￼A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) deleteRecordAnnotation:(id<SGRecordAnnotation>)record;
@@ -213,7 +216,7 @@
 * @abstract ￼Deletes an array of @link //simplegeo/ooc/intf/SGAnnotationRecord SGAnnotationRecord @/link from SimpleGeo.
 * @discussion ￼See @link deleteRecord:layer: deleteRecord:layer: @/link
 * @param records ￼The records to delete.
-* @result ￼A response id that is used to identifier the return value from SimpleGeo. 
+* @result ￼A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) deleteRecordAnnotations:(NSArray*)records;
@@ -224,31 +227,39 @@
 * @discussion￼Use this method to delete a record from SimpleGeo.
 * @param recordId The id of the record to delete.
 * @param layer The layer in which the record is located.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
 - (NSString*) deleteRecord:(NSString*)recordId layer:(NSString*)layer;
 
 /*!
 * @method retrieveRecordAnnotationHistory:
-* @abstract￼Retrieve the record history of a @/link //simplegeo/ooc/intf/SGAnnotationRecord SGAnnotationRecord @/link.
-* @discussion￼See @link retrieveHistory:layer: retrieveHistory:layer: @/link
+* @abstract￼ Retrieve the record history of a @/link //simplegeo/ooc/intf/SGAnnotationRecord SGAnnotationRecord @/link.
+* @discussion ￼See @link retrieveHistory:layer: retrieveHistory:layer: @/link
 * @param record The record 
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @param limit The maximum amount to return. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link.
 */
-- (NSString*) retrieveRecordAnnotationHistory:(id<SGRecordAnnotation>)record;
+- (NSString*) retrieveRecordAnnotationHistory:(id<SGRecordAnnotation>)record limit:(int)limit;
 
 /*!
 * @method retrieveHistory:layer:
-* @abstract￼Retrieves the history of a single record.
-* @discussion This method allows retrieve the history of a record.
+* @abstract￼ Retrieves the history of a single record.
+* @discussion Return a reverse chronological list of where a record has been over time.
+* Currently only returns the last 10 places a record has been. The response is a 
+* GeoJSON GeometryCollection containing a list of Point objects, each with a created field containing the timestamp.
+*
+* This type of query supports pagination. If a limit is reached server-side but there are still more records that can be 
+* returned, the key "next_cursor" will be set as a top-level value in the return object. The key is 
+* an encripted string that can be used to return the next set of records in the queried sequence. 
 * @param recordId￼The id of the record that wants to know about its history.
 * @param layer The layer in which the record is located in.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
-* You can use this value in @link SGLocationServiceDelegate delegate @/link.
+* @param limit The maximum amount to return.
+* @result A response id that is used to identify the return value from SimpleGeo. 
+* You can use this value in @linkidentify SGLocationServiceDelegate delegate @/link.
 */
-- (NSString*) retrieveRecordHistory:(NSString*)recordId layer:(NSString*)layer;
+- (NSString*) retrieveRecordHistory:(NSString*)recordId layer:(NSString*)layer limit:(int)limit;
 
 #pragma mark -
 #pragma mark Layer
@@ -257,95 +268,33 @@
  * @method layerInformation:
  * @abstract ￼Retrieves information for a given layer.
  * @param layerName ￼The layer.
- * @result A response id that is used to identifier the return value from SimpleGeo. 
+ * @result A response id that is used to identify the return value from SimpleGeo. 
  * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
  */
 - (NSString*) layerInformation:(NSString*)layerName;
 
 #pragma mark -
 #pragma mark Nearby
+
+/*!
+* @method nearby:
+* @abstract ￼Retieves records based on the @link //simplegeo/ooc/cl/SGNearbyQuery SGNearbyQuery @/link
+* properties that are set.
+* @discussion ￼There are two forms of nearby queries: @link //simplegeo/ooc/cl/SGGeohashNearbyQuery SGGeohashNearbyQuery @/link
+* and @link //simplegeo/ooc/cl/SGLatLonNearbyQuery SGLatLonNearbyQuery @/link. To see the common filter properties, take a look
+* at @link //simplegeo/ooc/cl/SGNearbyQuery SGNearbyQuery @/link.
+*
+* This type of query supports pagination. If a limit is reached server-side but there are still more records that can be 
+* returned, the key "next_cursor" will be set as a top-level value in the return object. The key is 
+* an encripted string that can be used to return the next set of records in the queried sequence.
+* 
+* @param query ￼The @link //simplegeo/ooc/cl/SGNearbyQuery SGNearbyQuery @/link object
+* that will be used to produce the proper request.
+* @result A response id that is used to identify the return value from SimpleGeo. 
+* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
+*/
+- (NSString*) nearby:(SGNearbyQuery*)query;
  
-/*!
-* @method retrieveRecordsForGeohash:layer:types:limit:
-* @abstract Gets records that are located in a specific geohash.
-* @param geohash The geohash that should be searched.
-* @param layer The layer to search in.
-* @param types An array of types that will help filter the search.
-* @param limit The amount of records to obtain. 
-* @result A response id that is used to identifier the return value from SimpleGeo. 
-* You can use this value in @link SGLocationServiceDelegate delegate @/link.
-*/
-- (NSString*) retrieveRecordsForGeohash:(SGGeohash)geohash 
-                                layer:(NSString*)layer
-                                 types:(NSArray*)types
-                                 limit:(NSInteger)limit;
-
-/*!
-* @method retrieveRecordsForGeohash:layer:type:limit:
-* @abstract Gets records that are located in a specific geohash and within 
-* a given interval. To make use of our time based index,
-* the difference between start and end must not be greater than 60 minutes.
-* @param geohash The geohash that should be searched.
-* @param layer The layer to search in.
-* @param types An array of types that will help filter the search.
-* @param start An Epoch timestamp that is the beginning of the time interval in seconds.
-* @param end An Epoch timestamp that is the end of the time interval in seconds.
-* @param limit The amount of records to obtain. 
-* @result A response id that is used to identifier the return value from SimpleGeo. 
-* You can use this value in @link SGLocationServiceDelegate delegate @/link.
-*/
-- (NSString*) retrieveRecordsForGeohash:(SGGeohash)geohash 
-                                 layer:(NSString*)layer
-                                  types:(NSArray*)types
-                                  limit:(NSInteger)limitend
-                                  start:(double)start
-                                 end:(double)end;
-
-
-/*!
-* @method retrieveRecordsForCoordinate:radius:layer:types:limit:
-* @abstract Get records that are located within a radius of coordinate.
-* @param coord The origin of the radius.
-* @param radius The radius of the search space. (km)
-* @param layer The layer to search in.
-* @param types An array of types that will help filter the search.
-* @param limit￼The amount of records to obtain. 
-* @result A response id that is used to identifier the return value from SimpleGeo. 
-* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
-*/
-- (NSString*) retrieveRecordsForCoordinate:(CLLocationCoordinate2D)coord
-                                   radius:(double)radius
-                                   layer:(NSString*)layer
-                                    types:(NSArray*)types
-                                    limit:(NSInteger)limit;
-
-/*!
-* @method retrieveRecordsForCoordinate:radius:layer:types:limit:
-* @abstract Get records that are located within a radius of a coordinate and within
-* a given interval. To make use of our time based index, the difference between
-* start and end must not be greater than 60 minutes.
-* @param coord The origin of the radius.
-* @param radius The radius of the search space. (km)
-* @param layer The layer to search in.
-* @param types An array of types that will help filter the search.
-* @param limit￼The amount of records to obtain. 
-* @param start An Epoch timestamp that is the beginning of the time interval in seconds.
-* @param end An Epoch timestamp that is the end of the time interval in seconds.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
-* You can use this value in @link SGLocationServiceDelegate delegate @/link. 
-*/
-- (NSString*) retrieveRecordsForCoordinate:(CLLocationCoordinate2D)coord
-                                    radius:(double)radius
-                                    layer:(NSString*)layer
-                                     types:(NSArray*)types
-                                     limit:(NSInteger)limit
-                                     start:(double)start
-                                    end:(double)end;
-
-
-#pragma mark -
-#pragma mark Features
-
 /*!
 * @method reverseGeocode:
 * @abstract Returns resource information for a given pair lat/lon coordinate.
@@ -358,7 +307,7 @@
 * Reverse geocoding is only supported within the US; however, other countries will
 * be offered in the coming months.
 * @param coord The coordinate to use for reverse geocoding.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) reverseGeocode:(CLLocationCoordinate2D)coord;
@@ -376,7 +325,7 @@
 * @param day See the defined SpotRank days in @link //simplegeo/ooc/intf/SGLocationTypes SGLocationTypes @/link.
 * (e.g. @"mon")￼. Default is nil.s
 * @param hour ￼An integer value between 0 and 24. The timezone depends on the location of the coord. Deafault is 12.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) densityForCoordinate:(CLLocationCoordinate2D)coord day:(NSString*)day hour:(int)hour;
@@ -389,7 +338,7 @@
 * @param coord ￼The desired location.
 * @param day See the defined SpotRank days in @link //simplegeo/ooc/intf/SGLocationTypes SGLocationTypes @/link.
 * (e.g. @"mon")￼. Default is nil.s
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) densityForCoordinate:(CLLocationCoordinate2D)coord day:(NSString*)day;
@@ -421,7 +370,7 @@
 *
 * Other values are possible, so this list will be updated from time to time.
 * @param coord ￼The desired coordinate.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) contains:(CLLocationCoordinate2D)coord;
@@ -431,7 +380,7 @@
 * @abstract Returns a feature object from the SimpleGeo gazetteer, @link contains: contains: @/link, along with the geometry
 * of the feature in GeoJSON format in the geometry field. 
 * @param featureId ￼A string that uniquely identifies the feature in the SimpleGeo gazetteer.
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) boundary:(NSString*)featureId;
@@ -447,7 +396,7 @@
 * features will be returned, but rather the maximum amount that will be returned. The maximum 
 * number of features returned is 1000.  The results are not paginated, so if you need more than
 * 1000 results, consider breaking down your bounding box into multiple queries. 
-* @result A response id that is used to identifier the return value from SimpleGeo. 
+* @result A response id that is used to identify the return value from SimpleGeo. 
 * You can use this value in @link SGLocationServiceDelegate delegate @/link. 
 */
 - (NSString*) overlapsType:(NSString*)type inPolygon:(SGEnvelope)envelope withLimit:(int)limit;

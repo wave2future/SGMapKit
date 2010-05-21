@@ -76,6 +76,16 @@ If an error is incurred, it is up to the other delegates to handle the error.
 </p>
 <p></p>
 <hr>
+<br><a name="HeaderDoc_classes"></a>
+<h2>Classes</h2>
+<dl>
+<dt><tt><a href="Classes/storeRetrievedRecords/index.html#//simplegeo/occ/cl/SGLayer/storeRetrievedRecords" target="_top">storeRetrievedRecords</a></tt></dt>
+<dd><p>If a <a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instm/SGLayer/nearby:" logicalPath="//simplegeo/occ/instm/SGLayer/nearby:">nearby:</a>  request is sent this
+value is set to YES, then retrieved records will be added to this
+object. If NO, then records will be ignored.
+</p></dd>
+</dl>
+<hr>
 <br><a name="HeaderDoc_methods"></a>
 <h2>Methods</h2>
 <dl>
@@ -87,6 +97,14 @@ If an error is incurred, it is up to the other delegates to handle the error.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/initWithLayerName:" target="_top">-initWithLayerName:</a></tt></dt>
 <dd><p>&#65532;Initialize a new SGLayer object with a layer name.
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/nearby:" target="_top">-nearby:</a></tt></dt>
+<dd><p>&#65532;Retieves records based on the <!-- a logicalPath="//simplegeo/ooc/cl/SGNearbyQuery" -->SGNearbyQuery<!-- /a --> 
+properties that are set.
+</p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/nextNearby" target="_top">-nextNearby</a></tt></dt>
+<dd><p>&#65532;Fires off the the <a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instp/SGLayer/recentNearbyQuery" logicalPath="//simplegeo/occ/instp/SGLayer/recentNearbyQuery">recentNearbyQuery</a> 
+if the cursor property is set.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/recordAnnotationCount" target="_top">-recordAnnotationCount</a></tt></dt>
 <dd><p>&#65532; Get the amount of <!-- a logicalPath="//simplegeo/ooc/intf/SGRecordAnnotation" -->SGRecordAnnotations<!-- /a -->  registered with the SGLayer object.
@@ -116,32 +134,6 @@ If an error is incurred, it is up to the other delegates to handle the error.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordAnnotations:" target="_top">-retrieveRecordAnnotations:</a></tt></dt>
 <dd><p>&#65532; Retrieves all registered records within a range from this layer that are in SimpleGeo.
-</p></dd>
-<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:" target="_top">-retrieveRecordsForCoordinate:radius:types:limit:</a></tt></dt>
-<dd><p>&#65532;Retrieves records within from an origin with a desired radius from SimpleGeo.
-</p></dd>
-<dt><tt><a href="index.html#//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:" target="_top">-retrieveRecordsForCoordinate:radius:types:limit:</a></tt></dt>
-<dd><p>&#65532;Retrieves records within from an origin with a desired radius from 
-SimpleGeo and within a given interval. To make use of our time based index,
-the difference between start and end must not be greater than 60 minutes.
-</p></dd>
-<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:start:end:" target="_top">-retrieveRecordsForCoordinate:radius:types:limit:start:end:</a></tt></dt>
-<dd><p>&#65532;Retrieves records within from an origin with a desired radius from 
-SimpleGeo and within a given interval. To make use of our time based index,
-the difference between start and end must not be greater than 60 minutes.
-</p></dd>
-<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:" target="_top">-retrieveRecordsForGeohash:types:limit:</a></tt></dt>
-<dd><p>Retrieves records within the given geohash from SimpleGeo.
-</p></dd>
-<dt><tt><a href="index.html#//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForGeohash:types:limit:" target="_top">-retrieveRecordsForGeohash:types:limit:</a></tt></dt>
-<dd><p>Retrieves records within the given geohash from SimpleGeo and within a given
-interval. To make use of our time based index, the difference between start 
-and end must not be greater than 60 minutes.
-</p></dd>
-<dt><tt><a href="index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:start:end:" target="_top">-retrieveRecordsForGeohash:types:limit:start:end:</a></tt></dt>
-<dd><p>Retrieves records within the given geohash from SimpleGeo and within a given
-interval. To make use of our time based index, the difference between start 
-and end must not be greater than 60 minutes.
 </p></dd>
 <dt><tt><a href="index.html#//simplegeo/doc/title:instm/SGLayer/retrieveRecordsFromIndex:toIndex:" target="_top">-retrieveRecordsFromIndex:toIndex:</a></tt></dt>
 <dd><p>&#65532; Retrieves all registered records within a range from this layer that are in SimpleGeo.
@@ -241,6 +233,60 @@ is changed to reflect the <a href="../../../../Documentation/SGLayer_h/Classes/S
 <!-- begin discussion --><p>See <a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instp/SGLayer/layerId" logicalPath="//simplegeo/occ/instp/SGLayer/layerId">layerId</a>
 <!-- end discussion -->
 </p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/nearby:;   name=SGLayer::nearby: --><a name="//simplegeo/occ/instm/SGLayer/nearby:"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="nearby:">nearby:</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>&#65532;Retieves records based on the <!-- a logicalPath="//simplegeo/ooc/cl/SGNearbyQuery" -->SGNearbyQuery<!-- /a -->
+properties that are set.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/nearby //simplegeo/occ/clm/nearby //simplegeo/occ/intfcm/nearby //simplegeo/occ/intfm/nearby //simplegeo/occ/func/nearby //simplegeo/occ/ftmplt/nearby //simplegeo/occ/defn/nearby //simplegeo/occ/macro/nearby" --><span class="function">nearby</span><!-- /a -->:(<a href="../../../../Documentation/SGNearbyQuery_h/Classes/SGNearbyQuery/index.html#//simplegeo/occ/cl/SGNearbyQuery" logicalPath="//simplegeo/occ/cl/SGNearbyQuery"><span class="type">SGNearbyQuery</span></a><span class="type">*</span>)<!-- a logicalPath="//simplegeo/occ/econst/nearby //simplegeo/occ/data/nearby" --><span class="var">nearby</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<div class="param_indent">
+<dl>
+<dt><code>nearby</code></dt>
+<dd><p>&#65532;The <!-- a logicalPath="//simplegeo/ooc/cl/SGNearbyQuery" -->SGNearbyQuery<!-- /a -->  object
+that will be used to produce the proper request.</p></dd>
+</dl>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->&#65532;A request identifier that can be used to analyze the response object returned to
+the <!-- a logicalPath="//simplegeo/ooc/cl/SGLocationServiceDelegate" -->SGLocationServiceDelegate<!-- /a -->
+
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>The layer property of the query will be set to <a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instp/SGLayer/layerId" logicalPath="//simplegeo/occ/instp/SGLayer/layerId">layerId</a>.
+<!-- end discussion -->
+</p>
+<p></p>
+<hr>
+<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/nextNearby;   name=SGLayer::nextNearby --><a name="//simplegeo/occ/instm/SGLayer/nextNearby"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="nextNearby">nextNearby</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>&#65532;Fires off the the <a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instp/SGLayer/recentNearbyQuery" logicalPath="//simplegeo/occ/instp/SGLayer/recentNearbyQuery">recentNearbyQuery</a>
+if the cursor property is set.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/econst/nextNearby //simplegeo/occ/data/nextNearby" --><span class="var">nextNearby</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->&#65532;A request identifier that can be used to analyze the response object returned to
+the <!-- a logicalPath="//simplegeo/ooc/cl/SGLocationServiceDelegate" -->SGLocationServiceDelegate<!-- /a -->
+
+<!-- end return value --></p>
 <p></p>
 <hr>
 <!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/recordAnnotationCount;   name=SGLayer::recordAnnotationCount --><a name="//simplegeo/occ/instm/SGLayer/recordAnnotationCount"></a>
@@ -497,231 +543,6 @@ are notified with the response identifier.
 </p>
 <p></p>
 <hr>
-<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:;   name=SGLayer::retrieveRecordsForCoordinate:radius:types:limit: --><a name="//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:"></a>
-<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
-<h3><a name="retrieveRecordsForCoordinate:radius:types:limit:">retrieveRecordsForCoordinate:radius:types:limit:</a></h3>
-</td></tr></table>
-<hr>
-<p><!-- begin abstract --></p>
-<p>&#65532;Retrieves records within from an origin with a desired radius from SimpleGeo.
-<!-- end abstract --></p>
-<p></p>
-<div class="declaration_indent">
-<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/retrieveRecordsForCoordinate //simplegeo/occ/clm/retrieveRecordsForCoordinate //simplegeo/occ/intfcm/retrieveRecordsForCoordinate //simplegeo/occ/intfm/retrieveRecordsForCoordinate //simplegeo/occ/func/retrieveRecordsForCoordinate //simplegeo/occ/ftmplt/retrieveRecordsForCoordinate //simplegeo/occ/defn/retrieveRecordsForCoordinate //simplegeo/occ/macro/retrieveRecordsForCoordinate" --><span class="function">retrieveRecordsForCoordinate</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<span class="param">coord</span> <!-- a logicalPath="//simplegeo/occ/instm/radius //simplegeo/occ/clm/radius //simplegeo/occ/intfcm/radius //simplegeo/occ/intfm/radius //simplegeo/occ/func/radius //simplegeo/occ/ftmplt/radius //simplegeo/occ/defn/radius //simplegeo/occ/macro/radius" --><span class="function">radius</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">radius</span> <!-- a logicalPath="//simplegeo/occ/instm/types //simplegeo/occ/clm/types //simplegeo/occ/intfcm/types //simplegeo/occ/intfm/types //simplegeo/occ/func/types //simplegeo/occ/ftmplt/types //simplegeo/occ/defn/types //simplegeo/occ/macro/types" --><span class="function">types</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSArray //simplegeo/occ/tdef/NSArray //simplegeo/occ/tag/NSArray //simplegeo/occ/econst/NSArray //simplegeo/occ/struct/NSArray //simplegeo/occ/clconst/NSArray //simplegeo/occ/intf/NSArray" --><span class="type">NSArray</span><!-- /a --><span class="type">*</span>)<span class="param">types</span> <!-- a logicalPath="//simplegeo/occ/instm/limit //simplegeo/occ/clm/limit //simplegeo/occ/intfcm/limit //simplegeo/occ/intfm/limit //simplegeo/occ/func/limit //simplegeo/occ/ftmplt/limit //simplegeo/occ/defn/limit //simplegeo/occ/macro/limit" --><span class="function">limit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSInteger //simplegeo/occ/tdef/NSInteger //simplegeo/occ/tag/NSInteger //simplegeo/occ/econst/NSInteger //simplegeo/occ/struct/NSInteger //simplegeo/occ/clconst/NSInteger //simplegeo/occ/intf/NSInteger" --><span class="type">NSInteger</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/limit //simplegeo/occ/data/limit" --><span class="var">limit</span><!-- /a -->; </pre>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
-<div class="param_indent">
-<dl>
-<dt><code>coord</code></dt>
-<dd><p>The lat/lon coordinates that declare the origin of the search space.</p></dd>
-<dt><code>radius</code></dt>
-<dd><p>The radius of the circle.</p></dd>
-<dt><code>types</code></dt>
-<dd><p>The types of objects to retrieve. &#65532;</p></dd>
-<dt><code>limit</code></dt>
-<dd><p>The amount of objects to retrieve.</p></dd>
-</dl>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
-<p><!-- begin return value -->&#65532; A request identifier that can be used to analyze the response object returned to
-the <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationServiceDelegate" -->SGLocationServiceDelegate<!-- /a -->
-
-<!-- end return value --></p>
-<p></p>
-<hr>
-<!-- headerDoc=title:instm;  uid=//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:;   name=SGLayer::retrieveRecordsForCoordinate:radius:types:limit: --><a name="//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:"></a>
-<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
-<h3><a name="retrieveRecordsForCoordinate:radius:types:limit:">retrieveRecordsForCoordinate:radius:types:limit:</a></h3>
-</td></tr></table>
-<hr>
-<p><!-- begin abstract --></p>
-<p>&#65532;Retrieves records within from an origin with a desired radius from 
-SimpleGeo and within a given interval. To make use of our time based index,
-the difference between start and end must not be greater than 60 minutes.
-<!-- end abstract --></p>
-<p></p>
-<b>See Also:</b><div class="list_indent"><dl>
-<dt>
-<a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:start:end:" logicalPath="//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:start:end:"><p>retrieveRecordsForCoordinate:radius:types:limit:start:end:</p></a>
-</dt>
-<dd></dd>
-</dl></div>
-<div class="declaration_indent">
-<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/retrieveRecordsForCoordinate //simplegeo/occ/clm/retrieveRecordsForCoordinate //simplegeo/occ/intfcm/retrieveRecordsForCoordinate //simplegeo/occ/intfm/retrieveRecordsForCoordinate //simplegeo/occ/func/retrieveRecordsForCoordinate //simplegeo/occ/ftmplt/retrieveRecordsForCoordinate //simplegeo/occ/defn/retrieveRecordsForCoordinate //simplegeo/occ/macro/retrieveRecordsForCoordinate" --><span class="function">retrieveRecordsForCoordinate</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<span class="param">coord</span> <!-- a logicalPath="//simplegeo/occ/instm/radius //simplegeo/occ/clm/radius //simplegeo/occ/intfcm/radius //simplegeo/occ/intfm/radius //simplegeo/occ/func/radius //simplegeo/occ/ftmplt/radius //simplegeo/occ/defn/radius //simplegeo/occ/macro/radius" --><span class="function">radius</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">radius</span> <!-- a logicalPath="//simplegeo/occ/instm/types //simplegeo/occ/clm/types //simplegeo/occ/intfcm/types //simplegeo/occ/intfm/types //simplegeo/occ/func/types //simplegeo/occ/ftmplt/types //simplegeo/occ/defn/types //simplegeo/occ/macro/types" --><span class="function">types</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSArray //simplegeo/occ/tdef/NSArray //simplegeo/occ/tag/NSArray //simplegeo/occ/econst/NSArray //simplegeo/occ/struct/NSArray //simplegeo/occ/clconst/NSArray //simplegeo/occ/intf/NSArray" --><span class="type">NSArray</span><!-- /a --><span class="type">*</span>)<span class="param">types</span> <!-- a logicalPath="//simplegeo/occ/instm/limit //simplegeo/occ/clm/limit //simplegeo/occ/intfcm/limit //simplegeo/occ/intfm/limit //simplegeo/occ/func/limit //simplegeo/occ/ftmplt/limit //simplegeo/occ/defn/limit //simplegeo/occ/macro/limit" --><span class="function">limit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSInteger //simplegeo/occ/tdef/NSInteger //simplegeo/occ/tag/NSInteger //simplegeo/occ/econst/NSInteger //simplegeo/occ/struct/NSInteger //simplegeo/occ/clconst/NSInteger //simplegeo/occ/intf/NSInteger" --><span class="type">NSInteger</span><!-- /a -->)<span class="param">limit</span> <!-- a logicalPath="//simplegeo/occ/instm/start //simplegeo/occ/clm/start //simplegeo/occ/intfcm/start //simplegeo/occ/intfm/start //simplegeo/occ/func/start //simplegeo/occ/ftmplt/start //simplegeo/occ/defn/start //simplegeo/occ/macro/start" --><span class="function">start</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">start</span> <!-- a logicalPath="//simplegeo/occ/instm/end //simplegeo/occ/clm/end //simplegeo/occ/intfcm/end //simplegeo/occ/intfm/end //simplegeo/occ/func/end //simplegeo/occ/ftmplt/end //simplegeo/occ/defn/end //simplegeo/occ/macro/end" --><span class="function">end</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/end //simplegeo/occ/data/end" --><span class="var">end</span><!-- /a -->; </pre>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
-<div class="param_indent">
-<dl>
-<dt><code>coord</code></dt>
-<dd><p>The lat/lon coordinates that declare the origin of the search space.</p></dd>
-<dt><code>radius</code></dt>
-<dd><p>The radius of the circle.</p></dd>
-<dt><code>types</code></dt>
-<dd><p>The types of objects to retrieve. &#65532;</p></dd>
-<dt><code>limit</code></dt>
-<dd><p>The amount of objects to retrieve.</p></dd>
-<dt><code>start</code></dt>
-<dd><p>An Epoch timestamp that is the beginning of the time interval in seconds.</p></dd>
-<dt><code>end</code></dt>
-<dd><p>An Epoch timestamp that is the end of the time interval in seconds.</p></dd>
-</dl>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
-<p><!-- begin return value -->&#65532; A request identifier that can be used to analyze the response object returned to
-the <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationServiceDelegate" -->SGLocationServiceDelegate<!-- /a -->
-
-<!-- end return value --></p>
-<p></p>
-<hr>
-<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:start:end:;   name=SGLayer::retrieveRecordsForCoordinate:radius:types:limit:start:end: --><a name="//simplegeo/occ/instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:start:end:"></a>
-<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
-<h3><a name="retrieveRecordsForCoordinate:radius:types:limit:start:end:">retrieveRecordsForCoordinate:radius:types:limit:start:end:</a></h3>
-</td></tr></table>
-<hr>
-<p><!-- begin abstract --></p>
-<p>&#65532;Retrieves records within from an origin with a desired radius from 
-SimpleGeo and within a given interval. To make use of our time based index,
-the difference between start and end must not be greater than 60 minutes.
-<!-- end abstract --></p>
-<p></p>
-<b>See Also:</b><div class="list_indent"><dl>
-<dt>
-<a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:" logicalPath="//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForCoordinate:radius:types:limit:"><p>retrieveRecordsForCoordinate:radius:types:limit:</p></a>
-</dt>
-<dd></dd>
-</dl></div>
-<div class="declaration_indent">
-<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/retrieveRecordsForCoordinate //simplegeo/occ/clm/retrieveRecordsForCoordinate //simplegeo/occ/intfcm/retrieveRecordsForCoordinate //simplegeo/occ/intfm/retrieveRecordsForCoordinate //simplegeo/occ/func/retrieveRecordsForCoordinate //simplegeo/occ/ftmplt/retrieveRecordsForCoordinate //simplegeo/occ/defn/retrieveRecordsForCoordinate //simplegeo/occ/macro/retrieveRecordsForCoordinate" --><span class="function">retrieveRecordsForCoordinate</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/CLLocationCoordinate2D //simplegeo/occ/tdef/CLLocationCoordinate2D //simplegeo/occ/tag/CLLocationCoordinate2D //simplegeo/occ/econst/CLLocationCoordinate2D //simplegeo/occ/struct/CLLocationCoordinate2D //simplegeo/occ/clconst/CLLocationCoordinate2D //simplegeo/occ/intf/CLLocationCoordinate2D" --><span class="type">CLLocationCoordinate2D</span><!-- /a -->)<span class="param">coord</span> <!-- a logicalPath="//simplegeo/occ/instm/radius //simplegeo/occ/clm/radius //simplegeo/occ/intfcm/radius //simplegeo/occ/intfm/radius //simplegeo/occ/func/radius //simplegeo/occ/ftmplt/radius //simplegeo/occ/defn/radius //simplegeo/occ/macro/radius" --><span class="function">radius</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">radius</span> <!-- a logicalPath="//simplegeo/occ/instm/types //simplegeo/occ/clm/types //simplegeo/occ/intfcm/types //simplegeo/occ/intfm/types //simplegeo/occ/func/types //simplegeo/occ/ftmplt/types //simplegeo/occ/defn/types //simplegeo/occ/macro/types" --><span class="function">types</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSArray //simplegeo/occ/tdef/NSArray //simplegeo/occ/tag/NSArray //simplegeo/occ/econst/NSArray //simplegeo/occ/struct/NSArray //simplegeo/occ/clconst/NSArray //simplegeo/occ/intf/NSArray" --><span class="type">NSArray</span><!-- /a --><span class="type">*</span>)<span class="param">types</span> <!-- a logicalPath="//simplegeo/occ/instm/limit //simplegeo/occ/clm/limit //simplegeo/occ/intfcm/limit //simplegeo/occ/intfm/limit //simplegeo/occ/func/limit //simplegeo/occ/ftmplt/limit //simplegeo/occ/defn/limit //simplegeo/occ/macro/limit" --><span class="function">limit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSInteger //simplegeo/occ/tdef/NSInteger //simplegeo/occ/tag/NSInteger //simplegeo/occ/econst/NSInteger //simplegeo/occ/struct/NSInteger //simplegeo/occ/clconst/NSInteger //simplegeo/occ/intf/NSInteger" --><span class="type">NSInteger</span><!-- /a -->)<span class="param">limit</span> <!-- a logicalPath="//simplegeo/occ/instm/start //simplegeo/occ/clm/start //simplegeo/occ/intfcm/start //simplegeo/occ/intfm/start //simplegeo/occ/func/start //simplegeo/occ/ftmplt/start //simplegeo/occ/defn/start //simplegeo/occ/macro/start" --><span class="function">start</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">start</span> <!-- a logicalPath="//simplegeo/occ/instm/end //simplegeo/occ/clm/end //simplegeo/occ/intfcm/end //simplegeo/occ/intfm/end //simplegeo/occ/func/end //simplegeo/occ/ftmplt/end //simplegeo/occ/defn/end //simplegeo/occ/macro/end" --><span class="function">end</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/end //simplegeo/occ/data/end" --><span class="var">end</span><!-- /a -->; </pre>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
-<div class="param_indent">
-<dl>
-<dt><code>coord</code></dt>
-<dd><p>The lat/lon coordinates that declare the origin of the search space.</p></dd>
-<dt><code>radius</code></dt>
-<dd><p>The radius of the circle.</p></dd>
-<dt><code>types</code></dt>
-<dd><p>The types of objects to retrieve. &#65532;</p></dd>
-<dt><code>limit</code></dt>
-<dd><p>The amount of objects to retrieve.</p></dd>
-<dt><code>start</code></dt>
-<dd><p>An Epoch timestamp that is the beginning of the time interval in seconds.</p></dd>
-<dt><code>end</code></dt>
-<dd><p>An Epoch timestamp that is the end of the time interval in seconds.</p></dd>
-</dl>
-</div>
-<p></p>
-<hr>
-<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:;   name=SGLayer::retrieveRecordsForGeohash:types:limit: --><a name="//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:"></a>
-<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
-<h3><a name="retrieveRecordsForGeohash:types:limit:">retrieveRecordsForGeohash:types:limit:</a></h3>
-</td></tr></table>
-<hr>
-<p><!-- begin abstract --></p>
-<p>Retrieves records within the given geohash from SimpleGeo.
-<!-- end abstract --></p>
-<p></p>
-<div class="declaration_indent">
-<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/retrieveRecordsForGeohash //simplegeo/occ/clm/retrieveRecordsForGeohash //simplegeo/occ/intfcm/retrieveRecordsForGeohash //simplegeo/occ/intfm/retrieveRecordsForGeohash //simplegeo/occ/func/retrieveRecordsForGeohash //simplegeo/occ/ftmplt/retrieveRecordsForGeohash //simplegeo/occ/defn/retrieveRecordsForGeohash //simplegeo/occ/macro/retrieveRecordsForGeohash" --><span class="function">retrieveRecordsForGeohash</span><!-- /a -->:(<a href="../../../../Documentation/SGLocationTypes_h/index.html#//simplegeo/c/tdef/SGGeohash" logicalPath="//simplegeo/occ/cl/SGGeohash //simplegeo/occ/tdef/SGGeohash"><span class="type">SGGeohash</span></a>)<span class="param">region</span> 
-        <!-- a logicalPath="//simplegeo/occ/instm/types //simplegeo/occ/clm/types //simplegeo/occ/intfcm/types //simplegeo/occ/intfm/types //simplegeo/occ/func/types //simplegeo/occ/ftmplt/types //simplegeo/occ/defn/types //simplegeo/occ/macro/types" --><span class="function">types</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSArray //simplegeo/occ/tdef/NSArray //simplegeo/occ/tag/NSArray //simplegeo/occ/econst/NSArray //simplegeo/occ/struct/NSArray //simplegeo/occ/clconst/NSArray //simplegeo/occ/intf/NSArray" --><span class="type">NSArray</span><!-- /a --><span class="type">*</span>)<span class="param">types</span> <!-- a logicalPath="//simplegeo/occ/instm/limit //simplegeo/occ/clm/limit //simplegeo/occ/intfcm/limit //simplegeo/occ/intfm/limit //simplegeo/occ/func/limit //simplegeo/occ/ftmplt/limit //simplegeo/occ/defn/limit //simplegeo/occ/macro/limit" --><span class="function">limit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSInteger //simplegeo/occ/tdef/NSInteger //simplegeo/occ/tag/NSInteger //simplegeo/occ/econst/NSInteger //simplegeo/occ/struct/NSInteger //simplegeo/occ/clconst/NSInteger //simplegeo/occ/intf/NSInteger" --><span class="type">NSInteger</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/limit //simplegeo/occ/data/limit" --><span class="var">limit</span><!-- /a -->; </pre>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
-<div class="param_indent">
-<dl>
-<dt><code>geohash</code></dt>
-<dd><p>The geohash to search in.</p></dd>
-<dt><code>types</code></dt>
-<dd><p>The types of objects to retrieve. &#65532;</p></dd>
-<dt><code>limit</code></dt>
-<dd><p>The amount of objects to retrieve.</p></dd>
-</dl>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
-<p><!-- begin return value -->&#65532; A request identifier that can be used to analyze the response object returned to
-the <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationServiceDelegate" -->SGLocationServiceDelegate<!-- /a -->
-
-<!-- end return value --></p>
-<p></p>
-<hr>
-<!-- headerDoc=title:instm;  uid=//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForGeohash:types:limit:;   name=SGLayer::retrieveRecordsForGeohash:types:limit: --><a name="//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForGeohash:types:limit:"></a>
-<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
-<h3><a name="retrieveRecordsForGeohash:types:limit:">retrieveRecordsForGeohash:types:limit:</a></h3>
-</td></tr></table>
-<hr>
-<p><!-- begin abstract --></p>
-<p>Retrieves records within the given geohash from SimpleGeo and within a given
-interval. To make use of our time based index, the difference between start 
-and end must not be greater than 60 minutes.
-<!-- end abstract --></p>
-<p></p>
-<b>See Also:</b><div class="list_indent"><dl>
-<dt>
-<a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:start:end:" logicalPath="//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:start:end:"><p>retrieveRecordsForGeohash:types:limit:start:end:</p></a>
-</dt>
-<dd></dd>
-</dl></div>
-<div class="declaration_indent">
-<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/retrieveRecordsForGeohash //simplegeo/occ/clm/retrieveRecordsForGeohash //simplegeo/occ/intfcm/retrieveRecordsForGeohash //simplegeo/occ/intfm/retrieveRecordsForGeohash //simplegeo/occ/func/retrieveRecordsForGeohash //simplegeo/occ/ftmplt/retrieveRecordsForGeohash //simplegeo/occ/defn/retrieveRecordsForGeohash //simplegeo/occ/macro/retrieveRecordsForGeohash" --><span class="function">retrieveRecordsForGeohash</span><!-- /a -->:(<a href="../../../../Documentation/SGLocationTypes_h/index.html#//simplegeo/c/tdef/SGGeohash" logicalPath="//simplegeo/occ/cl/SGGeohash //simplegeo/occ/tdef/SGGeohash"><span class="type">SGGeohash</span></a>)<span class="param">region</span> <!-- a logicalPath="//simplegeo/occ/instm/types //simplegeo/occ/clm/types //simplegeo/occ/intfcm/types //simplegeo/occ/intfm/types //simplegeo/occ/func/types //simplegeo/occ/ftmplt/types //simplegeo/occ/defn/types //simplegeo/occ/macro/types" --><span class="function">types</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSArray //simplegeo/occ/tdef/NSArray //simplegeo/occ/tag/NSArray //simplegeo/occ/econst/NSArray //simplegeo/occ/struct/NSArray //simplegeo/occ/clconst/NSArray //simplegeo/occ/intf/NSArray" --><span class="type">NSArray</span><!-- /a --><span class="type">*</span>)<span class="param">types</span> <!-- a logicalPath="//simplegeo/occ/instm/limit //simplegeo/occ/clm/limit //simplegeo/occ/intfcm/limit //simplegeo/occ/intfm/limit //simplegeo/occ/func/limit //simplegeo/occ/ftmplt/limit //simplegeo/occ/defn/limit //simplegeo/occ/macro/limit" --><span class="function">limit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSInteger //simplegeo/occ/tdef/NSInteger //simplegeo/occ/tag/NSInteger //simplegeo/occ/econst/NSInteger //simplegeo/occ/struct/NSInteger //simplegeo/occ/clconst/NSInteger //simplegeo/occ/intf/NSInteger" --><span class="type">NSInteger</span><!-- /a -->)<span class="param">limit</span> <!-- a logicalPath="//simplegeo/occ/instm/start //simplegeo/occ/clm/start //simplegeo/occ/intfcm/start //simplegeo/occ/intfm/start //simplegeo/occ/func/start //simplegeo/occ/ftmplt/start //simplegeo/occ/defn/start //simplegeo/occ/macro/start" --><span class="function">start</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">start</span> <!-- a logicalPath="//simplegeo/occ/instm/end //simplegeo/occ/clm/end //simplegeo/occ/intfcm/end //simplegeo/occ/intfm/end //simplegeo/occ/func/end //simplegeo/occ/ftmplt/end //simplegeo/occ/defn/end //simplegeo/occ/macro/end" --><span class="function">end</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/end //simplegeo/occ/data/end" --><span class="var">end</span><!-- /a -->; </pre>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
-<div class="param_indent">
-<dl>
-<dt><code>geohash</code></dt>
-<dd><p>The geohash to search in.</p></dd>
-<dt><code>types</code></dt>
-<dd><p>The types of objects to retrieve. &#65532;</p></dd>
-<dt><code>limit</code></dt>
-<dd><p>The amount of objects to retrieve.</p></dd>
-<dt><code>start</code></dt>
-<dd><p>An Epoch timestamp that is the beginning of the time interval in seconds.</p></dd>
-<dt><code>end</code></dt>
-<dd><p>An Epoch timestamp that is the end of the time interval in seconds.</p></dd>
-</dl>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
-<p><!-- begin return value -->&#65532; A request identifier that can be used to analyze the response object returned to
-the <!-- a logicalPath="//simplegeo/ooc/intf/SGLocationServiceDelegate" -->SGLocationServiceDelegate<!-- /a -->
-
-<!-- end return value --></p>
-<p></p>
-<hr>
-<!-- headerDoc=instm;  uid=//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:start:end:;   name=SGLayer::retrieveRecordsForGeohash:types:limit:start:end: --><a name="//simplegeo/occ/instm/SGLayer/retrieveRecordsForGeohash:types:limit:start:end:"></a>
-<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
-<h3><a name="retrieveRecordsForGeohash:types:limit:start:end:">retrieveRecordsForGeohash:types:limit:start:end:</a></h3>
-</td></tr></table>
-<hr>
-<p><!-- begin abstract --></p>
-<p>Retrieves records within the given geohash from SimpleGeo and within a given
-interval. To make use of our time based index, the difference between start 
-and end must not be greater than 60 minutes.
-<!-- end abstract --></p>
-<p></p>
-<b>See Also:</b><div class="list_indent"><dl>
-<dt>
-<a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForGeohash:types:limit:" logicalPath="//simplegeo/doc/title:instm/SGLayer/retrieveRecordsForGeohash:types:limit:"><p>retrieveRecordsForGeohash:types:limit:</p></a>
-</dt>
-<dd></dd>
-</dl></div>
-<div class="declaration_indent">
-<pre>- (<!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span>) <!-- a logicalPath="//simplegeo/occ/instm/retrieveRecordsForGeohash //simplegeo/occ/clm/retrieveRecordsForGeohash //simplegeo/occ/intfcm/retrieveRecordsForGeohash //simplegeo/occ/intfm/retrieveRecordsForGeohash //simplegeo/occ/func/retrieveRecordsForGeohash //simplegeo/occ/ftmplt/retrieveRecordsForGeohash //simplegeo/occ/defn/retrieveRecordsForGeohash //simplegeo/occ/macro/retrieveRecordsForGeohash" --><span class="function">retrieveRecordsForGeohash</span><!-- /a -->:(<a href="../../../../Documentation/SGLocationTypes_h/index.html#//simplegeo/c/tdef/SGGeohash" logicalPath="//simplegeo/occ/cl/SGGeohash //simplegeo/occ/tdef/SGGeohash"><span class="type">SGGeohash</span></a>)<span class="param">region</span> <!-- a logicalPath="//simplegeo/occ/instm/types //simplegeo/occ/clm/types //simplegeo/occ/intfcm/types //simplegeo/occ/intfm/types //simplegeo/occ/func/types //simplegeo/occ/ftmplt/types //simplegeo/occ/defn/types //simplegeo/occ/macro/types" --><span class="function">types</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSArray //simplegeo/occ/tdef/NSArray //simplegeo/occ/tag/NSArray //simplegeo/occ/econst/NSArray //simplegeo/occ/struct/NSArray //simplegeo/occ/clconst/NSArray //simplegeo/occ/intf/NSArray" --><span class="type">NSArray</span><!-- /a --><span class="type">*</span>)<span class="param">types</span> <!-- a logicalPath="//simplegeo/occ/instm/limit //simplegeo/occ/clm/limit //simplegeo/occ/intfcm/limit //simplegeo/occ/intfm/limit //simplegeo/occ/func/limit //simplegeo/occ/ftmplt/limit //simplegeo/occ/defn/limit //simplegeo/occ/macro/limit" --><span class="function">limit</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/NSInteger //simplegeo/occ/tdef/NSInteger //simplegeo/occ/tag/NSInteger //simplegeo/occ/econst/NSInteger //simplegeo/occ/struct/NSInteger //simplegeo/occ/clconst/NSInteger //simplegeo/occ/intf/NSInteger" --><span class="type">NSInteger</span><!-- /a -->)<span class="param">limit</span> <!-- a logicalPath="//simplegeo/occ/instm/start //simplegeo/occ/clm/start //simplegeo/occ/intfcm/start //simplegeo/occ/intfm/start //simplegeo/occ/func/start //simplegeo/occ/ftmplt/start //simplegeo/occ/defn/start //simplegeo/occ/macro/start" --><span class="function">start</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<span class="param">start</span> <!-- a logicalPath="//simplegeo/occ/instm/end //simplegeo/occ/clm/end //simplegeo/occ/intfcm/end //simplegeo/occ/intfm/end //simplegeo/occ/func/end //simplegeo/occ/ftmplt/end //simplegeo/occ/defn/end //simplegeo/occ/macro/end" --><span class="function">end</span><!-- /a -->:(<!-- a logicalPath="//simplegeo/occ/cl/double //simplegeo/occ/tdef/double //simplegeo/occ/tag/double //simplegeo/occ/econst/double //simplegeo/occ/struct/double //simplegeo/occ/clconst/double //simplegeo/occ/intf/double" --><span class="type">double</span><!-- /a -->)<!-- a logicalPath="//simplegeo/occ/econst/end //simplegeo/occ/data/end" --><span class="var">end</span><!-- /a -->; </pre>
-</div>
-<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
-<div class="param_indent">
-<dl>
-<dt><code>geohash</code></dt>
-<dd><p>The geohash to search in.</p></dd>
-<dt><code>types</code></dt>
-<dd><p>The types of objects to retrieve. &#65532;</p></dd>
-<dt><code>limit</code></dt>
-<dd><p>The amount of objects to retrieve.</p></dd>
-<dt><code>start</code></dt>
-<dd><p>An Epoch timestamp that is the beginning of the time interval in seconds.</p></dd>
-<dt><code>end</code></dt>
-<dd><p>An Epoch timestamp that is the end of the time interval in seconds.</p></dd>
-</dl>
-</div>
-<p></p>
-<hr>
 <!-- headerDoc=title:instm;  uid=//simplegeo/doc/title:instm/SGLayer/retrieveRecordsFromIndex:toIndex:;   name=SGLayer::retrieveRecordsFromIndex:toIndex: --><a name="//simplegeo/doc/title:instm/SGLayer/retrieveRecordsFromIndex:toIndex:"></a>
 <table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
 <h3><a name="retrieveRecordsFromIndex:toIndex:">retrieveRecordsFromIndex:toIndex:</a></h3>
@@ -880,6 +701,9 @@ are notified with the initial request identifier and the proper NSError.
 <dd><p>The layerId is the name of the layer used in SimpleGeo. A common convention
 used in naming a layer is a reverse URL. (e.g. "com.simplegeo.spatula").
 </p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instp/SGLayer/recentNearbyQuery" target="_top">recentNearbyQuery</a></tt></dt>
+<dd><p>The most recent nearby request that was used.
+</p></dd>
 </dl>
 <hr>
 <!-- headerDoc=instp;  uid=//simplegeo/occ/instp/SGLayer/layerId;   name=SGLayer::layerId --><a name="//simplegeo/occ/instp/SGLayer/layerId"></a>
@@ -903,11 +727,34 @@ used in naming a layer is a reverse URL. (e.g. "com.simplegeo.spatula").
 <!-- begin discussion --><p>name of the layer.</p>
 <!-- end discussion -->
 <p></p>
+<hr>
+<!-- headerDoc=instp;  uid=//simplegeo/occ/instp/SGLayer/recentNearbyQuery;   name=SGLayer::recentNearbyQuery --><a name="//simplegeo/occ/instp/SGLayer/recentNearbyQuery"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="recentNearbyQuery">recentNearbyQuery</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>The most recent nearby request that was used.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>@property (
+    <span class="param">nonatomic</span>,
+    <span class="param">retain</span>) <a href="../../../../Documentation/SGNearbyQuery_h/Classes/SGNearbyQuery/index.html#//simplegeo/occ/cl/SGNearbyQuery" logicalPath="//simplegeo/occ/cl/SGNearbyQuery"><span class="type">SGNearbyQuery</span></a><span class="type">*</span> <!-- a logicalPath="//simplegeo/occ/econst/recentNearbyQuery //simplegeo/occ/data/recentNearbyQuery" --><span class="var">recentNearbyQuery</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>This property is used by <a href="../../../../Documentation/SGLayer_h/Classes/SGLayer/index.html#//simplegeo/occ/instm/SGLayer/nextNearby" logicalPath="//simplegeo/occ/instm/SGLayer/nextNearby">nextNearby</a> to generate
+the next, paginated nearby request if one is available.
+<!-- end discussion -->
+</p>
+<p></p>
 <p><!-- start of footer -->
 
 <!-- end of footer -->
 </p>
-<p>&copy; SimpleGeo Last Updated: 05/07/2010
+<p>&copy; SimpleGeo Last Updated: 05/21/2010
 </p>
 </div>
 </body>

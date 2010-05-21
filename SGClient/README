@@ -1,4 +1,4 @@
-SGClient v0.3.6
+SGClient v0.3.9
 
 ================================================================================
 ABSTRACT:
@@ -90,6 +90,15 @@ Headers
 
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+Version 0.3.9
+- SGLayer objects can use pagination automatically
+
+Version 0.3.8
+- Added pagination to both the nearby and history endpoints
+
+Version 0.3.7
+- Fixed a bug where the type of a record wasn't being properly stored, in some
+cases
 
 Version 0.3.6
 - Added access to the new PushPin endpoints: contains, overlaps and boundary

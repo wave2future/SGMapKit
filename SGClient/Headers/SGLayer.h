@@ -58,11 +58,12 @@
 @interface SGLayer : NSObject <SGLocationServiceDelegate> {
  
     NSString* layerId;
+    SGNearbyQuery* recentNearbyQuery;
+    BOOL storeRetrievedRecords;
     
     @private
-    NSMutableDictionary* _sgRecords;
-    NSMutableArray* _layerResponseIds;
- 
+    NSMutableDictionary* sgRecords;
+    NSMutableArray* layerResponseIds;
 }
 
 /*!
@@ -71,6 +72,22 @@
 * used in naming a layer is a reverse URL. (e.g. "com.simplegeo.spatula").
 */
 @property (nonatomic, readonly) NSString* layerId;
+
+/*!
+* @property
+* @abstract The most recent nearby request that was used.
+* @discussion This property is used by @link nextNearby nextNearby @/link to generate
+* the next, paginated nearby request if one is available.
+*/
+@property (nonatomic, retain) SGNearbyQuery* recentNearbyQuery;
+
+/*!
+* @protocol
+* @abstract If a @link nearby: nearby: @/link request is sent this
+* value is set to YES, then retrieved records will be added to this
+* object. If NO, then records will be ignored.
+*/
+@property (nonatomic, assign) BOOL storeRetrievedRecords;
 
 /*!
 * @method initWithLayerName:
@@ -140,7 +157,6 @@
 */
 - (void) removeRecordAnnotations:(NSArray*)recordAnnotations;
 
-
 /*!
 * @method recordAnnotationCount
 * @abstract ￼ Get the amount of @link //simplegeo/ooc/intf/SGRecordAnnotation SGRecordAnnotations @/link registered with the SGLayer object.
@@ -206,70 +222,24 @@
 - (NSString*) retrieveRecordAnnotations:(NSArray*)recordAnnoations;
 
 /*!
-* @method retrieveRecordsForGeohash:types:limit:
-* @abstract Retrieves records within the given geohash from SimpleGeo.
-* @param geohash The geohash to search in.
-* @param types The types of objects to retrieve. ￼
-* @param limit The amount of objects to retrieve.
-* @result ￼ A request identifier that can be used to analyze the response object returned to
-* the @link //simplegeo/ooc/intf/SGLocationServiceDelegate SGLocationServiceDelegate @/link
+* @method nearby:
+* @abstract ￼Retieves records based on the @link //simplegeo/ooc/cl/SGNearbyQuery SGNearbyQuery @/link
+* properties that are set.
+* @discussion The layer property of the query will be set to @link layerId layerId @/link.
+* @param nearby ￼The @link //simplegeo/ooc/cl/SGNearbyQuery SGNearbyQuery @/link object
+* that will be used to produce the proper request.
+* @result ￼A request identifier that can be used to analyze the response object returned to
+* the @link //simplegeo/ooc/cl/SGLocationServiceDelegate SGLocationServiceDelegate @/link
 */
-- (NSString*) retrieveRecordsForGeohash:(SGGeohash)region types:(NSArray*)types limit:(NSInteger)limit;
+- (NSString*) nearby:(SGNearbyQuery*)nearby;
 
 /*!
-* @method retrieveRecordsForGeohash:types:limit:
-* @abstract Retrieves records within the given geohash from SimpleGeo and within a given
-* interval. To make use of our time based index, the difference between start 
-* and end must not be greater than 60 minutes.
-* @param geohash The geohash to search in.
-* @param types The types of objects to retrieve. ￼
-* @param limit The amount of objects to retrieve.
-* @param start An Epoch timestamp that is the beginning of the time interval in seconds.
-* @param end An Epoch timestamp that is the end of the time interval in seconds.
-* @result ￼ A request identifier that can be used to analyze the response object returned to
-* the @link //simplegeo/ooc/intf/SGLocationServiceDelegate SGLocationServiceDelegate @/link
+* @method nextNearby
+* @abstract ￼Fires off the the @link recentNearbyQuery recentNearbyQuery @/link
+* if the cursor property is set.
+* @result ￼A request identifier that can be used to analyze the response object returned to
+* the @link //simplegeo/ooc/cl/SGLocationServiceDelegate SGLocationServiceDelegate @/link
 */
-- (NSString*) retrieveRecordsForGeohash:(SGGeohash)region 
-                                  types:(NSArray*)types
-                                  limit:(NSInteger)limit
-                                  start:(double)start
-                                    end:(double)end;
-
-/*!
-* @method retrieveRecordsForCoordinate:radius:types:limit:
-* @abstract ￼Retrieves records within from an origin with a desired radius from SimpleGeo.
-* @param coord The lat/lon coordinates that declare the origin of the search space.
-* @param radius The radius of the circle.
-* @param types The types of objects to retrieve. ￼
-* @param limit The amount of objects to retrieve.
-* @result ￼ A request identifier that can be used to analyze the response object returned to
-* the @link //simplegeo/ooc/intf/SGLocationServiceDelegate SGLocationServiceDelegate @/link
-*/
-- (NSString*) retrieveRecordsForCoordinate:(CLLocationCoordinate2D)coord 
-                                    radius:(double)radius
-                                     types:(NSArray*)types
-                                     limit:(NSInteger)limit;
-
-/*!
-* @method retrieveRecordsForCoordinate:radius:types:limit:
-* @abstract ￼Retrieves records within from an origin with a desired radius from 
-* SimpleGeo and within a given interval. To make use of our time based index,
-* the difference between start and end must not be greater than 60 minutes.
-* @param coord The lat/lon coordinates that declare the origin of the search space.
-* @param radius The radius of the circle.
-* @param types The types of objects to retrieve. ￼
-* @param limit The amount of objects to retrieve.
-* @param start An Epoch timestamp that is the beginning of the time interval in seconds.
-* @param end An Epoch timestamp that is the end of the time interval in seconds.
-* @result ￼ A request identifier that can be used to analyze the response object returned to
-* the @link //simplegeo/ooc/intf/SGLocationServiceDelegate SGLocationServiceDelegate @/link
-*/
-- (NSString*) retrieveRecordsForCoordinate:(CLLocationCoordinate2D)coord 
-                                    radius:(double)radius
-                                     types:(NSArray*)types
-                                     limit:(NSInteger)limit
-                                     start:(double)start
-                                       end:(double)end;
-
+- (NSString*) nextNearby;
 
 @end

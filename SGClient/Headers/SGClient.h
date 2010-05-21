@@ -12,6 +12,10 @@
 #import "SGRecord.h"
 #import "SGRecordAnnotation.h"
 
+#import "SGLatLonNearbyQuery.h"
+#import "SGGeohashNearbyQuery.h"
+#import "SGHistoryQuery.h"
+
 #import "SGAuthorization.h"
 #import "SGGeoJSONEncoder.h"
 #import "SGLocationService.h"
