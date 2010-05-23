@@ -42,6 +42,8 @@
 - (NSString*) getKeyForAnnotation:(id<SGRecordAnnotation>)annotation;
 - (void) addNewRecordAnnotations;
 
+- (void) initializeMapView;
+
 @end
 
 @implementation SGLayerMapView
@@ -49,32 +51,40 @@
 @dynamic reloadTimeInterval;
 @synthesize limit, addRetrievedRecordsToLayer, requestStartTime, requestEndTime;
 
+- (void) awakeFromNib
+{
+    [self initializeMapView];
+}
+
 - (id) initWithFrame:(CGRect)frame
 {
-    if(self = [super initWithFrame:frame]) {
-        
-        limit = 25;
-        sgLayers = [[NSMutableDictionary alloc] init];
-        presentAnnotations = [[NSMutableArray alloc] init];
-        trueDelegate = nil;
-        reloadTimeInterval = 0.0;
-        
-        [[SGLocationService sharedLocationService] addDelegate:self];
-        
-        layerResponseIds = [[NSMutableArray alloc] init];
-        newRecordAnnotations = [[NSMutableArray alloc] init];
-        
-        addRetrievedRecordsToLayer = YES;
-        shouldRetrieveRecords = YES;
-        timer = nil;
-        
-        requestStartTime = 0.0;
-        requestEndTime = 0.0;
-        
-        [super setDelegate:self];
-    }
+    if(self = [super initWithFrame:frame])
+        [self initializeMapView];
 
     return self;
+}
+
+- (void) initializeMapView
+{
+    limit = 25;
+    sgLayers = [[NSMutableDictionary alloc] init];
+    presentAnnotations = [[NSMutableArray alloc] init];
+    trueDelegate = nil;
+    reloadTimeInterval = 0.0;
+    
+    [[SGLocationService sharedLocationService] addDelegate:self];
+    
+    layerResponseIds = [[NSMutableArray alloc] init];
+    newRecordAnnotations = [[NSMutableArray alloc] init];
+    
+    addRetrievedRecordsToLayer = YES;
+    shouldRetrieveRecords = YES;
+    timer = nil;
+    
+    requestStartTime = 0.0;
+    requestEndTime = 0.0;
+    
+    [super setDelegate:self];    
 }
 
 - (void) startRetrieving
