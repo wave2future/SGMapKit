@@ -23,6 +23,7 @@ iPhone SDK 3.1
 Frameworks
 - CoreLocation
 - Foundation
+- UIKit
 
 ================================================================================
 PACKAGING LIST:
@@ -76,6 +77,10 @@ Headers
     GeoJSON+NSArray.h
     A category to help access GeoJSON keys.
     
+    SGGeoJSON+NSDictionary
+    A category to help access the SimpleGeo specific
+    keys of a GeoJSON object.
+    
     CLLocationAdditions.h
     A category for the CLLocation class.
     
@@ -87,9 +92,23 @@ Headers
     
     SGAddititons.h
     All categories used by the client.
+    
+    SGCacheHandler
+    Handles manipulations of cached files.
+    
+    SGCommitLog
+    An attempt at creating a commit log that can be used
+    to replay committed data.
 
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+Version 0.4.0
+- SGRecordAnnotations can now be updated in the background and tracked
+in the foreground
+- A wrapper around CLLocationManager provides the delegate with notifications
+of when the device enters and leaves a region defined by SimpleGeo's PushPin
+service
+
 Version 0.3.9
 - SGLayer objects can use pagination automatically
 

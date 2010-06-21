@@ -34,11 +34,28 @@
 
 #import <Foundation/Foundation.h>
 
-
+/*!
+* @category NSString (SimpleGeo)
+* @abstract A category to help encode NSString for URLs. 
+*/
 @interface NSString (SimpleGeo) 
 
-- (NSString *)URLEncodedString;
-- (NSString *)MinimalURLEncodedString;
-- (NSString *)URLDecodedString;
+/*!
+* @method URLEncodedString
+* @result ￼
+*/
+- (NSString*) URLEncodedString;
+
+/*!
+* @method  minimalURLEncodedString
+* @result ￼
+*/
+- (NSString*) minimalURLEncodedString;
+
+/*!
+* @method  URLDecodedString
+* @result ￼
+*/
+- (NSString*) URLDecodedString;
 
 @end

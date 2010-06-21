@@ -46,6 +46,7 @@
     NSString* recordId;
     NSString* layer;
     
+    NSString* requestId;
     int limit;
 }
 
@@ -75,5 +76,14 @@
 * The default is 10.
 */
 @property (nonatomic, assign) int limit;
+
+/*!
+ * @property
+ * @abstract The request identifier that was used to iniate
+ * this request.
+ * @discussion This value is set when the nearby request
+ * is sent through the @link //simplegeo/ooc/cl/SGLocationService SGLocationService @/link.
+ */
+@property (nonatomic, retain) NSString* requestId;
 
 @end

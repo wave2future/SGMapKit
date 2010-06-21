@@ -33,12 +33,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "SGLocationTypes.h"
 #import "SGLocationService.h"
+#import "SGRecordAnnotation.h"
+#import "SGLocationTypes.h"
 
-@protocol SGRecordAnnotation;
-
+@class SGNearbyQuery;
 
 /*!
 * @class SGLayer 
@@ -124,7 +123,7 @@
 * @method removeAllRecordAnnotations
 * @abstract ￼ Removes all @link //simplegeo/ooc/cl/SGRecordAnnotation SGRecordAnnotations @/link registered with the SGLayer object.
 */
-- (void) removeAllRecordAnnotations;
+- (NSString*) removeAllRecordAnnotations:(BOOL)update;
 
 /*!
 * @method addRecordAnnotation:
@@ -133,7 +132,7 @@
 * is changed to reflect the @link layerId layerId @/link.
 * @param recordAnnotation The record annotation to add.￼
 */
-- (void) addRecordAnnotation:(id<SGRecordAnnotation>)recordAnnotation;
+- (NSString*) addRecordAnnotation:(id<SGRecordAnnotation>)recordAnnotation update:(BOOL)update;
 
 /*!
 * @method addRecordAnnotations:
@@ -141,21 +140,21 @@
 * @discussion See @link addRecord: addRecord: @/link
 * @param recordAnnotations ￼The array of record annotations to add.
 */
-- (void) addRecordAnnotations:(NSArray*)recordAnnotations;
+- (NSString*) addRecordAnnotations:(NSArray*)recordAnnotations update:(BOOL)update;
 
 /*!
 * @method removeRecordAnnotationAtIndex:
 * @abstract ￼Remove a @link //simplegeo/ooc/intf/SGRecordAnnotation SGRecordAnnotation @/link registed with the SGLayer object.
 * @param recordAnnotation The record annotation to remove.
 */
-- (void) removeRecordAnnotation:(id<SGRecordAnnotation>)recordAnnotation;
+- (NSString*) removeRecordAnnotation:(id<SGRecordAnnotation>)recordAnnotation update:(BOOL)update;
 
 /*!
 * @method removeRecordAnnotationAtIndex:
 * @abstract ￼Remove a @link //simplegeo/ooc/intf/SGRecordAnnotation SGRecordAnnotation @/link registed with the SGLayer object.
 * @param recordAnnotation The array of record annotations to remove.
 */
-- (void) removeRecordAnnotations:(NSArray*)recordAnnotations;
+- (NSString*) removeRecordAnnotations:(NSArray*)recordAnnotations update:(BOOL)update;
 
 /*!
 * @method recordAnnotationCount

@@ -35,8 +35,6 @@
 #import <Foundation/Foundation.h>
 
 #import "SGRecordAnnotation.h"
-#import "GeoJSON+NSArray.h"
-#import "GeoJSON+NSDictionary.h"
 
 /*!
 * @class SGGeoJSONEncoder 
@@ -72,9 +70,17 @@
 * @param recordAnnotations The array of record annotations that help construct the GeoJSON object. ￼
 * @result A new GeoJSON object.
 */
-+ (NSDictionary*) geoJSONObjectForRecordAnnotations:(NSArray*)recordAnnotations;
++ (NSMutableDictionary*) geoJSONObjectForRecordAnnotations:(NSArray*)recordAnnotations;
 
-+ (NSDictionary*) geoJSONObjectForRecordAnnotation:(id<SGRecordAnnotation>)recordAnnotation;
+/*!
+* @method geoJSONObjectForRecordAnnotation:
+* @abstract ￼Returns a new GeoJSONObject that was constructed from the
+* @link //simplegeo/ooc/intf/SGRecordAnnotation SGRecordAnnotation @/link.
+* @discussion ￼
+* @param recordAnnotation ￼
+* @result ￼A new GeoJSON object.
+*/
++ (NSMutableDictionary*) geoJSONObjectForRecordAnnotation:(id<SGRecordAnnotation>)recordAnnotation;
 
 /*!
 * @method layerNameFromLayerLink:

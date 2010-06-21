@@ -32,8 +32,9 @@
 //  Created by Derek Smith.
 //
 
-#import "SGNearbyQuery.h"
 #import <CoreLocation/CoreLocation.h>
+
+#import "SGNearbyQuery.h"
 
 /*!
 * @class SGLatLonNearbyQuery 

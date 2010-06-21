@@ -78,6 +78,10 @@ The default is 10.
 <dt><tt><a href="index.html#//simplegeo/occ/instp/SGHistoryQuery/recordId" target="_top">recordId</a></tt></dt>
 <dd><p>The record id to obtain the history from.
 </p></dd>
+<dt><tt><a href="index.html#//simplegeo/occ/instp/SGHistoryQuery/requestId" target="_top">requestId</a></tt></dt>
+<dd><p>The request identifier that was used to iniate
+this request.
+</p></dd>
 </dl>
 <hr>
 <!-- headerDoc=instp;  uid=//simplegeo/occ/instp/SGHistoryQuery/cursor;   name=SGHistoryQuery::cursor --><a name="//simplegeo/occ/instp/SGHistoryQuery/cursor"></a>
@@ -151,11 +155,35 @@ The default is 10.
     <span class="param">retain</span>) <!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span> <!-- a logicalPath="//simplegeo/occ/econst/recordId //simplegeo/occ/data/recordId" --><span class="var">recordId</span><!-- /a -->; </pre>
 </div>
 <p></p>
+<hr>
+<!-- headerDoc=instp;  uid=//simplegeo/occ/instp/SGHistoryQuery/requestId;   name=SGHistoryQuery::requestId --><a name="//simplegeo/occ/instp/SGHistoryQuery/requestId"></a>
+<table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="requestId">requestId</a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract --></p>
+<p>The request identifier that was used to iniate
+this request.
+<!-- end abstract --></p>
+<p></p>
+<div class="declaration_indent">
+<pre>@property (
+    <span class="param">nonatomic</span>,
+    <span class="param">retain</span>) <!-- a logicalPath="//simplegeo/occ/cl/NSString //simplegeo/occ/tdef/NSString //simplegeo/occ/tag/NSString //simplegeo/occ/econst/NSString //simplegeo/occ/struct/NSString //simplegeo/occ/clconst/NSString //simplegeo/occ/intf/NSString" --><span class="type">NSString</span><!-- /a --><span class="type">*</span> <!-- a logicalPath="//simplegeo/occ/econst/requestId //simplegeo/occ/data/requestId" --><span class="var">requestId</span><!-- /a -->; </pre>
+</div>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<!-- begin discussion --><p>This value is set when the nearby request
+is sent through the <!-- a logicalPath="//simplegeo/ooc/cl/SGLocationService" -->SGLocationService<!-- /a -->.
+<!-- end discussion -->
+</p>
+<p></p>
 <p><!-- start of footer -->
 
 <!-- end of footer -->
 </p>
-<p>&#169; SimpleGeo Last Updated: 05/21/2010
+<p>&#169; SimpleGeo Last Updated: 06/21/2010
 </p>
 </div>
 </body>

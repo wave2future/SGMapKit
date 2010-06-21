@@ -1,4 +1,4 @@
-SGMapKit v0.3.5
+SGMapKit v0.4.0
 
 ================================================================================
 ABSTRACT:
@@ -18,7 +18,7 @@ inform the linker to load the categories from the static library.
 ================================================================================
 BUILD REQUIREMENTS:
 
-iPhone SDK 3.1
+iPhone SDK 3.0
 
 Frameworks
 - CoreLocation
@@ -42,9 +42,14 @@ The static library built for the iPhone Simulator.
 
 Headers
 	
-	SGLayerMapView.h
-	Defines a subclass of MKMapView that will retrieve SGRecordAnnotations
-	when the map position is updated.
+    SGLayerMapView.h
+    Defines a subclass of MKMapView that will retrieve SGRecordAnnotations
+    when the map position is updated.
+
+    SGPolyline.h
+    A simple subclass of MKPolyline that maps an annotation
+    back to a polyline.
+    
     
 build_mapkit
 A BASH script that builds the MapKit static library and

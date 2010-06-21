@@ -117,6 +117,6 @@
 * @discussion This value is set when the nearby request
 * is sent through the @link //simplegeo/ooc/cl/SGLocationService SGLocationService @/link.
 */
-@property (nonatomic, assign) NSString* requestId;
+@property (nonatomic, retain) NSString* requestId;
 
 @end

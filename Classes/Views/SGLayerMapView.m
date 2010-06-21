@@ -388,6 +388,8 @@
 #pragma mark -
 #pragma mark Helper methods 
 
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+
 - (MKPolyline*) getPolyline:(SGRecord*)record
 {
     MKPolyline* historyPolyline = [record historyPolyline];
@@ -396,6 +398,8 @@
         
     return historyPolyline;
 }
+
+#endif
  
 - (void) addNewRecordAnnotations
 {

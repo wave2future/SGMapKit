@@ -33,12 +33,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SGRecordAnnotation.h"
 
 /*!
-* @category NSDictionary(SGGeoJSONObject)
+* @category NSDictionary(GeoJSONObject)
 * @abstract Ease the pain of accessing SimpleGeo GeoJSON values.
 */
-@interface NSDictionary (SGGeoJSONObject)
+@interface NSDictionary (GeoJSONObject)
 
 /*!
 * @method type
@@ -69,33 +70,6 @@
 - (NSDictionary*) properties;
 
 /*!
-* @method created
-* @abstract ￼Returns the value associated with the key created.
-* @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
-* allows key/values to be defined at the top-level of the object.
-* @result ￼The created value.
-*/
-- (double) created;
-
-/*!
-* @method expires
-* @abstract Returns the value associated with the key expires
-* @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
-* allows key/values to be defined at the top-level of the object.
-* @result ￼The expires value.
-*/
-- (double) expires;
-
-/*!
-* @method id
-* @abstract Returns the value associated ￼with the key id.
-* @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
-* allows key/values to be defined at the top-level of the object.
-* @result ￼The id value.
-*/
-- (NSString*) id;
-
-/*!
 * @method features
 * @abstract Returns the GeoJSONObject associated with the key features.
 * @result ￼The features GeoJSONObject.
@@ -108,22 +82,6 @@
  * @result ￼The geometries GeoJSONObject.
  */
 - (NSArray*) geometries;
-
-/*!
-* @method layerLink
-* @abstract Use this URL string to obtain information about the layer
-* this GeoJSON object resides in.
-* @result ￼The URL string of this object's layer.
-*/
-- (NSString*) layerLink;
-
-/*!
-* @method selfLink
-* @abstract ￼The URL used to retrieve information about this GeoJSON
-* object.
-* @result A URL string. ￼
-*/
-- (NSString*) selfLink;
 
 /*!
 * @method isFeature
@@ -171,10 +129,10 @@
 @end
 
 /*!
-* @category NSMutableDictionary(SGGeoJSONObject)
+* @category NSMutableDictionary(GeoJSONObject)
 * @abstract Ease the pain of storing SimpleGeo GeoJSON values.
 */
-@interface NSMutableDictionary (SGGeoJSONObject)
+@interface NSMutableDictionary (GeoJSONObject)
 
 /*!
 * @method setType:
@@ -205,24 +163,6 @@
 - (void) setProperties:(NSDictionary*)properties;
 
 /*!
-* @method setCreated:
-* @abstract Sets the value stored at key created.
-* @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
-* allows key/values to be defined at the top-level of the object.
-* @param created The value to store.
-*/
-- (void) setCreated:(double)created;
-
-/*!
-* @method setId:
-* @abstract Sets the value stored at key id.
-* @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
-* allows key/values to be defined at the top-level of the object.
-* @param id ￼The value to store.
-*/
-- (void) setId:(NSString*)id;
-
-/*!
 * @method setFeatures:
 * @abstract Sets the GeoJSONObject stored at key features.
 * @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
@@ -241,13 +181,11 @@
 - (void) setGeometries:(NSArray*)geometries;
 
 /*!
-* @method setExpires:
-* @abstract Sets the value stored at key expires.
-* @discussion This is a value specific to SimpleGeo. The GeoJSON spec (http://geojson.org/geojson-spec.html)
-* allows key/values to be defined at the top-level of the object.
-* @param expires ￼The value to store.
+* @method addGeometry:
+* @abstract ￼Appends a new geometry object to the geometry collection.
+* @param geometry ￼
 */
-- (void) setExpires:(double)expires;
+- (void) addGeometry:(NSDictionary*)geometry;
 
 @end
 
