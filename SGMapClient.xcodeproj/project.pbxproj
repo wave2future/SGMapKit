@@ -10,6 +10,8 @@
 		4A64A4D41120967500D4E22D /* SGLayerMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4CF1120967500D4E22D /* SGLayerMapView.h */; };
 		4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
 		4A64A4D61120967500D4E22D /* SGMapKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */; };
+		4A68BA6011CEDFDB0090C675 /* SGPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A68BA5E11CEDFDB0090C675 /* SGPolyline.m */; };
+		4A68BA6111CEDFDB0090C675 /* SGPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A68BA5F11CEDFDB0090C675 /* SGPolyline.h */; };
 		4A9B8D7911A738C00044D956 /* GeoJSON+NSArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B8D6411A738C00044D956 /* GeoJSON+NSArray.h */; };
 		4A9B8D7A11A738C00044D956 /* GeoJSON+NSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B8D6511A738C00044D956 /* GeoJSON+NSDictionary.h */; };
 		4A9B8D7B11A738C00044D956 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B8D6611A738C00044D956 /* NSArrayAdditions.h */; };
@@ -41,6 +43,8 @@
 		4A64A4D11120967500D4E22D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit_Prefix.pch; sourceTree = "<group>"; };
 		4A64B5F51120D55D00D4E22D /* build_mapkit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_mapkit; sourceTree = "<group>"; };
+		4A68BA5E11CEDFDB0090C675 /* SGPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPolyline.m; sourceTree = "<group>"; };
+		4A68BA5F11CEDFDB0090C675 /* SGPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPolyline.h; sourceTree = "<group>"; };
 		4A9B8D6411A738C00044D956 /* GeoJSON+NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoJSON+NSArray.h"; sourceTree = "<group>"; };
 		4A9B8D6511A738C00044D956 /* GeoJSON+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoJSON+NSDictionary.h"; sourceTree = "<group>"; };
 		4A9B8D6611A738C00044D956 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayAdditions.h; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		4A64A4CD1120967500D4E22D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4A859EBB11C1389E00F50676 /* Model */,
 				4A64A4CE1120967500D4E22D /* Views */,
 			);
 			path = Classes;
@@ -140,6 +145,15 @@
 				4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A859EBB11C1389E00F50676 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A68BA5E11CEDFDB0090C675 /* SGPolyline.m */,
+				4A68BA5F11CEDFDB0090C675 /* SGPolyline.h */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4A9B8D6011A738C00044D956 /* SGClient */ = {
@@ -220,6 +234,7 @@
 				4A9B8D8911A738C00044D956 /* SGQuery.h in Headers */,
 				4A9B8D8A11A738C00044D956 /* SGRecord.h in Headers */,
 				4A9B8D8B11A738C00044D956 /* SGRecordAnnotation.h in Headers */,
+				4A68BA6111CEDFDB0090C675 /* SGPolyline.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */,
+				4A68BA6011CEDFDB0090C675 /* SGPolyline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

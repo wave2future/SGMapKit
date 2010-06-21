@@ -35,6 +35,7 @@
 #import <Foundation/Foundation.h>
 
 #import "SGLayer.h"
+#import "SGRecord.h"
 #import "SGGeoJSONEncoder.h"
 
 /*!
@@ -66,19 +67,19 @@
  
     @private
     NSMutableDictionary* sgLayers;
-    NSMutableArray* presentAnnotations;
+    NSMutableDictionary* historyRecords;
     
-    NSMutableArray* layerResponseIds;
+    NSMutableArray* presentAnnotations;
     NSMutableArray* newRecordAnnotations;
     
     id<MKMapViewDelegate> trueDelegate;
  
     SGGeohash previousRegion;
- 
-    BOOL shouldRetrieveRecords;
     
     NSTimer* timer;
- 
+
+    NSMutableArray* layerResponseIds;
+    NSMutableArray* historyResponseIds;
 }
 
 /*!
@@ -160,5 +161,31 @@
 * @param layer ￼The @link //simplegeo/ooc/cl/SGLayer SGLayer @/link to remove from the map.
 */
 - (void) removeLayer:(SGLayer*)layer;
+
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+
+/*!
+* @method drawHistoryLine:
+* @abstract Queries SimpleGeo for the history of the record and draws a line
+* on the map based on the history geometry collection.
+* @param record ￼
+*/
+- (void) drawHistoryLine:(SGRecord*)record;
+
+/*!
+* @method removeHistoryLine:
+* @abstract ￼Removes a line from the map
+* @param record ￼
+*/
+- (void) removeHistoryLine:(SGRecord*)record;
+
+/*!
+* @method redrawLine:
+* @abstract ￼Redraws a line for a record
+* @param record ￼
+*/
+- (void) redrawLine:(SGRecord*)record;
+
+#endif
 
 @end

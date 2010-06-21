@@ -33,6 +33,8 @@
 //
 
 #import "SGLayerMapView.h"
+#import "SGLatLonNearbyQuery.h"
+#import "SGPolyline.h"
 
 @interface SGLayerMapView (Private)
 
@@ -75,10 +77,11 @@
     [[SGLocationService sharedLocationService] addDelegate:self];
     
     layerResponseIds = [[NSMutableArray alloc] init];
+    historyRecords = [[NSMutableDictionary alloc] init];
+    historyResponseIds = [[NSMutableArray alloc] init];
     newRecordAnnotations = [[NSMutableArray alloc] init];
     
     addRetrievedRecordsToLayer = YES;
-    shouldRetrieveRecords = YES;
     timer = nil;
     
     requestStartTime = 0.0;
@@ -89,7 +92,6 @@
 
 - (void) startRetrieving
 {
-    shouldRetrieveRecords = YES;
     [self retrieveLayers];
     
     if(!timer && reloadTimeInterval >= 0.0)
@@ -102,15 +104,11 @@
 
 - (void) stopRetrieving
 {
-    shouldRetrieveRecords = NO;
-
     if(timer) {
-        
         [timer invalidate];
         [timer release];
         timer = nil;
     }
-    
 }
 
 #pragma mark -
@@ -229,12 +227,61 @@
         [trueDelegate mapView:mapView didAddAnnotationViews:views];
 }
 
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+
+- (MKOverlayView*) mapView:(MKMapView*)mapView viewForOverlay:(id<MKOverlay>)overlay
+{
+    MKOverlayView* view = nil;
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:viewForOverlay:)])
+        view = [trueDelegate mapView:mapView viewForOverlay:overlay];
+    
+    return view;
+}
+
+- (void) mapView:(MKMapView*)mapView didAddOverlayViews:(NSArray*)overlayViews
+{
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didAddOverlayViews:)])
+        [trueDelegate mapView:mapView didAddOverlayViews:overlayViews];
+}
+
+- (void) mapView:(MKMapView*)mapView annotationView:(MKAnnotationView*)annotationView didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:annotationView:didChangeDragState:fromOldState:)])
+        [trueDelegate mapView:mapView annotationView:annotationView didChangeDragState:newState fromOldState:oldState];
+}
+
+- (void) mapViewWillStartLocatingUser:(MKMapView*)mapView
+{
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapViewWillStartLocatingUser:)])
+        [trueDelegate mapViewWillStartLocatingUser:mapView];    
+}
+
+- (void) mapViewDidStopLocatingUser:(MKMapView*)mapView
+{
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapViewDidStopLocatingUser:)])
+        [trueDelegate mapViewDidStopLocatingUser:mapView];    
+}
+
+- (void) mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation*)userLocation
+{
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didUpdateUserLocation:)])
+        [trueDelegate mapView:mapView didUpdateUserLocation:userLocation];    
+}
+
+- (void) mapView:(MKMapView*)mapView didFailToLocateUserWithError:(NSError*)error
+{
+    if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didFailToLocateUserWithError:)])
+        [trueDelegate mapView:mapView didFailToLocateUserWithError:error];
+}
+
+#endif
+
 #pragma mark -
 #pragma mark SGLocationService delegate methods 
  
 - (void) locationService:(SGLocationService*)service succeededForResponseId:(NSString*)requestId responseObject:(NSObject*)objects
 {    
-    if([layerResponseIds count] && [layerResponseIds containsObject:requestId]) {    
+    if([layerResponseIds containsObject:requestId]) {    
         NSDictionary* geoJSONObject = (NSDictionary*)objects;
         NSArray* nearbyRecords = nil;
         if([geoJSONObject isFeatureCollection])
@@ -260,7 +307,7 @@
             }
             
             if(addRetrievedRecordsToLayer)
-                [recordLayer addRecordAnnotations:newRecords];
+                [recordLayer addRecordAnnotations:newRecords update:NO];
             
             [newRecordAnnotations addObjectsFromArray:newRecords];
         }
@@ -268,6 +315,25 @@
         [layerResponseIds removeObject:requestId];
         if(![layerResponseIds count])
             [self addNewRecordAnnotations];
+    } else if([historyResponseIds containsObject:requestId]) {
+        NSDictionary* newHistory = (NSDictionary*)objects;
+        SGRecord* record = nil;
+        NSString* historyRequestId = nil;
+        for(SGRecord* historyRecord in [historyRecords allValues]) {
+            historyRequestId = historyRecord.historyQuery.requestId;
+            if(historyRequestId && [historyRequestId isEqualToString:requestId])
+                record = historyRecord;
+        }
+
+        if(record) {
+            [record updateHistory:newHistory];
+            if(record.historyQuery.cursor)
+                [historyResponseIds addObject:[record getHistory:100 cursor:record.historyQuery.cursor]];
+            else
+                [self drawHistoryLine:record];    
+        }
+            
+        [historyResponseIds removeObject:requestId];
     }
 }
 
@@ -275,7 +341,6 @@
 {
     if([layerResponseIds count] && [layerResponseIds containsObject:requestId]) {   
         [layerResponseIds removeObject:requestId];
-     
         if(![layerResponseIds count])
             [self addNewRecordAnnotations];
     }
@@ -290,7 +355,47 @@
 }
 
 #pragma mark -
+#pragma mark Line painters 
+
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+
+- (void) drawHistoryLine:(SGRecord*)record
+{
+    if(record) {
+        [historyRecords setObject:record forKey:[record recordId]];
+        MKPolyline* polyline = [record historyPolyline];
+        if(polyline)
+            [self addOverlay:polyline];
+        else
+            [historyResponseIds addObject:[record getHistory:100 cursor:nil]];
+    }
+}
+
+- (void) removeHistoryLine:(SGRecord*)record
+{
+    [self removeOverlay:[record historyPolyline]];
+    [historyRecords removeObjectForKey:[record recordId]];
+}
+
+- (void) redrawLine:(SGRecord*)record
+{
+    [self removeHistoryLine:record];
+    [self drawHistoryLine:record];
+}
+
+#endif
+
+#pragma mark -
 #pragma mark Helper methods 
+
+- (MKPolyline*) getPolyline:(SGRecord*)record
+{
+    MKPolyline* historyPolyline = [record historyPolyline];
+    if(historyPolyline)
+        historyPolyline = [SGPolyline polylineWithPoints:historyPolyline.points count:historyPolyline.pointCount];
+        
+    return historyPolyline;
+}
  
 - (void) addNewRecordAnnotations
 {
@@ -345,7 +450,7 @@
 
 - (void) retrieveLayers
 {
-    if(shouldRetrieveRecords && ![newRecordAnnotations count] && ![layerResponseIds count]) {
+    if(![newRecordAnnotations count] && ![layerResponseIds count]) {
         
         // We just care about the center point.
         MKCoordinateRegion region = self.region;

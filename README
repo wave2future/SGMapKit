@@ -53,6 +53,10 @@ its documentation.
 	
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+Versions 0.4.0
+- Added the ability to draw a MKPolyline for a given SGRecord
+- Made the SGLayerMapView compatable with iPhone OS 4.0
+
 Version 0.3.5
 - retrieveLayers now uses pagination
 
