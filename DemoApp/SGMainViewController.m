@@ -34,6 +34,34 @@
 
 #import "SGMainViewController.h"
 
+@interface SGMainViewController (Private)
+
+- (void) addLine;
+
+@end
+
 @implementation SGMainViewController
+
+- (id) init
+{
+    if(self = [super init]) {
+        self.title = @"SGMapKit Demo";
+        mapView = [[SGLayerMapView alloc] initWithFrame:CGRectZero];
+    }
+    
+    return self;
+}
+
+- (void) viewDidLoad
+{
+    mapView.frame = self.view.bounds;
+    [self.view addSubview:mapView];
+}
+
+- (void) dealloc
+{
+    [mapView release];
+    [super dealloc];
+}
 
 @end

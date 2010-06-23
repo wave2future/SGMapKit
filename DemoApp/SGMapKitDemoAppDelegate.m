@@ -43,11 +43,20 @@
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions 
 {   
+    NSBundle* mainBundle = [NSBundle mainBundle];
+    NSString* path = [mainBundle pathForResource:@"Token" ofType:@"plist"];
+    NSDictionary* token = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSString* layer = [[NSDictionary dictionaryWithContentsOfFile:path] objectForKey:@"layer"];            
+    
+    SGLocationService* locationService = [SGLocationService sharedLocationService];
+    SGOAuth* oAuth = [[SGOAuth alloc] initWithKey:[token objectForKey:@"key"] secret:[token objectForKey:@"secret"]];        
+    locationService.HTTPAuthorizer = oAuth;
+    
     SGMainViewController* mvc = [[[SGMainViewController alloc] init] autorelease];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
     [window addSubview:nvc.view];
     [window makeKeyAndVisible];
-    
+
 	return YES;
 }
 

@@ -60,6 +60,7 @@
 		4AED2973112124AE00672F12 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2972112124AE00672F12 /* CoreLocation.framework */; };
 		4AED2975112124AE00672F12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2974112124AE00672F12 /* MapKit.framework */; };
 		4AED2977112124AE00672F12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
+		4AF4C6CA11D28E12000F6788 /* Token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AF4C6C911D28E12000F6788 /* Token.plist */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		4AED2972112124AE00672F12 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4AED2974112124AE00672F12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4AED2976112124AE00672F12 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4AF4C6C911D28E12000F6788 /* Token.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Token.plist; sourceTree = "<group>"; };
 		4AF85B3C11A5E83400B97ADA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libSGMapKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSGMapKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +298,7 @@
 				4ACA1E7111D277D50072246E /* SGMapKitDemoApp-Info.plist */,
 				4ACA1E7211D277D50072246E /* SGMapKitDemoAppDelegate.h */,
 				4ACA1E7311D277D50072246E /* SGMapKitDemoAppDelegate.m */,
+				4AF4C6C911D28E12000F6788 /* Token.plist */,
 			);
 			path = DemoApp;
 			sourceTree = "<group>";
@@ -385,7 +388,7 @@
 			attributes = {
 				ORGANIZATIONNAME = SimpleGeo;
 			};
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapClient" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapKit" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 0867D691FE84028FC02AAC07 /* SGMapClient */;
@@ -406,6 +409,7 @@
 			files = (
 				4ACA1E7C11D277DC0072246E /* MainWindow.xib in Resources */,
 				4ACA1E9711D278FA0072246E /* SGMapKitDemoApp-Info.plist in Resources */,
+				4AF4C6CA11D28E12000F6788 /* Token.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapClient" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,

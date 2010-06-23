@@ -34,8 +34,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SGLayerMapView.h"
+
 @interface SGMainViewController : UIViewController {
 
+    @private
+    SGLayerMapView* mapView;
 }
 
 @end
