@@ -33,6 +33,9 @@
 //
 
 #import "SGDynamicPolylineView.h"
+
+#import "SGLocationService.h"
+#import "SGHistoryQuery.h"
 #import "SGHistoryLine.h"
 
 @implementation SGDynamicPolylineView

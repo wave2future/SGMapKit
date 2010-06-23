@@ -1,5 +1,5 @@
 //
-//  SGDynamicPolylineView.h
+//  SGMainViewController.m
 //  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -32,14 +32,8 @@
 //  Created by Derek Smith.
 //
 
-#import <MapKit/MapKit.h>
+#import "SGMainViewController.h"
 
-@class SGHistoryQuery;
-
-@interface SGDynamicPolylineView : MKPolylineView {
-
-    @private
-    SGHistoryQuery* historyQuery;
-}
+@implementation SGMainViewController
 
 @end

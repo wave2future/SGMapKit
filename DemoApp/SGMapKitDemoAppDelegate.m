@@ -1,5 +1,5 @@
 //
-//  SGDynamicPolylineView.h
+//  SGMapKitDemoAppDelegate.m
 //  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -32,14 +32,31 @@
 //  Created by Derek Smith.
 //
 
-#import <MapKit/MapKit.h>
+#import "SGMapKitDemoAppDelegate.h"
+#import "SGMainViewController.h"
 
-@class SGHistoryQuery;
+@implementation SGMapKitDemoAppDelegate
+@synthesize window;
 
-@interface SGDynamicPolylineView : MKPolylineView {
+#pragma mark -
+#pragma mark Application lifecycle
 
-    @private
-    SGHistoryQuery* historyQuery;
+- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions 
+{   
+    SGMainViewController* mvc = [[[SGMainViewController alloc] init] autorelease];
+    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+    [window addSubview:nvc.view];
+    [window makeKeyAndVisible];
+    
+	return YES;
 }
 
+- (void) dealloc
+{	
+ 	[window release];
+	[super dealloc];
+}
+
+
 @end
+

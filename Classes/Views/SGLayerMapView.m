@@ -33,6 +33,7 @@
 //
 
 #import "SGLayerMapView.h"
+#import "SGAdditions.h"
 #import "SGLatLonNearbyQuery.h"
 #import "SGHistoryLine.h"
 

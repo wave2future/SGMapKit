@@ -1,6 +1,6 @@
 //
-//  SGPointHelper.h
-//  SGClient
+//  SGPointHelper.m
+//  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,37 +32,60 @@
 //  Created by Derek Smith.
 //
 
-#import <MapKit/MapKit.h>
+#include "SGPointHelper.h"
 
-/*!
-* @function SGLonLatArrayToCLLocationCoordArray(NSArray*)
-* @abstract Converts a (lon, lat) array into the proper CoreLocation coordiante.
-* @param lonLatArray
-* @result A new array of CoreLocation coordinates.
-*/
-extern CLLocationCoordinate2D* SGLonLatArrayToCLLocationCoordArray(NSArray* lonLatArray);
+CLLocationCoordinate2D* SGLonLatArrayToCLLocationCoordArray(NSArray* lonLatArray) {
+    int count = [lonLatArray count];
+    CLLocationCoordinate2D* polyline = malloc(sizeof(CLLocationCoordinate2D)*count);
+    NSArray* coordinate = nil;
+    for(int i = 0; i < count; i++) {
+        coordinate = [lonLatArray objectAtIndex:i];
+        CLLocationCoordinate2D coord = {[[coordinate objectAtIndex:1] doubleValue], [[coordinate objectAtIndex:0] doubleValue]};
+        polyline[i] = coord;
+    }
+    
+    return polyline;
+}
 
-/*!
-* @function SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D*, int);
-* @abstract Creates an array of [lon,lat] objects from an array of CoreLocation
-* coordiantes.
-* @param coordArray
-* @param length
-* @result A new array of [lon,lat] arrays.
-*/
-extern NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray, int length);
+NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray, int length) {
+    NSMutableArray* coordinates = [NSMutableArray arrayWithCapacity:length];
+    for(int i = 0; i < length; i++) {
+        CLLocationCoordinate2D coord = coordArray[i];
+        [coordinates addObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble:coord.longitude],
+                                [NSNumber numberWithDouble:coord.latitude],
+                                nil]];
+    }
+    
+    return coordinates;
+}
 
 #if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-/*!
-* @function SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D*, int);
-* @abstract Creates an axis aligned bounding box for the given list of coordinates.
-* @see http://en.wikipedia.org/wiki/Minimum_bounding_box
-* @param coordArray
-* @param length
-* @result A MKMapRect representation of the AABB.
-*/
-extern MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length);
+MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length) {
+    
+    CLLocationDegrees bigLat, bigLon, smallLat, smallLon = 0;
+    for(int i = 0; i < length; i++) {
+        CLLocationDegrees lat = coordArray[i].latitude;
+        CLLocationDegrees lon = coordArray[i].longitude;
+        if(lat > bigLat)
+            bigLat = lat;
+        
+        if(lat < smallLat)
+            smallLat = lat;
+        
+        if(lon > bigLon)
+            bigLon = lon;
+        
+        if(lon < smallLon)
+            smallLon = lon;
+    }
+    
+    double width = sqrt(pow((bigLon - smallLon), 2));
+    double height= sqrt(pow((bigLat - smallLat), 2));
+    double x = bigLat - width;
+    double y = bigLon - height;
+    
+    return MKMapRectMake(x, y, width, height);
+}
 
 #endif
-

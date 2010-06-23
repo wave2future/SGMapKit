@@ -42,6 +42,21 @@
 		4A9B8D8911A738C00044D956 /* SGQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B8D7411A738C00044D956 /* SGQuery.h */; };
 		4A9B8D8A11A738C00044D956 /* SGRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B8D7511A738C00044D956 /* SGRecord.h */; };
 		4A9B8D8B11A738C00044D956 /* SGRecordAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B8D7611A738C00044D956 /* SGRecordAnnotation.h */; };
+		4ACA1E1311D26EA90072246E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2974112124AE00672F12 /* MapKit.framework */; };
+		4ACA1E1411D26EA90072246E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
+		4ACA1E1611D26EAC0072246E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2972112124AE00672F12 /* CoreLocation.framework */; };
+		4ACA1E1711D26EAD0072246E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		4ACA1E1811D26EB00072246E /* SGDynamicOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752DC011D18A3A005E55B9 /* SGDynamicOverlay.m */; };
+		4ACA1E1911D26EB10072246E /* SGDynamicPolylineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752CB211D1174A005E55B9 /* SGDynamicPolylineView.m */; };
+		4ACA1E1A11D26EB10072246E /* SGHistoryLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A68BA5E11CEDFDB0090C675 /* SGHistoryLine.m */; };
+		4ACA1E1B11D26EB30072246E /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
+		4ACA1E1C11D26EB40072246E /* SGPointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752D0D11D156BA005E55B9 /* SGPointHelper.m */; };
+		4ACA1E6111D2775A0072246E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ACA1E6011D2775A0072246E /* CoreGraphics.framework */; };
+		4ACA1E7911D277D90072246E /* SGMapKitDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA1E7311D277D50072246E /* SGMapKitDemoAppDelegate.m */; };
+		4ACA1E7B11D277DB0072246E /* SGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA1E7011D277D50072246E /* SGMainViewController.m */; };
+		4ACA1E7C11D277DC0072246E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACA1E6E11D277D50072246E /* MainWindow.xib */; };
+		4ACA1E7D11D277DD0072246E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA1E6D11D277D50072246E /* main.m */; };
+		4ACA1E9711D278FA0072246E /* SGMapKitDemoApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ACA1E7111D277D50072246E /* SGMapKitDemoApp-Info.plist */; };
 		4AED2973112124AE00672F12 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2972112124AE00672F12 /* CoreLocation.framework */; };
 		4AED2975112124AE00672F12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2974112124AE00672F12 /* MapKit.framework */; };
 		4AED2977112124AE00672F12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
@@ -86,6 +101,15 @@
 		4A9B8D7411A738C00044D956 /* SGQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQuery.h; sourceTree = "<group>"; };
 		4A9B8D7511A738C00044D956 /* SGRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRecord.h; sourceTree = "<group>"; };
 		4A9B8D7611A738C00044D956 /* SGRecordAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRecordAnnotation.h; sourceTree = "<group>"; };
+		4ACA1DFF11D26DDD0072246E /* SGMapKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGMapKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ACA1E6011D2775A0072246E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4ACA1E6D11D277D50072246E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4ACA1E6E11D277D50072246E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		4ACA1E6F11D277D50072246E /* SGMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMainViewController.h; sourceTree = "<group>"; };
+		4ACA1E7011D277D50072246E /* SGMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMainViewController.m; sourceTree = "<group>"; };
+		4ACA1E7111D277D50072246E /* SGMapKitDemoApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SGMapKitDemoApp-Info.plist"; sourceTree = "<group>"; };
+		4ACA1E7211D277D50072246E /* SGMapKitDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKitDemoAppDelegate.h; sourceTree = "<group>"; };
+		4ACA1E7311D277D50072246E /* SGMapKitDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMapKitDemoAppDelegate.m; sourceTree = "<group>"; };
 		4AED2972112124AE00672F12 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4AED2974112124AE00672F12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4AED2976112124AE00672F12 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -95,6 +119,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4ACA1DFD11D26DDD0072246E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ACA1E1311D26EA90072246E /* MapKit.framework in Frameworks */,
+				4ACA1E1411D26EA90072246E /* UIKit.framework in Frameworks */,
+				4ACA1E1611D26EAC0072246E /* CoreLocation.framework in Frameworks */,
+				4ACA1E1711D26EAD0072246E /* Foundation.framework in Frameworks */,
+				4ACA1E6111D2775A0072246E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AAC07E0554694100DB518D /* libSGMapKit.a */,
+				4ACA1DFF11D26DDD0072246E /* SGMapKitDemoApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +157,7 @@
 		0867D691FE84028FC02AAC07 /* SGMapClient */ = {
 			isa = PBXGroup;
 			children = (
+				4ACA1E6C11D277D50072246E /* DemoApp */,
 				4A9B8D6011A738C00044D956 /* SGClient */,
 				4A64B5F51120D55D00D4E22D /* build_mapkit */,
 				4A64A4CD1120967500D4E22D /* Classes */,
@@ -139,6 +177,7 @@
 				4AED2972112124AE00672F12 /* CoreLocation.framework */,
 				4AED2974112124AE00672F12 /* MapKit.framework */,
 				4AED2976112124AE00672F12 /* UIKit.framework */,
+				4ACA1E6011D2775A0072246E /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,6 +286,20 @@
 			path = iphonesimulator;
 			sourceTree = "<group>";
 		};
+		4ACA1E6C11D277D50072246E /* DemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				4ACA1E6D11D277D50072246E /* main.m */,
+				4ACA1E6E11D277D50072246E /* MainWindow.xib */,
+				4ACA1E6F11D277D50072246E /* SGMainViewController.h */,
+				4ACA1E7011D277D50072246E /* SGMainViewController.m */,
+				4ACA1E7111D277D50072246E /* SGMapKitDemoApp-Info.plist */,
+				4ACA1E7211D277D50072246E /* SGMapKitDemoAppDelegate.h */,
+				4ACA1E7311D277D50072246E /* SGMapKitDemoAppDelegate.m */,
+			);
+			path = DemoApp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -290,6 +343,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4ACA1DFE11D26DDD0072246E /* SGMapKitDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ACA1E0411D26DDD0072246E /* Build configuration list for PBXNativeTarget "SGMapKitDemoApp" */;
+			buildPhases = (
+				4ACA1DFB11D26DDD0072246E /* Resources */,
+				4ACA1DFC11D26DDD0072246E /* Sources */,
+				4ACA1DFD11D26DDD0072246E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SGMapKitDemoApp;
+			productName = SGMapKitDemoApp;
+			productReference = 4ACA1DFF11D26DDD0072246E /* SGMapKitDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D2AAC07D0554694100DB518D /* SGMapKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SGMapKit" */;
@@ -312,6 +382,9 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = SimpleGeo;
+			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SGMapClient" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -321,11 +394,39 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* SGMapKit */,
+				4ACA1DFE11D26DDD0072246E /* SGMapKitDemoApp */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		4ACA1DFB11D26DDD0072246E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ACA1E7C11D277DC0072246E /* MainWindow.xib in Resources */,
+				4ACA1E9711D278FA0072246E /* SGMapKitDemoApp-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		4ACA1DFC11D26DDD0072246E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ACA1E1811D26EB00072246E /* SGDynamicOverlay.m in Sources */,
+				4ACA1E1911D26EB10072246E /* SGDynamicPolylineView.m in Sources */,
+				4ACA1E1A11D26EB10072246E /* SGHistoryLine.m in Sources */,
+				4ACA1E1B11D26EB30072246E /* SGLayerMapView.m in Sources */,
+				4ACA1E1C11D26EB40072246E /* SGPointHelper.m in Sources */,
+				4ACA1E7911D277D90072246E /* SGMapKitDemoAppDelegate.m in Sources */,
+				4ACA1E7B11D277DB0072246E /* SGMainViewController.m in Sources */,
+				4ACA1E7D11D277DD0072246E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,7 +499,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -412,6 +513,60 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.2;
+			};
+			name = Release;
+		};
+		4ACA1E0211D26DDD0072246E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Resources/SGMapKit_Prefix.pch;
+				HEADER_SEARCH_PATHS = "SGClient/$(PLATFORM_NAME)/Headers/**";
+				INFOPLIST_FILE = "DemoApp/SGMapKitDemoApp-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "SGClient/$(PLATFORM_NAME)";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+					"-ObjC",
+					"-l",
+					SGClient,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SGMapKitDemoApp;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Debug;
+		};
+		4ACA1E0311D26DDD0072246E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "SGMapKitDemoApp-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SGMapKitDemoApp;
+				SDKROOT = iphoneos4.0;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -432,6 +587,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ACA1E0411D26DDD0072246E /* Build configuration list for PBXNativeTarget "SGMapKitDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ACA1E0211D26DDD0072246E /* Debug */,
+				4ACA1E0311D26DDD0072246E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

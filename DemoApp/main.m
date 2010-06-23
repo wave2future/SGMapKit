@@ -1,5 +1,5 @@
 //
-//  SGDynamicPolylineView.h
+//  main.m
 //  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -32,14 +32,12 @@
 //  Created by Derek Smith.
 //
 
-#import <MapKit/MapKit.h>
+#import <UIKit/UIKit.h>
 
-@class SGHistoryQuery;
-
-@interface SGDynamicPolylineView : MKPolylineView {
-
-    @private
-    SGHistoryQuery* historyQuery;
+int main(int argc, char *argv[]) {
+    
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    [pool release];
+    return retVal;
 }
-
-@end
