@@ -34,7 +34,7 @@
 
 #import "SGLayerMapView.h"
 #import "SGLatLonNearbyQuery.h"
-#import "SGPolyline.h"
+#import "SGHistoryLine.h"
 
 @interface SGLayerMapView (Private)
 
@@ -315,25 +315,6 @@
         [layerResponseIds removeObject:requestId];
         if(![layerResponseIds count])
             [self addNewRecordAnnotations];
-    } else if([historyResponseIds containsObject:requestId]) {
-        NSDictionary* newHistory = (NSDictionary*)objects;
-        SGRecord* record = nil;
-        NSString* historyRequestId = nil;
-        for(SGRecord* historyRecord in [historyRecords allValues]) {
-            historyRequestId = historyRecord.historyQuery.requestId;
-            if(historyRequestId && [historyRequestId isEqualToString:requestId])
-                record = historyRecord;
-        }
-
-        if(record) {
-            [record updateHistory:newHistory];
-            if(record.historyQuery.cursor)
-                [historyResponseIds addObject:[record getHistory:100 cursor:record.historyQuery.cursor]];
-            else
-                [self drawHistoryLine:record];    
-        }
-            
-        [historyResponseIds removeObject:requestId];
     }
 }
 
@@ -351,55 +332,13 @@
 
 - (BOOL) shouldUpdateMapWithRegion:(SGGeohash)region
 {
+    // We want to add some logic here so we aren't updating
+    // the map for everyone plain old region that comes in.
     return YES;
 }
 
 #pragma mark -
-#pragma mark Line painters 
-
-#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
-
-- (void) drawHistoryLine:(SGRecord*)record
-{
-    if(record) {
-        [historyRecords setObject:record forKey:[record recordId]];
-        MKPolyline* polyline = [record historyPolyline];
-        if(polyline)
-            [self addOverlay:polyline];
-        else
-            [historyResponseIds addObject:[record getHistory:100 cursor:nil]];
-    }
-}
-
-- (void) removeHistoryLine:(SGRecord*)record
-{
-    [self removeOverlay:[record historyPolyline]];
-    [historyRecords removeObjectForKey:[record recordId]];
-}
-
-- (void) redrawLine:(SGRecord*)record
-{
-    [self removeHistoryLine:record];
-    [self drawHistoryLine:record];
-}
-
-#endif
-
-#pragma mark -
 #pragma mark Helper methods 
-
-#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
-
-- (MKPolyline*) getPolyline:(SGRecord*)record
-{
-    MKPolyline* historyPolyline = [record historyPolyline];
-    if(historyPolyline)
-        historyPolyline = [SGPolyline polylineWithPoints:historyPolyline.points count:historyPolyline.pointCount];
-        
-    return historyPolyline;
-}
-
-#endif
  
 - (void) addNewRecordAnnotations
 {

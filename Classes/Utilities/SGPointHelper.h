@@ -1,6 +1,6 @@
 //
-//  SGPolyline.h
-//  SGStalker
+//  SGPointHelper.h
+//  SGClient
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -34,25 +34,35 @@
 
 #import <MapKit/MapKit.h>
 
+/*!
+* @function SGLonLatArrayToCLLocationCoordArray(NSArray*)
+* @abstract Converts a (lon, lat) array into the proper CoreLocation coordiante.
+* @param lonLatArray
+* @result A new array of CoreLocation coordinates.
+*/
+extern CLLocationCoordinate2D* SGLonLatArrayToCLLocationCoordArray(NSArray* lonLatArray);
+
+/*!
+* @function SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D*, int);
+* @abstract Creates an array of [lon,lat] objects from an array of CoreLocation
+* coordiantes.
+* @param coordArray
+* @param length
+* @result A new array of [lon,lat] arrays.
+*/
+extern NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray, int length);
+
 #if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-#import "SGRecordAnnotation.h"
-
 /*!
-* @class SGPolyline
-* @abstract A simple subclass of MKPolyline.
+* @function SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D*, int);
+* @abstract Creates an axis aligned bounding box for the given list of coordinates.
+* @see http://en.wikipedia.org/wiki/Minimum_bounding_box
+* @param coordArray
+* @param length
+* @result A MKMapRect representation of the AABB.
 */
-@interface SGPolyline : MKPolyline {
-
-    id<SGRecordAnnotation> recordAnnotation;
-}
-
-/*!
-* @property
-* @abstract The owner of the polyline.
-*/
-@property (nonatomic, retain) id<SGRecordAnnotation> recordAnnotation;
-
-@end
+extern MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length);
 
 #endif
+

@@ -1,6 +1,6 @@
 //
-//  SGHistoryQuery.h
-//  SGClient
+//  SGDynamicOverlay.h
+//  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -33,66 +33,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGQuery.h"
-#import "SGRecordAnnotation.h"
 
-/*!
-* @class SGHistoryQuery 
-* @abstract A query object that defines common properties in
-* order to provide all search filters for a history request.
-*/
-@interface SGHistoryQuery : NSObject <SGQuery> {
 
-    NSString* cursor;
-    NSString* recordId;
-    NSString* layer;
-    
-    NSString* requestId;
-    int limit;
+@interface SGDynamicOverlay : NSObject {
+
+    @private
+    NSLock* lock;
 }
 
-/*!
-* @property
-* @abstract The cursor that is obtained from a previous nearby query.
-* @discussion This property is not required in order to fulfill a
-* successful query. It is only used for paginiation.
-*/
-@property (nonatomic, retain) NSString* cursor;
-
-/*!
-* @property
-* @abstract The record id to obtain the history from.
-*/
-@property (nonatomic, retain) NSString* recordId;
-
-/*!
-* @property
-* @abstract The layer where the record lives.
-*/
-@property (nonatomic, retain) NSString* layer;
-
-/*!
-* @property
-* @abstract The amount of historical events to be returned.
-* The default is 10.
-*/
-@property (nonatomic, assign) int limit;
-
-/*!
- * @property
- * @abstract The request identifier that was used to iniate
- * this request.
- * @discussion This value is set when the nearby request
- * is sent through the @link //simplegeo/ooc/cl/SGLocationService SGLocationService @/link.
- */
-@property (nonatomic, retain) NSString* requestId;
-
-/*!
-* @method initWithRecord:
-* @abstract ￼Initializes a history query from a record.
-* @param record ￼
-* @result ￼
-*/
-- (id) initWithRecord:(id<SGRecordAnnotation>)record;
+- (void) lock;
+- (void) unlock;
 
 @end

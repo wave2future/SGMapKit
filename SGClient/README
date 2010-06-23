@@ -1,9 +1,33 @@
-SGClient v0.3.9
+SGClient v0.4.0
 
 ================================================================================
 ABSTRACT:
 
 Interfaces with the SimpleGeo API.
+
+================================================================================
+DISCUSSION:
+
+Along with an Objective-C client, this library also provides a nice couple of
+features that might be useful to the common iPhone developer.
+
+The SGLocationManager is a wrapper class around the CLLocationManager class
+that allows callback notifications for region entry and exit. SimpleGeo offers
+a service called PushPin which can return a set of polygons for a given
+coordinate. Using the SGLocationManager class will give developers the
+ability to be notified when a user exists or enters a new region.
+
+With the release of the iPhone OS 4.0, applications can now gather and update
+end-user records while running in the background. The SGLocationService class
+offers the ability to register records that can be tracked in the background.
+What happens is that everytime the location is updated, the tracked records
+will be updated automatically. Updates can also be cached when the application
+is moved back into the foreground. See BACKGOUND_LOCATION.markdown for
+further instruction.
+
+Note: Running the SGClientTests target will create hundreds of requests that will
+be attributed to your account with SimpleGeo. You shouldn't have a need to run 
+them.
 
 ================================================================================
 USAGE:
@@ -21,6 +45,7 @@ BUILD REQUIREMENTS:
 iPhone SDK 3.1
 
 Frameworks
+- MapKit
 - CoreLocation
 - Foundation
 - UIKit
@@ -96,9 +121,42 @@ Headers
     SGCacheHandler
     Handles manipulations of cached files.
     
-    SGCommitLog
+    SGCommitLog.h
     An attempt at creating a commit log that can be used
     to replay committed data.
+    
+    SGLocationManager.h
+    A wrapper around the CLLocationManager that provides
+    notifications for region exit and entry.
+    
+    SGQuery.h
+    A query object the encompasses holds onto information 
+    such as response cursor id for pagination and the most
+    recent request Iid.
+    
+    SGNearbyQuery.h
+    A subclass of SGQuery that defines the information required
+    to send a nearby request to SimpleGeo.
+    
+    SGGeohashNearbyQuery.h
+    A subclas of SGNearbyQuery that uses a geohash in order to 
+    accomplish the nearby query.
+    
+    SGLatLonNearbyQuery.h
+    A subclass of SGLatLonNearbyQuery that uses a lat/lon coordinate
+    in order to accomplish the nearby query.
+    
+    SGHistoryQuery.h
+    A subclass of SGQuery that defines information required to 
+    send a nearby history request to SimpleGeo.
+    
+    SGPointHelper.h
+    Helps convert lists of CLLocation2DCoordinates to GeoJSON
+    point geometries and vice-versa.
+    
+    SGGeoJSON.h
+    Helps initialize simple GeoJSON objects (e.g. geometry
+    collection).
 
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:

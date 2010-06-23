@@ -1,5 +1,5 @@
 //
-//  SGPolyline.m
+//  SGHistoryLine.h
 //  SGStalker
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -32,12 +32,29 @@
 //  Created by Derek Smith.
 //
 
-#import "SGPolyline.h"
+#import <MapKit/MapKit.h>
 
 #if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-@implementation SGPolyline
-@synthesize recordAnnotation;
+#import "SGDynamicOverlay.h"
+#import "SGRecordAnnotation.h"
+
+/*!
+* @class SGHistoryLine
+* @abstract
+*/
+@interface SGHistoryLine : SGDynamicOverlay {
+
+    id<SGHistoricRecordAnnoation> recordAnnotation;
+}
+
+/*!
+* @property
+* @abstract The owner of the polyline.
+*/
+@property (nonatomic, readonly) id<SGHistoricRecordAnnoation> recordAnnotation;
+
+- (id) initWithRecordAnnoation:(id<SGHistoricRecordAnnoation>)annotation;
 
 @end
 

@@ -42,15 +42,15 @@
 
 /*!
 * @method locationManager:didEnterRegions:
-* @param locationManager ￼
-* @param regions ￼
+* @param locationManager ￼The SGLocationManager that created the update
+* @param regions ￼the list of polygons that were recently entered
 */
 - (void) locationManager:(SGLocationManager*)locationManager didEnterRegions:(NSArray*)regions;
 
 /*!
 * @method locationManager:didLeaveRegions: ￼
-* @param locationManager ￼
-* @param regions ￼
+* @param locationManager ￼The SGLocationManager that created the update
+* @param regions the list of polygons that wre recenetly exited
 */
 - (void) locationManager:(SGLocationManager*)locationManager didLeaveRegions:(NSArray*)regions;
 

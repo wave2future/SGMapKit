@@ -1,5 +1,5 @@
 //
-//  SGHistoryQuery.h
+//  SGPointHelper.h
 //  SGClient
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -32,67 +32,37 @@
 //  Created by Derek Smith.
 //
 
-#import <Foundation/Foundation.h>
-#import "SGQuery.h"
-#import "SGRecordAnnotation.h"
+#import <MapKit/MapKit.h>
 
 /*!
-* @class SGHistoryQuery 
-* @abstract A query object that defines common properties in
-* order to provide all search filters for a history request.
+* @function SGLonLatArrayToCLLocationCoordArray(NSArray*)
+* @abstract Converts a (lon, lat) array into the proper CoreLocation coordiante.
+* @param lonLatArray
+* @result A new array of CoreLocation coordinates.
 */
-@interface SGHistoryQuery : NSObject <SGQuery> {
-
-    NSString* cursor;
-    NSString* recordId;
-    NSString* layer;
-    
-    NSString* requestId;
-    int limit;
-}
+extern CLLocationCoordinate2D* SGLonLatArrayToCLLocationCoordArray(NSArray* lonLatArray);
 
 /*!
-* @property
-* @abstract The cursor that is obtained from a previous nearby query.
-* @discussion This property is not required in order to fulfill a
-* successful query. It is only used for paginiation.
+* @function SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D*, int);
+* @abstract Creates an array of [lon,lat] objects from an array of CoreLocation
+* coordiantes.
+* @param coordArray
+* @param length
+* @result A new array of [lon,lat] arrays.
 */
-@property (nonatomic, retain) NSString* cursor;
+extern NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray, int length);
+
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
 /*!
-* @property
-* @abstract The record id to obtain the history from.
+* @function SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D*, int);
+* @abstract Creates an axis aligned bounding box for the given list of coordinates.
+* @see http://en.wikipedia.org/wiki/Minimum_bounding_box
+* @param coordArray
+* @param length
+* @result A MKMapRect representation of the AABB.
 */
-@property (nonatomic, retain) NSString* recordId;
+extern MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length);
 
-/*!
-* @property
-* @abstract The layer where the record lives.
-*/
-@property (nonatomic, retain) NSString* layer;
+#endif
 
-/*!
-* @property
-* @abstract The amount of historical events to be returned.
-* The default is 10.
-*/
-@property (nonatomic, assign) int limit;
-
-/*!
- * @property
- * @abstract The request identifier that was used to iniate
- * this request.
- * @discussion This value is set when the nearby request
- * is sent through the @link //simplegeo/ooc/cl/SGLocationService SGLocationService @/link.
- */
-@property (nonatomic, retain) NSString* requestId;
-
-/*!
-* @method initWithRecord:
-* @abstract ￼Initializes a history query from a record.
-* @param record ￼
-* @result ￼
-*/
-- (id) initWithRecord:(id<SGRecordAnnotation>)record;
-
-@end

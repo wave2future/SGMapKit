@@ -1,6 +1,6 @@
 //
-//  SGHistoryQuery.h
-//  SGClient
+//  SGHistoryLine.m
+//  SGStalker
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,67 +32,52 @@
 //  Created by Derek Smith.
 //
 
-#import <Foundation/Foundation.h>
-#import "SGQuery.h"
-#import "SGRecordAnnotation.h"
+#import "SGHistoryLine.h"
 
-/*!
-* @class SGHistoryQuery 
-* @abstract A query object that defines common properties in
-* order to provide all search filters for a history request.
-*/
-@interface SGHistoryQuery : NSObject <SGQuery> {
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-    NSString* cursor;
-    NSString* recordId;
-    NSString* layer;
+@implementation SGHistoryLine
+@synthesize recordAnnotation;
+
+- (id) initWithRecordAnnoation:(id<SGHistoricRecordAnnoation>)annotation
+{
+    if(self = [super init]) {
+        recordAnnotation = annotation;
+    }
     
-    NSString* requestId;
-    int limit;
+    return self;
 }
 
-/*!
-* @property
-* @abstract The cursor that is obtained from a previous nearby query.
-* @discussion This property is not required in order to fulfill a
-* successful query. It is only used for paginiation.
-*/
-@property (nonatomic, retain) NSString* cursor;
+- (CLLocationCoordinate2D) coordinate
+{
+    return recordAnnotation.coordinate;
+}
 
-/*!
-* @property
-* @abstract The record id to obtain the history from.
-*/
-@property (nonatomic, retain) NSString* recordId;
+- (MKMapRect) boundingMapRect
+{
+    MKMapRect mapRect;
+    // We create the rectangle based on history endpoints.
+    // At this point, we can assume that the annotation
+    // can respond to the history selector.
+    NSDictionary* history = [recordAnnotation history];
+    if(history) {
+        NSArray* geometryCollection = [history geometries];
+        NSMutableArray* lonLatCoords = [NSMutableArray array];
+        for(NSDictionary* geometry in geometryCollection)
+            [lonLatCoords addObject:[geometry coordinates]];
 
-/*!
-* @property
-* @abstract The layer where the record lives.
-*/
-@property (nonatomic, retain) NSString* layer;
+        mapRect = SGGetAxisAlignedBoundingBox(SGLonLatArrayToCLLocationCoordArray(lonLatCoords),
+                                              [lonLatCoords count]);
+    }
+    
+    return mapRect;
+}
 
-/*!
-* @property
-* @abstract The amount of historical events to be returned.
-* The default is 10.
-*/
-@property (nonatomic, assign) int limit;
-
-/*!
- * @property
- * @abstract The request identifier that was used to iniate
- * this request.
- * @discussion This value is set when the nearby request
- * is sent through the @link //simplegeo/ooc/cl/SGLocationService SGLocationService @/link.
- */
-@property (nonatomic, retain) NSString* requestId;
-
-/*!
-* @method initWithRecord:
-* @abstract ￼Initializes a history query from a record.
-* @param record ￼
-* @result ￼
-*/
-- (id) initWithRecord:(id<SGRecordAnnotation>)record;
+- (void) dealloc
+{
+    [super dealloc];
+}
 
 @end
+
+#endif

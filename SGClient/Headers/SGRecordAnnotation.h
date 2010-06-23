@@ -110,3 +110,28 @@
 - (void) updateRecordWithGeoJSONObject:(NSDictionary*)dictionary;
 
 @end
+
+/*!
+* @protocol SGHistoricalRecordAnnoation
+* @abstract ￼
+* @discussion 
+*/
+@protocol SGHistoricRecordAnnoation <SGRecordAnnotation>
+
+/*!
+* @method updateHistory:
+* @abstract ￼
+* @discussion ￼
+* @param history ￼
+*/
+- (void) updateHistory:(NSDictionary*)history;
+
+/*!
+ * @method  history
+ * @abstract ￼
+ * @discussion ￼
+ * @result ￼
+ */
+- (NSDictionary*) history;
+
+@end
