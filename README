@@ -1,4 +1,4 @@
-SGMapKit v0.4.0
+SGMapKit v0.4.1
 
 ================================================================================
 ABSTRACT:
@@ -46,18 +46,23 @@ Headers
     Defines a subclass of MKMapView that will retrieve SGRecordAnnotations
     when the map position is updated.
 
-    SGPolyline.h
-    A simple subclass of MKPolyline that maps an annotation
-    back to a polyline.
+    SGRecordline.h
+    An implementation of MKOverlay that creates MKMapPoints from a records
+    history.
     
+    SGPointHelper.h
+    Converts lon/lat arrays into CLLocationCoordinate2D arrays
+    and vice-versa.
     
-build_mapkit
-A BASH script that builds the MapKit static library and
-its documentation.
-	
+    SGDynamicPolylineView.h
+    A subclass of MKOverlayView that redraws SGRecordLines.
+    	
 	
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
+Versions 0.4.1
+- Created an overlay view that will redraw itself properly
+
 Versions 0.4.0
 - Added the ability to draw a MKPolyline for a given SGRecord
 - Made the SGLayerMapView compatable with iPhone OS 4.0
