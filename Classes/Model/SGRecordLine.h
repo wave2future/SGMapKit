@@ -41,7 +41,9 @@
 
 /*!
 * @class SGRecordLine
-* @abstract
+* @abstract Generates points from a
+* @link //simplegeo/ooc/cl/SGHistoricRecordAnnotation SGHistoricRecordAnnotation @/link
+* which can be used for dispaly in a MKMapView.
 */
 @interface SGRecordLine : NSObject <MKOverlay> {
 
@@ -58,7 +60,7 @@
 
 /*!
 * @property
-* @abstract The owner of the polyline.
+* @abstract
 */
 @property (nonatomic, readonly) id<SGHistoricRecordAnnoation> recordAnnotation;
 
@@ -70,14 +72,13 @@
 
 /*!
 * @property
-* @abstract
+* @abstract The number of points
 */
 @property (readonly) NSUInteger pointCount;
 
 /*!
 * @method initWithRecordAnnoation:
 * @abstract ￼
-* @discussion ￼
 * @param annotation ￼
 * @result ￼
 */
@@ -85,8 +86,7 @@
 
 /*!
 * @method addCoordinates:count:
-* @abstract ￼
-* @discussion ￼
+* @abstract ￼Addes a set of coordinates to the line.
 * @param coords ￼
 * @param count ￼
 * @result ￼
@@ -95,8 +95,7 @@
 
 /*!
 * @method addCoordinate:
-* @abstract ￼
-* @discussion ￼
+* @abstract ￼Adds a coordinate to the line.
 * @param coord ￼
 * @result ￼
 */
@@ -104,22 +103,20 @@
 
 /*!
 * @method reloadAnnotation
-* @abstract ￼
-* @discussion ￼
+* @abstract ￼Reloads all @link points points @/link from the
+* @link recordAnnotation recordAnnotation @/link.
 */
 - (void) reloadAnnotation;
 
 /*!
 * @method lock
-* @abstract ￼
-* @discussion ￼
+* @abstract ￼Lock for reading
 */
 - (void) lock;
 
 /*!
 * @method unlock
-* @abstract ￼
-* @discussion ￼
+* @abstract Unlock from reading
 */
 - (void) unlock;
 

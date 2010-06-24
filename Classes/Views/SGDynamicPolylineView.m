@@ -98,7 +98,7 @@ static BOOL lineIntersectsRect(MKMapPoint p0, MKMapPoint p1, MKMapRect r) {
     return MKMapRectIntersectsRect(r, r2);
 }
 
-#define MIN_POINT_DELTA 5.0
+
 
 - (CGPathRef) createPathForPoints:(MKMapPoint *)points
                       pointCount:(NSUInteger)pointCount
@@ -111,7 +111,8 @@ static BOOL lineIntersectsRect(MKMapPoint p0, MKMapPoint p1, MKMapRect r) {
     CGMutablePathRef path = NULL;
     
     BOOL needsMove = YES;
-    
+
+#define MIN_POINT_DELTA 5.0
 #define POW2(a) ((a) * (a))
     
     double minPointDelta = MIN_POINT_DELTA / zoomScale;

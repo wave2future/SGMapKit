@@ -34,6 +34,11 @@
 
 #import <MapKit/MapKit.h>
 
+/*!
+* @class SGDynamicPolylineView 
+* @abstract An overlay view that redraws itself properly when
+* the overlay points change.
+*/
 @interface SGDynamicPolylineView : MKOverlayView {
 
     UIColor* fillColor;
@@ -42,10 +47,28 @@
     CGLineJoin lineJoin;
 }
 
+/*!
+* @property
+* @abstract
+*/
 @property (nonatomic, retain) UIColor* fillColor;
-@property (nonatomic, retain) UIColor* strokeColor;
-@property (nonatomic, assign) CGLineCap lineCap;
-@property (nonatomic, assign) CGLineJoin lineJoin;
 
+/*!
+* @property
+* @abstract
+*/
+@property (nonatomic, retain) UIColor* strokeColor;
+
+/*!
+* @property
+* @abstract
+*/
+@property (nonatomic, assign) CGLineCap lineCap;
+
+/*!
+* @property
+* @abstract
+*/
+@property (nonatomic, assign) CGLineJoin lineJoin;
 
 @end

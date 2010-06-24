@@ -45,7 +45,7 @@
 * It is recommended that this class be subclassed because most records stored in SimpleGeo will have user-defined properties. See 
 * @link //simplegeo/ooc/cl/SGGeoJSONEncoder SGGeoJSONEncoder @/link.
 */
-@interface SGRecord : NSObject <SGRecordAnnotation>
+@interface SGRecord : NSObject <SGRecordAnnotation, SGHistoricRecordAnnoation>
 {
     NSString* recordId;
  
