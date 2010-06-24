@@ -33,18 +33,29 @@
 //
 
 #import "SGDynamicPolylineView.h"
-
 #import "SGLocationService.h"
 #import "SGHistoryQuery.h"
-#import "SGHistoryLine.h"
+#import "SGRecordLine.h"
+
+@interface SGDynamicPolylineView (Private)
+
+- (CGPathRef) createPathForPoints:(MKMapPoint *)points
+                       pointCount:(NSUInteger)pointCount
+                         clipRect:(MKMapRect)mapRect
+                        zoomScale:(MKZoomScale)zoomScale;
+
+@end
 
 @implementation SGDynamicPolylineView
+@synthesize fillColor, strokeColor, lineCap, lineJoin;
 
-- (id) initWithPolyline:(MKPolyline*)newPolyline
+- (id) initWithOverlay:(id <MKOverlay>)overlay
 {
-    if(self = [super initWithPolyline:newPolyline]) {
-        id<SGHistoricRecordAnnoation> annoation = ((SGHistoryLine*)newPolyline).recordAnnotation;
-        historyQuery = [[SGHistoryQuery alloc] initWithRecord:annoation];
+    if(self = [super initWithOverlay:overlay]) {
+        fillColor = [UIColor redColor];
+        strokeColor = [UIColor redColor];
+        lineCap = kCGLineCapRound;
+        lineJoin = kCGLineJoinRound;
     }
     
     return self;
@@ -53,49 +64,102 @@
 #pragma mark -
 #pragma mark MKOverlayView methods
 
-- (BOOL) canDrawMapRect:(MKMapRect)mapRect zoomScale:(MKZoomScale)zoomScale
+- (void) drawMapRect:(MKMapRect)mapRect zoomScale:(MKZoomScale)zoomScale inContext:(CGContextRef)context
 {
-    return historyQuery.requestId == nil ? YES : NO;
-}
-
-- (void) createPath
-{
-    // Maybe semaphores are not required here...
-    SGHistoryLine* historyLine = (SGHistoryLine*)self.overlay;
+    SGRecordLine* historyLine = (SGRecordLine*)self.overlay;
     [historyLine lock];
-    
-    // TODO: set the path
-    
+    CGFloat lineWidth = MKRoadWidthAtZoomScale(zoomScale);
+    MKMapRect clipRect = MKMapRectInset(mapRect, -lineWidth, -lineWidth);
+    CGPathRef path = [self createPathForPoints:historyLine.points
+                                    pointCount:historyLine.pointCount
+                                      clipRect:clipRect
+                                     zoomScale:zoomScale];
     [historyLine unlock];
-}
-
-#pragma mark -
-#pragma mark SGLocationService delegate methods 
-
-- (void) locationService:(SGLocationService*)service succeededForResponseId:(NSString*)requestId responseObject:(NSObject*)objects
-{
-    if(historyQuery && [historyQuery.requestId isEqualToString:requestId]) {
-        NSDictionary* newHistory = (NSDictionary*)objects;        
-        SGHistoryLine* historyLine = (SGHistoryLine*)self.polyline;
-        [historyLine.recordAnnotation updateHistory:newHistory];
-        if(historyQuery.cursor)
-            [[SGLocationService sharedLocationService] history:historyQuery];
-        else
-            [self invalidatePath];
-        
-        historyQuery.requestId = nil;
+    
+    if(path) {
+        CGContextAddPath(context, path);
+        CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
+        CGContextSetFillColorWithColor(context, [strokeColor CGColor]);
+        CGContextSetLineJoin(context, lineJoin);
+        CGContextSetLineCap(context, lineCap);
+        CGContextSetLineWidth(context, lineWidth);
+        CGContextStrokePath(context);
+        CGPathRelease(path);
     }
 }
 
-- (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error
-{
-    if(historyQuery && [historyQuery.requestId isEqualToString:requestId])
-        historyQuery.requestId = nil;
+static BOOL lineIntersectsRect(MKMapPoint p0, MKMapPoint p1, MKMapRect r) {
+    double minX = MIN(p0.x, p1.x);
+    double minY = MIN(p0.y, p1.y);
+    double maxX = MAX(p0.x, p1.x);
+    double maxY = MAX(p0.y, p1.y);
+    
+    MKMapRect r2 = MKMapRectMake(minX, minY, maxX - minX, maxY - minY);
+    return MKMapRectIntersectsRect(r, r2);
+}
+
+#define MIN_POINT_DELTA 5.0
+
+- (CGPathRef) createPathForPoints:(MKMapPoint *)points
+                      pointCount:(NSUInteger)pointCount
+                        clipRect:(MKMapRect)mapRect
+                       zoomScale:(MKZoomScale)zoomScale
+{    
+    if (pointCount < 2)
+        return NULL;
+    
+    CGMutablePathRef path = NULL;
+    
+    BOOL needsMove = YES;
+    
+#define POW2(a) ((a) * (a))
+    
+    double minPointDelta = MIN_POINT_DELTA / zoomScale;
+    double c2 = POW2(minPointDelta);
+    
+    MKMapPoint point, lastPoint = points[0];
+    NSUInteger i;
+    for (i = 1; i < pointCount - 1; i++) {
+        point = points[i];
+        double a2b2 = POW2(point.x - lastPoint.x) + POW2(point.y - lastPoint.y);
+        if (a2b2 >= c2) {
+            if (lineIntersectsRect(point, lastPoint, mapRect)) {
+                if (!path) 
+                    path = CGPathCreateMutable();
+                if (needsMove) {
+                    CGPoint lastCGPoint = [self pointForMapPoint:lastPoint];
+                    CGPathMoveToPoint(path, NULL, lastCGPoint.x, lastCGPoint.y);
+                }
+                CGPoint cgPoint = [self pointForMapPoint:point];
+                CGPathAddLineToPoint(path, NULL, cgPoint.x, cgPoint.y);
+            } else {
+                needsMove = YES;
+            }
+            lastPoint = point;
+        }
+    }
+    
+#undef POW2
+    
+    point = points[pointCount - 1];
+    if (lineIntersectsRect(lastPoint, point, mapRect)) {
+        if (!path)
+            path = CGPathCreateMutable();
+        if (needsMove) {
+            CGPoint lastCGPoint = [self pointForMapPoint:lastPoint];
+            CGPathMoveToPoint(path, NULL, lastCGPoint.x, lastCGPoint.y);
+        }
+        CGPoint cgPoint = [self pointForMapPoint:point];
+        CGPathAddLineToPoint(path, NULL, cgPoint.x, cgPoint.y);
+    }
+    
+    return path;
 }
 
 - (void) dealloc
 {
-    [historyQuery release];
+    [fillColor release];
+    [strokeColor release];
     [super dealloc];
 }
 

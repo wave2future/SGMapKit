@@ -34,12 +34,18 @@
 
 #import <MapKit/MapKit.h>
 
-@class SGHistoryQuery;
+@interface SGDynamicPolylineView : MKOverlayView {
 
-@interface SGDynamicPolylineView : MKPolylineView {
-
-    @private
-    SGHistoryQuery* historyQuery;
+    UIColor* fillColor;
+    UIColor* strokeColor;
+    CGLineCap lineCap;
+    CGLineJoin lineJoin;
 }
+
+@property (nonatomic, retain) UIColor* fillColor;
+@property (nonatomic, retain) UIColor* strokeColor;
+@property (nonatomic, assign) CGLineCap lineCap;
+@property (nonatomic, assign) CGLineJoin lineJoin;
+
 
 @end

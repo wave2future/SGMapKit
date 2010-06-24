@@ -33,13 +33,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "SGLayerMapView.h"
+#import "SGDynamicPolylineView.h"
 
 @interface SGMainViewController : UIViewController {
 
     @private
     SGLayerMapView* mapView;
+    NSTimer* updatePointTimer;
+    SGRecord* trackedRecord;
+    SGDynamicPolylineView* overlayView;
 }
+
+- (id) initWithLayer:(NSString*)layer;
 
 @end

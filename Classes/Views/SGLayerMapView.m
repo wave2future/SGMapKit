@@ -35,7 +35,7 @@
 #import "SGLayerMapView.h"
 #import "SGAdditions.h"
 #import "SGLatLonNearbyQuery.h"
-#import "SGHistoryLine.h"
+#import "SGRecordLine.h"
 
 @interface SGLayerMapView (Private)
 
@@ -360,7 +360,6 @@
             // or registered with the map
             CGPoint recordViewPoint;
             for(id<SGRecordAnnotation> annotatedRecord in annotations) {
-                
                 recordViewPoint = [self convertCoordinate:annotatedRecord.coordinate toPointToView:self];
                 
                 if(recordViewPoint.x > point.x || recordViewPoint.x < -leeway  ||

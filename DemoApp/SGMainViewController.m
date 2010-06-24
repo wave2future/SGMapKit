@@ -33,24 +33,46 @@
 //
 
 #import "SGMainViewController.h"
+#import "SGDynamicPolylineView.h"
+#import "SGRecordLine.h"
 
-@interface SGMainViewController (Private)
+@interface SGMainViewController (Private) <MKMapViewDelegate, SGLocationServiceDelegate>
+
+- (void) startTimer;
+- (void) stopTimer;
 
 - (void) addLine;
+- (void) removeLine;
 
 @end
 
 @implementation SGMainViewController
 
-- (id) init
+- (id) initWithLayer:(NSString*)layer
 {
     if(self = [super init]) {
         self.title = @"SGMapKit Demo";
+        
         mapView = [[SGLayerMapView alloc] initWithFrame:CGRectZero];
+        mapView.delegate = self;
+
+        updatePointTimer = nil;
+        trackedRecord = [[SGRecord alloc] init];
+        trackedRecord.recordId = @"sg_mapkit_demo_app_tracked_record";
+        trackedRecord.layer = layer;
+        trackedRecord.latitude = 0.0;
+        trackedRecord.longitude = 0.0;
+        
+        [[SGLocationService sharedLocationService] addDelegate:self];
     }
-    
+
     return self;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark UIViewController methods 
+//////////////////////////////////////////////////////////////////////////////////////////////// 
 
 - (void) viewDidLoad
 {
@@ -58,8 +80,82 @@
     [self.view addSubview:mapView];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self addLine];    
+    [self startTimer];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self removeLine];
+    [self stopTimer];
+}
+
+- (void) startTimer
+{
+    if(!updatePointTimer) {
+        updatePointTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0
+                                                   target:self
+                                                 selector:@selector(updateRecord)
+                                                 userInfo:nil
+                                                   repeats:YES] retain];
+    }
+}
+
+- (void) stopTimer
+{
+    if(updatePointTimer) {
+        [updatePointTimer invalidate];
+        [updatePointTimer release];
+        updatePointTimer = nil;
+    }
+}
+
+- (void) addLine
+{
+    SGLocationService* locationService = [SGLocationService sharedLocationService];
+    [locationService deleteRecordAnnotation:trackedRecord];
+    [locationService updateRecordAnnotation:trackedRecord];
+    SGRecordLine* historyLine = [[SGRecordLine alloc] initWithRecordAnnoation:trackedRecord];
+    [mapView addOverlay:historyLine];
+}
+
+- (void) updateRecord
+{
+    if(overlayView) {
+        CLLocationCoordinate2D coord = {trackedRecord.latitude+1.0, trackedRecord.longitude-1.0};
+        [trackedRecord updateCoordinate:coord];
+        MKMapRect mapRect = [(SGRecordLine*)overlayView.overlay addCoordinate:coord];
+        if(!MKMapRectIsNull(mapRect))
+            [overlayView setNeedsDisplayInMapRect:mapRect];
+    }
+}
+
+- (void) removeLine
+{
+    [mapView removeOverlays:mapView.overlays];
+    [[SGLocationService sharedLocationService] deleteRecordAnnotation:trackedRecord];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark MKMapView delegate methods 
+//////////////////////////////////////////////////////////////////////////////////////////////// 
+
+- (MKOverlayView*) mapView:(MKMapView*)mv viewForOverlay:(id<MKOverlay>)overlay
+{
+    MKPolyline* polyline = (MKPolyline*)overlay;
+    overlayView = [[SGDynamicPolylineView alloc] initWithOverlay:polyline];
+    return overlayView;
+}
+
 - (void) dealloc
 {
+    [self removeLine];
+    [self stopTimer];
     [mapView release];
     [super dealloc];
 }

@@ -52,7 +52,7 @@
     SGOAuth* oAuth = [[SGOAuth alloc] initWithKey:[token objectForKey:@"key"] secret:[token objectForKey:@"secret"]];        
     locationService.HTTPAuthorizer = oAuth;
     
-    SGMainViewController* mvc = [[[SGMainViewController alloc] init] autorelease];
+    SGMainViewController* mvc = [[[SGMainViewController alloc] initWithLayer:layer] autorelease];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
     [window addSubview:nvc.view];
     [window makeKeyAndVisible];

@@ -10,14 +10,12 @@
 		4A64A4D41120967500D4E22D /* SGLayerMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4CF1120967500D4E22D /* SGLayerMapView.h */; };
 		4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
 		4A64A4D61120967500D4E22D /* SGMapKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */; };
-		4A68BA6011CEDFDB0090C675 /* SGHistoryLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A68BA5E11CEDFDB0090C675 /* SGHistoryLine.m */; };
-		4A68BA6111CEDFDB0090C675 /* SGHistoryLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A68BA5F11CEDFDB0090C675 /* SGHistoryLine.h */; };
+		4A68BA6011CEDFDB0090C675 /* SGRecordLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A68BA5E11CEDFDB0090C675 /* SGRecordLine.m */; };
+		4A68BA6111CEDFDB0090C675 /* SGRecordLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A68BA5F11CEDFDB0090C675 /* SGRecordLine.h */; };
 		4A752CB311D1174A005E55B9 /* SGDynamicPolylineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A752CB111D1174A005E55B9 /* SGDynamicPolylineView.h */; };
 		4A752CB411D1174A005E55B9 /* SGDynamicPolylineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752CB211D1174A005E55B9 /* SGDynamicPolylineView.m */; };
 		4A752D0E11D156BA005E55B9 /* SGPointHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A752D0C11D156BA005E55B9 /* SGPointHelper.h */; };
 		4A752D0F11D156BA005E55B9 /* SGPointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752D0D11D156BA005E55B9 /* SGPointHelper.m */; };
-		4A752DC111D18A3A005E55B9 /* SGDynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A752DBF11D18A3A005E55B9 /* SGDynamicOverlay.h */; };
-		4A752DC211D18A3A005E55B9 /* SGDynamicOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752DC011D18A3A005E55B9 /* SGDynamicOverlay.m */; };
 		4A910BF511D026F5001B3750 /* SGPointHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A910BEF11D026F5001B3750 /* SGPointHelper.h */; };
 		4A910BF611D026F5001B3750 /* SGLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A910BF011D026F5001B3750 /* SGLocationManager.h */; };
 		4A910BF711D026F5001B3750 /* SGGeoJSON+NSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A910BF111D026F5001B3750 /* SGGeoJSON+NSDictionary.h */; };
@@ -46,9 +44,8 @@
 		4ACA1E1411D26EA90072246E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
 		4ACA1E1611D26EAC0072246E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2972112124AE00672F12 /* CoreLocation.framework */; };
 		4ACA1E1711D26EAD0072246E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		4ACA1E1811D26EB00072246E /* SGDynamicOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752DC011D18A3A005E55B9 /* SGDynamicOverlay.m */; };
 		4ACA1E1911D26EB10072246E /* SGDynamicPolylineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752CB211D1174A005E55B9 /* SGDynamicPolylineView.m */; };
-		4ACA1E1A11D26EB10072246E /* SGHistoryLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A68BA5E11CEDFDB0090C675 /* SGHistoryLine.m */; };
+		4ACA1E1A11D26EB10072246E /* SGRecordLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A68BA5E11CEDFDB0090C675 /* SGRecordLine.m */; };
 		4ACA1E1B11D26EB30072246E /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
 		4ACA1E1C11D26EB40072246E /* SGPointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752D0D11D156BA005E55B9 /* SGPointHelper.m */; };
 		4ACA1E6111D2775A0072246E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ACA1E6011D2775A0072246E /* CoreGraphics.framework */; };
@@ -70,14 +67,12 @@
 		4A64A4D11120967500D4E22D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit_Prefix.pch; sourceTree = "<group>"; };
 		4A64B5F51120D55D00D4E22D /* build_mapkit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_mapkit; sourceTree = "<group>"; };
-		4A68BA5E11CEDFDB0090C675 /* SGHistoryLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGHistoryLine.m; sourceTree = "<group>"; };
-		4A68BA5F11CEDFDB0090C675 /* SGHistoryLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGHistoryLine.h; sourceTree = "<group>"; };
+		4A68BA5E11CEDFDB0090C675 /* SGRecordLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGRecordLine.m; sourceTree = "<group>"; };
+		4A68BA5F11CEDFDB0090C675 /* SGRecordLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRecordLine.h; sourceTree = "<group>"; };
 		4A752CB111D1174A005E55B9 /* SGDynamicPolylineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDynamicPolylineView.h; sourceTree = "<group>"; };
 		4A752CB211D1174A005E55B9 /* SGDynamicPolylineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDynamicPolylineView.m; sourceTree = "<group>"; };
 		4A752D0C11D156BA005E55B9 /* SGPointHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPointHelper.h; sourceTree = "<group>"; };
 		4A752D0D11D156BA005E55B9 /* SGPointHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPointHelper.m; sourceTree = "<group>"; };
-		4A752DBF11D18A3A005E55B9 /* SGDynamicOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDynamicOverlay.h; sourceTree = "<group>"; };
-		4A752DC011D18A3A005E55B9 /* SGDynamicOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDynamicOverlay.m; sourceTree = "<group>"; };
 		4A910BEF11D026F5001B3750 /* SGPointHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPointHelper.h; sourceTree = "<group>"; };
 		4A910BF011D026F5001B3750 /* SGLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLocationManager.h; sourceTree = "<group>"; };
 		4A910BF111D026F5001B3750 /* SGGeoJSON+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SGGeoJSON+NSDictionary.h"; sourceTree = "<group>"; };
@@ -225,10 +220,8 @@
 		4A859EBB11C1389E00F50676 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4A68BA5E11CEDFDB0090C675 /* SGHistoryLine.m */,
-				4A68BA5F11CEDFDB0090C675 /* SGHistoryLine.h */,
-				4A752DBF11D18A3A005E55B9 /* SGDynamicOverlay.h */,
-				4A752DC011D18A3A005E55B9 /* SGDynamicOverlay.m */,
+				4A68BA5E11CEDFDB0090C675 /* SGRecordLine.m */,
+				4A68BA5F11CEDFDB0090C675 /* SGRecordLine.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,7 +323,7 @@
 				4A9B8D8911A738C00044D956 /* SGQuery.h in Headers */,
 				4A9B8D8A11A738C00044D956 /* SGRecord.h in Headers */,
 				4A9B8D8B11A738C00044D956 /* SGRecordAnnotation.h in Headers */,
-				4A68BA6111CEDFDB0090C675 /* SGHistoryLine.h in Headers */,
+				4A68BA6111CEDFDB0090C675 /* SGRecordLine.h in Headers */,
 				4A910BF511D026F5001B3750 /* SGPointHelper.h in Headers */,
 				4A910BF611D026F5001B3750 /* SGLocationManager.h in Headers */,
 				4A910BF711D026F5001B3750 /* SGGeoJSON+NSDictionary.h in Headers */,
@@ -339,7 +332,6 @@
 				4A910BFA11D026F5001B3750 /* SGCacheHandler.h in Headers */,
 				4A752CB311D1174A005E55B9 /* SGDynamicPolylineView.h in Headers */,
 				4A752D0E11D156BA005E55B9 /* SGPointHelper.h in Headers */,
-				4A752DC111D18A3A005E55B9 /* SGDynamicOverlay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,9 +412,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ACA1E1811D26EB00072246E /* SGDynamicOverlay.m in Sources */,
 				4ACA1E1911D26EB10072246E /* SGDynamicPolylineView.m in Sources */,
-				4ACA1E1A11D26EB10072246E /* SGHistoryLine.m in Sources */,
+				4ACA1E1A11D26EB10072246E /* SGRecordLine.m in Sources */,
 				4ACA1E1B11D26EB30072246E /* SGLayerMapView.m in Sources */,
 				4ACA1E1C11D26EB40072246E /* SGPointHelper.m in Sources */,
 				4ACA1E7911D277D90072246E /* SGMapKitDemoAppDelegate.m in Sources */,
@@ -436,10 +427,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */,
-				4A68BA6011CEDFDB0090C675 /* SGHistoryLine.m in Sources */,
+				4A68BA6011CEDFDB0090C675 /* SGRecordLine.m in Sources */,
 				4A752CB411D1174A005E55B9 /* SGDynamicPolylineView.m in Sources */,
 				4A752D0F11D156BA005E55B9 /* SGPointHelper.m in Sources */,
-				4A752DC211D18A3A005E55B9 /* SGDynamicOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +525,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "SGClient/$(PLATFORM_NAME)";
 				OTHER_LDFLAGS = (
+					"-all_load",
 					"-framework",
 					Foundation,
 					"-framework",

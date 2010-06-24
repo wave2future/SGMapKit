@@ -1,5 +1,5 @@
 //
-//  SGHistoryLine.h
+//  SGRecordLine.h
 //  SGStalker
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -36,16 +36,24 @@
 
 #if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-#import "SGDynamicOverlay.h"
 #import "SGRecordAnnotation.h"
+#import <pthread.h>
 
 /*!
-* @class SGHistoryLine
+* @class SGRecordLine
 * @abstract
 */
-@interface SGHistoryLine : SGDynamicOverlay {
+@interface SGRecordLine : NSObject <MKOverlay> {
 
     id<SGHistoricRecordAnnoation> recordAnnotation;
+    MKMapPoint* points;
+    NSUInteger pointCount;
+    
+    @private
+    MKMapRect boundingMapRect;
+    NSUInteger pointSpace;
+    
+    pthread_rwlock_t rwLock;
 }
 
 /*!
@@ -54,7 +62,66 @@
 */
 @property (nonatomic, readonly) id<SGHistoricRecordAnnoation> recordAnnotation;
 
+/*!
+* @property
+* @abstract
+*/
+@property (readonly) MKMapPoint* points;
+
+/*!
+* @property
+* @abstract
+*/
+@property (readonly) NSUInteger pointCount;
+
+/*!
+* @method initWithRecordAnnoation:
+* @abstract ￼
+* @discussion ￼
+* @param annotation ￼
+* @result ￼
+*/
 - (id) initWithRecordAnnoation:(id<SGHistoricRecordAnnoation>)annotation;
+
+/*!
+* @method addCoordinates:count:
+* @abstract ￼
+* @discussion ￼
+* @param coords ￼
+* @param count ￼
+* @result ￼
+*/
+- (MKMapRect) addCoordinates:(CLLocationCoordinate2D*)coords count:(int)count;
+
+/*!
+* @method addCoordinate:
+* @abstract ￼
+* @discussion ￼
+* @param coord ￼
+* @result ￼
+*/
+- (MKMapRect) addCoordinate:(CLLocationCoordinate2D)coord;
+
+/*!
+* @method reloadAnnotation
+* @abstract ￼
+* @discussion ￼
+*/
+- (void) reloadAnnotation;
+
+/*!
+* @method lock
+* @abstract ￼
+* @discussion ￼
+*/
+- (void) lock;
+
+/*!
+* @method unlock
+* @abstract ￼
+* @discussion ￼
+*/
+- (void) unlock;
 
 @end
 
