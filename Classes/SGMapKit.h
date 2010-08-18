@@ -34,7 +34,7 @@
 //  Created by Derek Smith.
 //
  
-#import "SGPointerHelper.h"
+#import "SGPointHelper.h"
 #import "SGRecordLine.h"
 #import "SGLayerMapView.h"
 #import "SGDynamicPolylineView.h"
