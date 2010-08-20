@@ -207,18 +207,17 @@
         [trueDelegate mapViewWillStartLoadingMap:mapView];
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+- (void) mapView:(MKMapView*)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:annotationView:calloutAccessoryControlTapped:)])
         [trueDelegate mapView:mapView annotationView:view calloutAccessoryControlTapped:control];
 }
 
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray*)views
+- (void) mapView:(MKMapView*)mapView didAddAnnotationViews:(NSArray*)views
 {    
     // Check to see if any of the new records already exist on the map.
     id<SGRecordAnnotation> annotation;
     for(MKAnnotationView* annotationView in views) {
-        
         annotation = (id<SGRecordAnnotation>)annotationView.annotation;
         if([annotation conformsToProtocol:@protocol(SGRecordAnnotation)])
             [presentAnnotations addObject:[self getKeyForAnnotation:annotation]];
@@ -407,14 +406,14 @@
             CLLocation* cornerLocation = [[CLLocation alloc] initWithLatitude:leftCornerCoord.latitude
                                                                     longitude:leftCornerCoord.longitude];
             
-            double radius = [centerLocation getDistanceFrom:cornerLocation] / 1000.0;
+            double radius = [centerLocation distanceFromLocation:cornerLocation] / 1000.0;
             
             // A little leeway
             radius += (radius * 0.1);
             
             SGLatLonNearbyQuery* query = [[SGLatLonNearbyQuery alloc] init];
             query.radius = radius;
-            query.limit;
+            query.limit = limit;
             query.start = requestStartTime;
             query.end = requestEndTime;
             query.coordinate = centerLocation.coordinate;
