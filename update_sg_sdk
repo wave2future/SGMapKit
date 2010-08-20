@@ -1,0 +1,21 @@
+# !/bin/bash
+THIRD_PARTY_DIR=Resources/3rd-Party
+SDK_DIR=SGiPhoneSDK
+APP_DIR=`pwd`
+
+repos=( SGClient )
+
+for repo in ${repos[@]}
+do
+  git clone http://github.com/simplegeo/$repo $THIRD_PARTY_DIR/$repo
+  cd $THIRD_PARTY_DIR/$repo
+  git pull origin master
+  ./build_dist
+  latest_build=`find . -name $repo-v* | tail -n 1`
+  echo Setting the latest build to $latest_build
+  cd $APP_DIR
+  rm -rf $SDK_DIR/$repo
+  cd $SDK_DIR
+  ln -s ../$THIRD_PARTY_DIR/$repo/$latest_build $repo
+  cd $APP_DIR
+done
