@@ -15,37 +15,37 @@
 		4A70605E121F24CB00B3D330 /* CLLocationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A70605C121F24CB00B3D330 /* CLLocationAdditions.h */; };
 		4A70605F121F24CB00B3D330 /* CLLocationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70605D121F24CB00B3D330 /* CLLocationAdditions.m */; };
 		4A706060121F24CB00B3D330 /* CLLocationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70605D121F24CB00B3D330 /* CLLocationAdditions.m */; };
+		4A70614012244B5800B3D330 /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C911DBD3CA003E8D8A /* libSGClient.a */; };
+		4A70614112244B5900B3D330 /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C711DBD3CA003E8D8A /* libSGClient.a */; };
+		4A70614412244B5D00B3D330 /* SGRecordAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C511DBD3CA003E8D8A /* SGRecordAnnotation.h */; };
+		4A70614512244B5D00B3D330 /* SGRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C411DBD3CA003E8D8A /* SGRecord.h */; };
+		4A70614712244B5E00B3D330 /* SGNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C111DBD3CA003E8D8A /* SGNearbyQuery.h */; };
+		4A70614812244B5F00B3D330 /* SGOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C211DBD3CA003E8D8A /* SGOAuth.h */; };
+		4A70614912244B6000B3D330 /* SGQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C311DBD3CA003E8D8A /* SGQuery.h */; };
+		4A70614A12244B6000B3D330 /* SGLocationTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C011DBD3CA003E8D8A /* SGLocationTypes.h */; };
+		4A70614B12244B6100B3D330 /* SGLocationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BF11DBD3CA003E8D8A /* SGLocationService.h */; };
+		4A70614C12244B6100B3D330 /* SGLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BE11DBD3CA003E8D8A /* SGLocationManager.h */; };
+		4A70614D12244B6100B3D330 /* SGLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BD11DBD3CA003E8D8A /* SGLayer.h */; };
+		4A70614E12244B6200B3D330 /* SGHistoryQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BB11DBD3CA003E8D8A /* SGHistoryQuery.h */; };
+		4A70614F12244B6200B3D330 /* SGLatLonNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BC11DBD3CA003E8D8A /* SGLatLonNearbyQuery.h */; };
+		4A70615012244B6300B3D330 /* SGGeoJSONEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BA11DBD3CA003E8D8A /* SGGeoJSONEncoder.h */; };
+		4A70615112244B6300B3D330 /* SGGeoJSON+NSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B811DBD3CA003E8D8A /* SGGeoJSON+NSDictionary.h */; };
+		4A70615212244B6400B3D330 /* SGGeoJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B911DBD3CA003E8D8A /* SGGeoJSON.h */; };
+		4A70615312244B6400B3D330 /* SGGeohashNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B711DBD3CA003E8D8A /* SGGeohashNearbyQuery.h */; };
+		4A70615412244B6600B3D330 /* GeoJSON+NSArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552AF11DBD3CA003E8D8A /* GeoJSON+NSArray.h */; };
+		4A70615512244B6700B3D330 /* GeoJSON+NSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B011DBD3CA003E8D8A /* GeoJSON+NSDictionary.h */; };
+		4A70615612244B6700B3D330 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B111DBD3CA003E8D8A /* NSStringAdditions.h */; };
+		4A70615712244B6700B3D330 /* SGAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B211DBD3CA003E8D8A /* SGAdditions.h */; };
+		4A70615812244B6800B3D330 /* SGAuthorization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B311DBD3CA003E8D8A /* SGAuthorization.h */; };
+		4A70615912244B6800B3D330 /* SGClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B511DBD3CA003E8D8A /* SGClient.h */; };
+		4A70615A12244B6900B3D330 /* SGCommitLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B611DBD3CA003E8D8A /* SGCommitLog.h */; };
+		4A70615B12244B6900B3D330 /* SGCacheHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B411DBD3CA003E8D8A /* SGCacheHandler.h */; };
 		4A752CB311D1174A005E55B9 /* SGDynamicPolylineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A752CB111D1174A005E55B9 /* SGDynamicPolylineView.h */; };
 		4A752CB411D1174A005E55B9 /* SGDynamicPolylineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752CB211D1174A005E55B9 /* SGDynamicPolylineView.m */; };
 		4A752D0E11D156BA005E55B9 /* SGPointHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A752D0C11D156BA005E55B9 /* SGPointHelper.h */; };
 		4A752D0F11D156BA005E55B9 /* SGPointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752D0D11D156BA005E55B9 /* SGPointHelper.m */; };
 		4A75533111DBD3CA003E8D8A /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C711DBD3CA003E8D8A /* libSGClient.a */; };
 		4A75533211DBD3CA003E8D8A /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C911DBD3CA003E8D8A /* libSGClient.a */; };
-		4A75533511DBD3CA003E8D8A /* GeoJSON+NSArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552AF11DBD3CA003E8D8A /* GeoJSON+NSArray.h */; };
-		4A75533611DBD3CA003E8D8A /* GeoJSON+NSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B011DBD3CA003E8D8A /* GeoJSON+NSDictionary.h */; };
-		4A75533711DBD3CA003E8D8A /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B111DBD3CA003E8D8A /* NSStringAdditions.h */; };
-		4A75533811DBD3CA003E8D8A /* SGAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B211DBD3CA003E8D8A /* SGAdditions.h */; };
-		4A75533911DBD3CA003E8D8A /* SGAuthorization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B311DBD3CA003E8D8A /* SGAuthorization.h */; };
-		4A75533A11DBD3CA003E8D8A /* SGCacheHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B411DBD3CA003E8D8A /* SGCacheHandler.h */; };
-		4A75533B11DBD3CA003E8D8A /* SGClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B511DBD3CA003E8D8A /* SGClient.h */; };
-		4A75533C11DBD3CA003E8D8A /* SGCommitLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B611DBD3CA003E8D8A /* SGCommitLog.h */; };
-		4A75533D11DBD3CA003E8D8A /* SGGeohashNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B711DBD3CA003E8D8A /* SGGeohashNearbyQuery.h */; };
-		4A75533E11DBD3CA003E8D8A /* SGGeoJSON+NSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B811DBD3CA003E8D8A /* SGGeoJSON+NSDictionary.h */; };
-		4A75533F11DBD3CA003E8D8A /* SGGeoJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552B911DBD3CA003E8D8A /* SGGeoJSON.h */; };
-		4A75534011DBD3CA003E8D8A /* SGGeoJSONEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BA11DBD3CA003E8D8A /* SGGeoJSONEncoder.h */; };
-		4A75534111DBD3CA003E8D8A /* SGHistoryQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BB11DBD3CA003E8D8A /* SGHistoryQuery.h */; };
-		4A75534211DBD3CA003E8D8A /* SGLatLonNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BC11DBD3CA003E8D8A /* SGLatLonNearbyQuery.h */; };
-		4A75534311DBD3CA003E8D8A /* SGLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BD11DBD3CA003E8D8A /* SGLayer.h */; };
-		4A75534411DBD3CA003E8D8A /* SGLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BE11DBD3CA003E8D8A /* SGLocationManager.h */; };
-		4A75534511DBD3CA003E8D8A /* SGLocationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552BF11DBD3CA003E8D8A /* SGLocationService.h */; };
-		4A75534611DBD3CA003E8D8A /* SGLocationTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C011DBD3CA003E8D8A /* SGLocationTypes.h */; };
-		4A75534711DBD3CA003E8D8A /* SGNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C111DBD3CA003E8D8A /* SGNearbyQuery.h */; };
-		4A75534811DBD3CA003E8D8A /* SGOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C211DBD3CA003E8D8A /* SGOAuth.h */; };
-		4A75534911DBD3CA003E8D8A /* SGQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C311DBD3CA003E8D8A /* SGQuery.h */; };
-		4A75534A11DBD3CA003E8D8A /* SGRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C411DBD3CA003E8D8A /* SGRecord.h */; };
-		4A75534B11DBD3CA003E8D8A /* SGRecordAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C511DBD3CA003E8D8A /* SGRecordAnnotation.h */; };
-		4A75534C11DBD3CA003E8D8A /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C711DBD3CA003E8D8A /* libSGClient.a */; };
-		4A75534D11DBD3CA003E8D8A /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C911DBD3CA003E8D8A /* libSGClient.a */; };
 		4AC4A64B121B410600D1B3DA /* SGMapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AC4A64A121B410600D1B3DA /* SGMapKit.h */; };
 		4ACA1E1311D26EA90072246E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2974112124AE00672F12 /* MapKit.framework */; };
 		4ACA1E1411D26EA90072246E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
@@ -150,8 +150,8 @@
 				4AED2973112124AE00672F12 /* CoreLocation.framework in Frameworks */,
 				4AED2975112124AE00672F12 /* MapKit.framework in Frameworks */,
 				4AED2977112124AE00672F12 /* UIKit.framework in Frameworks */,
-				4A75534C11DBD3CA003E8D8A /* libSGClient.a in Frameworks */,
-				4A75534D11DBD3CA003E8D8A /* libSGClient.a in Frameworks */,
+				4A70614012244B5800B3D330 /* libSGClient.a in Frameworks */,
+				4A70614112244B5900B3D330 /* libSGClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,31 +345,31 @@
 				4A68BA6111CEDFDB0090C675 /* SGRecordLine.h in Headers */,
 				4A752CB311D1174A005E55B9 /* SGDynamicPolylineView.h in Headers */,
 				4A752D0E11D156BA005E55B9 /* SGPointHelper.h in Headers */,
-				4A75533511DBD3CA003E8D8A /* GeoJSON+NSArray.h in Headers */,
-				4A75533611DBD3CA003E8D8A /* GeoJSON+NSDictionary.h in Headers */,
-				4A75533711DBD3CA003E8D8A /* NSStringAdditions.h in Headers */,
-				4A75533811DBD3CA003E8D8A /* SGAdditions.h in Headers */,
-				4A75533911DBD3CA003E8D8A /* SGAuthorization.h in Headers */,
-				4A75533A11DBD3CA003E8D8A /* SGCacheHandler.h in Headers */,
-				4A75533B11DBD3CA003E8D8A /* SGClient.h in Headers */,
-				4A75533C11DBD3CA003E8D8A /* SGCommitLog.h in Headers */,
-				4A75533D11DBD3CA003E8D8A /* SGGeohashNearbyQuery.h in Headers */,
-				4A75533E11DBD3CA003E8D8A /* SGGeoJSON+NSDictionary.h in Headers */,
-				4A75533F11DBD3CA003E8D8A /* SGGeoJSON.h in Headers */,
-				4A75534011DBD3CA003E8D8A /* SGGeoJSONEncoder.h in Headers */,
-				4A75534111DBD3CA003E8D8A /* SGHistoryQuery.h in Headers */,
-				4A75534211DBD3CA003E8D8A /* SGLatLonNearbyQuery.h in Headers */,
-				4A75534311DBD3CA003E8D8A /* SGLayer.h in Headers */,
-				4A75534411DBD3CA003E8D8A /* SGLocationManager.h in Headers */,
-				4A75534511DBD3CA003E8D8A /* SGLocationService.h in Headers */,
-				4A75534611DBD3CA003E8D8A /* SGLocationTypes.h in Headers */,
-				4A75534711DBD3CA003E8D8A /* SGNearbyQuery.h in Headers */,
-				4A75534811DBD3CA003E8D8A /* SGOAuth.h in Headers */,
-				4A75534911DBD3CA003E8D8A /* SGQuery.h in Headers */,
-				4A75534A11DBD3CA003E8D8A /* SGRecord.h in Headers */,
-				4A75534B11DBD3CA003E8D8A /* SGRecordAnnotation.h in Headers */,
 				4AC4A64B121B410600D1B3DA /* SGMapKit.h in Headers */,
 				4A70605E121F24CB00B3D330 /* CLLocationAdditions.h in Headers */,
+				4A70614412244B5D00B3D330 /* SGRecordAnnotation.h in Headers */,
+				4A70614512244B5D00B3D330 /* SGRecord.h in Headers */,
+				4A70614712244B5E00B3D330 /* SGNearbyQuery.h in Headers */,
+				4A70614812244B5F00B3D330 /* SGOAuth.h in Headers */,
+				4A70614912244B6000B3D330 /* SGQuery.h in Headers */,
+				4A70614A12244B6000B3D330 /* SGLocationTypes.h in Headers */,
+				4A70614B12244B6100B3D330 /* SGLocationService.h in Headers */,
+				4A70614C12244B6100B3D330 /* SGLocationManager.h in Headers */,
+				4A70614D12244B6100B3D330 /* SGLayer.h in Headers */,
+				4A70614E12244B6200B3D330 /* SGHistoryQuery.h in Headers */,
+				4A70614F12244B6200B3D330 /* SGLatLonNearbyQuery.h in Headers */,
+				4A70615012244B6300B3D330 /* SGGeoJSONEncoder.h in Headers */,
+				4A70615112244B6300B3D330 /* SGGeoJSON+NSDictionary.h in Headers */,
+				4A70615212244B6400B3D330 /* SGGeoJSON.h in Headers */,
+				4A70615312244B6400B3D330 /* SGGeohashNearbyQuery.h in Headers */,
+				4A70615412244B6600B3D330 /* GeoJSON+NSArray.h in Headers */,
+				4A70615512244B6700B3D330 /* GeoJSON+NSDictionary.h in Headers */,
+				4A70615612244B6700B3D330 /* NSStringAdditions.h in Headers */,
+				4A70615712244B6700B3D330 /* SGAdditions.h in Headers */,
+				4A70615812244B6800B3D330 /* SGAuthorization.h in Headers */,
+				4A70615912244B6800B3D330 /* SGClient.h in Headers */,
+				4A70615A12244B6900B3D330 /* SGCommitLog.h in Headers */,
+				4A70615B12244B6900B3D330 /* SGCacheHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,8 +491,8 @@
 				GCC_PREFIX_HEADER = Resources/SGMapKit_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
 					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphoneos\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = SGMapKit;
@@ -512,10 +512,15 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
 					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphoneos\"",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+					"-l",
+					SGClient,
+				);
 				PRODUCT_NAME = SGMapKit;
 				SDKROOT = iphoneos3.1;
 			};
