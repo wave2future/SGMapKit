@@ -15,8 +15,6 @@
 		4A70605E121F24CB00B3D330 /* CLLocationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A70605C121F24CB00B3D330 /* CLLocationAdditions.h */; };
 		4A70605F121F24CB00B3D330 /* CLLocationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70605D121F24CB00B3D330 /* CLLocationAdditions.m */; };
 		4A706060121F24CB00B3D330 /* CLLocationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70605D121F24CB00B3D330 /* CLLocationAdditions.m */; };
-		4A70614012244B5800B3D330 /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C911DBD3CA003E8D8A /* libSGClient.a */; };
-		4A70614112244B5900B3D330 /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C711DBD3CA003E8D8A /* libSGClient.a */; };
 		4A70614412244B5D00B3D330 /* SGRecordAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C511DBD3CA003E8D8A /* SGRecordAnnotation.h */; };
 		4A70614512244B5D00B3D330 /* SGRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C411DBD3CA003E8D8A /* SGRecord.h */; };
 		4A70614712244B5E00B3D330 /* SGNearbyQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7552C111DBD3CA003E8D8A /* SGNearbyQuery.h */; };
@@ -150,8 +148,6 @@
 				4AED2973112124AE00672F12 /* CoreLocation.framework in Frameworks */,
 				4AED2975112124AE00672F12 /* MapKit.framework in Frameworks */,
 				4AED2977112124AE00672F12 /* UIKit.framework in Frameworks */,
-				4A70614012244B5800B3D330 /* libSGClient.a in Frameworks */,
-				4A70614112244B5900B3D330 /* libSGClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
