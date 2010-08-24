@@ -421,7 +421,6 @@
             NSArray* layers = [sgLayers allValues];
             for(SGLayer* recordLayer in layers) {
                 NSString* requestId = nil;
-
                 if(recordLayer.recentNearbyQuery && [recordLayer.recentNearbyQuery isKindOfClass:[SGLatLonNearbyQuery class]]) {
                     SGLatLonNearbyQuery* layerQuery = (SGLatLonNearbyQuery*)recordLayer.recentNearbyQuery;
                     if(layerQuery.coordinate.latitude == query.coordinate.latitude &&
