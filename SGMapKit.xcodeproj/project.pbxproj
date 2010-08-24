@@ -511,18 +511,10 @@
 				GCC_PREFIX_HEADER = Resources/SGMapKit_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INSTALL_PATH = /usr/local/lib;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/$(PLATFORM_NAME)\"",
-					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphoneos\"",
-				);
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-					"-l",
-					SGClient,
-				);
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/SGiPhoneSDK/SGClient/$(PLATFORM_NAME)\"";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = SGMapKit;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
