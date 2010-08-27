@@ -1,6 +1,6 @@
 //
-//  SGPointHelper.h
-//  SGClient
+//  SGMapRectHelper.m
+//  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,22 +32,29 @@
 //  Created by Derek Smith.
 //
 
-#import <MapKit/MapKit.h>
+#import "SGMapRectHelper.h"
+#import "SGPointHelper.h"
 
-/*!
-* @function SGLonLatArrayToCLLocationCoordArray(NSArray*)
-* @abstract Converts a (lon, lat) array into the proper CoreLocation coordiante.
-* @param lonLatArray
-* @result A new array of CoreLocation coordinates.
-*/
-extern CLLocationCoordinate2D* SGLonLatArrayToCLLocationCoordArray(NSArray* lonLatArray);
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-/*!
-* @function SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D*, int);
-* @abstract Creates an array of [lon,lat] objects from an array of CoreLocation
-* coordiantes.
-* @param coordArray
-* @param length
-* @result A new array of [lon,lat] arrays.
-*/
-extern NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray, int length);
+MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length) {
+    
+    MKMapRect unionMapRect = MKMapRectWorld;
+    for(int i = 0; i < length; i++) {
+        CLLocationCoordinate2D coord = coordArray[i];
+        MKMapPoint point = MKMapPointForCoordinate(coord);
+        MKMapRect mapRect = MKMapRectMake(point.x, point.y, 1.0, 1.0);        
+        unionMapRect = MKMapRectUnion(mapRect, unionMapRect);
+    }
+    
+    return unionMapRect;
+}
+
+MKMapRect SGEnvelopeToMKMapRect(SGEnvelope envelope) {
+    NSString* stringEnvelope = SGEnvelopeGetString(envelope);
+    NSArray* coords = [stringEnvelope componentsSeparatedByString:@","];
+    CLLocationCoordinate2D* locationCoords = SGLonLatArrayToCLLocationCoordArray(coords);
+    return SGGetAxisAlignedBoundingBox(locationCoords, [coords count]);
+}
+
+#endif

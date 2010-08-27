@@ -63,7 +63,7 @@ NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray,
 
 MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length) {
     
-    MKMapRect unionMapRect = MKMapRectNull;
+    MKMapRect unionMapRect = MKMapRectWorld;
     for(int i = 0; i < length; i++) {
         CLLocationCoordinate2D coord = coordArray[i];
         MKMapPoint point = MKMapPointForCoordinate(coord);

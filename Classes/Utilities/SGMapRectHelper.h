@@ -1,6 +1,6 @@
 //
-//  SGPointHelper.h
-//  SGClient
+//  SGMapRectHelper.h
+//  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,22 +32,25 @@
 //  Created by Derek Smith.
 //
 
-#import <MapKit/MapKit.h>
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
 /*!
-* @function SGLonLatArrayToCLLocationCoordArray(NSArray*)
-* @abstract Converts a (lon, lat) array into the proper CoreLocation coordiante.
-* @param lonLatArray
-* @result A new array of CoreLocation coordinates.
-*/
-extern CLLocationCoordinate2D* SGLonLatArrayToCLLocationCoordArray(NSArray* lonLatArray);
+ * @function SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D*, int);
+ * @abstract Creates an axis aligned bounding box for the given list of coordinates.
+ * @see http://en.wikipedia.org/wiki/Minimum_bounding_box
+ * @param coordArray
+ * @param length
+ * @result A MKMapRect representation of the AABB.
+ */
+extern MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length);
 
 /*!
-* @function SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D*, int);
-* @abstract Creates an array of [lon,lat] objects from an array of CoreLocation
-* coordiantes.
-* @param coordArray
-* @param length
-* @result A new array of [lon,lat] arrays.
-*/
-extern NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray, int length);
+ * @function SGEnvelopeToMKMapRect(SGEnvlope);
+ * @abstract Converts an envelope into a map rect.
+ * @param envelop
+ * @result A MKMapRect
+ */
+extern MKMapRect SGEnvelopeToMKMapRect(SGEnvelope envelope);
+
+#endif
+
