@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A64633A12281378008B1339 /* SGRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A64633812281378008B1339 /* SGRegion.h */; };
+		4A64633B12281378008B1339 /* SGRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64633912281378008B1339 /* SGRegion.m */; };
+		4A64633C12281378008B1339 /* SGRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64633912281378008B1339 /* SGRegion.m */; };
+		4A6463CE12281E65008B1339 /* SGMapRectHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6463CC12281E65008B1339 /* SGMapRectHelper.h */; };
+		4A6463CF12281E65008B1339 /* SGMapRectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6463CD12281E65008B1339 /* SGMapRectHelper.m */; };
+		4A6463D012281E65008B1339 /* SGMapRectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6463CD12281E65008B1339 /* SGMapRectHelper.m */; };
 		4A64A4D41120967500D4E22D /* SGLayerMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4CF1120967500D4E22D /* SGLayerMapView.h */; };
 		4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
 		4A64A4D61120967500D4E22D /* SGMapKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */; };
@@ -67,6 +73,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A64633812281378008B1339 /* SGRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRegion.h; sourceTree = "<group>"; };
+		4A64633912281378008B1339 /* SGRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGRegion.m; sourceTree = "<group>"; };
+		4A6463CC12281E65008B1339 /* SGMapRectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapRectHelper.h; sourceTree = "<group>"; };
+		4A6463CD12281E65008B1339 /* SGMapRectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMapRectHelper.m; sourceTree = "<group>"; };
 		4A64A4CF1120967500D4E22D /* SGLayerMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLayerMapView.h; sourceTree = "<group>"; };
 		4A64A4D01120967500D4E22D /* SGLayerMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGLayerMapView.m; sourceTree = "<group>"; };
 		4A64A4D11120967500D4E22D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
@@ -237,6 +247,8 @@
 			children = (
 				4A752D0C11D156BA005E55B9 /* SGPointHelper.h */,
 				4A752D0D11D156BA005E55B9 /* SGPointHelper.m */,
+				4A6463CC12281E65008B1339 /* SGMapRectHelper.h */,
+				4A6463CD12281E65008B1339 /* SGMapRectHelper.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -310,6 +322,8 @@
 			children = (
 				4A68BA5E11CEDFDB0090C675 /* SGRecordLine.m */,
 				4A68BA5F11CEDFDB0090C675 /* SGRecordLine.h */,
+				4A64633812281378008B1339 /* SGRegion.h */,
+				4A64633912281378008B1339 /* SGRegion.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,6 +380,8 @@
 				4A70615912244B6800B3D330 /* SGClient.h in Headers */,
 				4A70615A12244B6900B3D330 /* SGCommitLog.h in Headers */,
 				4A70615B12244B6900B3D330 /* SGCacheHandler.h in Headers */,
+				4A64633A12281378008B1339 /* SGRegion.h in Headers */,
+				4A6463CE12281E65008B1339 /* SGMapRectHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +470,8 @@
 				4ACA1E7B11D277DB0072246E /* SGMainViewController.m in Sources */,
 				4ACA1E7D11D277DD0072246E /* main.m in Sources */,
 				4A706060121F24CB00B3D330 /* CLLocationAdditions.m in Sources */,
+				4A64633C12281378008B1339 /* SGRegion.m in Sources */,
+				4A6463D012281E65008B1339 /* SGMapRectHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +484,8 @@
 				4A752CB411D1174A005E55B9 /* SGDynamicPolylineView.m in Sources */,
 				4A752D0F11D156BA005E55B9 /* SGPointHelper.m in Sources */,
 				4A70605F121F24CB00B3D330 /* CLLocationAdditions.m in Sources */,
+				4A64633B12281378008B1339 /* SGRegion.m in Sources */,
+				4A6463CF12281E65008B1339 /* SGMapRectHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
