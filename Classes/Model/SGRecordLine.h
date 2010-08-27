@@ -1,6 +1,6 @@
 //
 //  SGRecordLine.h
-//  SGStalker
+//  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
