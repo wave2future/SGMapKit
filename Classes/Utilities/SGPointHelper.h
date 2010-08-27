@@ -64,5 +64,13 @@ extern NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coor
 */
 extern MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length);
 
+/*!
+* @function SGEnvelopeToMKMapRect(SGEnvlope);
+* @abstract Converts an envelope into a map rect.
+* @param envelop
+* @result A MKMapRect
+*/
+extern MKMapRect SGEnvelopeToMKMapRect(SGEnvelope envelope);
+
 #endif
 

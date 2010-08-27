@@ -63,29 +63,22 @@ NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray,
 
 MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length) {
     
-    CLLocationDegrees bigLat, bigLon, smallLat, smallLon = 0;
+    MKMapRect unionMapRect = MKMapRectNull;
     for(int i = 0; i < length; i++) {
-        CLLocationDegrees lat = coordArray[i].latitude;
-        CLLocationDegrees lon = coordArray[i].longitude;
-        if(lat > bigLat)
-            bigLat = lat;
-        
-        if(lat < smallLat)
-            smallLat = lat;
-        
-        if(lon > bigLon)
-            bigLon = lon;
-        
-        if(lon < smallLon)
-            smallLon = lon;
+        CLLocationCoordinate2D coord = coordArray[i];
+        MKMapPoint point = MKMapPointForCoordinate(coord);
+        MKMapRect mapRect = MKMapRectMake(point.x, point.y, 1.0, 1.0);        
+        unionMapRect = MKMapRectUnion(mapRect, unionMapRect);
     }
-    
-    double width = sqrt(pow((bigLon - smallLon), 2));
-    double height= sqrt(pow((bigLat - smallLat), 2));
-    double x = bigLat - width;
-    double y = bigLon - height;
-    
-    return MKMapRectMake(x, y, width, height);
+
+    return unionMapRect;
+}
+
+MKMapRect SGEnvelopeToMKMapRect(SGEnvelope envelope) {
+    NSString* stringEnvelope = SGEnvelopeGetString(envelope);
+    NSArray* coords = [stringEnvelope componentsSeparatedByString:@","];
+    CLLocationCoordinate2D* locationCoords = SGLonLatArrayToCLLocationCoordArray(coords);
+    return SGGetAxisAlignedBoundingBox(locationCoords, [coords count]);
 }
 
 #endif
