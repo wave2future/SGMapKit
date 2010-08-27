@@ -34,24 +34,19 @@
 
 #if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
 
-@interface SGRegion : NSObject <MKOverlay> {
+@interface SGRegion : NSObject {
 
     NSDictionary* gazetteer;
     NSString* type;
     
-    MKMapRect boundingMapRect;
-    
-    MKPolygon* polygon;
-    NSArray* coordinates;
+    NSArray* polygons;
 }
 
 @property (nonatomic, retain) NSDictionary* gazetteer;
 @property (nonatomic, readonly) NSString* type;
-@property (nonatomic, readonly) MKMapRect boundingMapRect;
-@property (nonatomic, readonly) MKPolygon* polygon;
-@property (nonatomic, retain) NSArray* coordinates;
+@property (nonatomic, retain) NSArray* polygons;
 
-- (id) initWithEnvelope:(SGEnvelope)envelope gazetteer:(NSDictionary*)gazetteer;
++ (SGRegion*) regionFromFeature:(NSDictionary*)feature;
 
 @end
 

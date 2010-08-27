@@ -13,6 +13,8 @@
 		4A6463CE12281E65008B1339 /* SGMapRectHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6463CC12281E65008B1339 /* SGMapRectHelper.h */; };
 		4A6463CF12281E65008B1339 /* SGMapRectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6463CD12281E65008B1339 /* SGMapRectHelper.m */; };
 		4A6463D012281E65008B1339 /* SGMapRectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6463CD12281E65008B1339 /* SGMapRectHelper.m */; };
+		4A6464D812284D61008B1339 /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C711DBD3CA003E8D8A /* libSGClient.a */; };
+		4A6464D912284D64008B1339 /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C911DBD3CA003E8D8A /* libSGClient.a */; };
 		4A64A4D41120967500D4E22D /* SGLayerMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4CF1120967500D4E22D /* SGLayerMapView.h */; };
 		4A64A4D51120967500D4E22D /* SGLayerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64A4D01120967500D4E22D /* SGLayerMapView.m */; };
 		4A64A4D61120967500D4E22D /* SGMapKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A64A4D31120967500D4E22D /* SGMapKit_Prefix.pch */; };
@@ -48,8 +50,6 @@
 		4A752CB411D1174A005E55B9 /* SGDynamicPolylineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752CB211D1174A005E55B9 /* SGDynamicPolylineView.m */; };
 		4A752D0E11D156BA005E55B9 /* SGPointHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A752D0C11D156BA005E55B9 /* SGPointHelper.h */; };
 		4A752D0F11D156BA005E55B9 /* SGPointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A752D0D11D156BA005E55B9 /* SGPointHelper.m */; };
-		4A75533111DBD3CA003E8D8A /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C711DBD3CA003E8D8A /* libSGClient.a */; };
-		4A75533211DBD3CA003E8D8A /* libSGClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7552C911DBD3CA003E8D8A /* libSGClient.a */; };
 		4AC4A64B121B410600D1B3DA /* SGMapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AC4A64A121B410600D1B3DA /* SGMapKit.h */; };
 		4ACA1E1311D26EA90072246E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2974112124AE00672F12 /* MapKit.framework */; };
 		4ACA1E1411D26EA90072246E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AED2976112124AE00672F12 /* UIKit.framework */; };
@@ -145,8 +145,8 @@
 				4ACA1E1611D26EAC0072246E /* CoreLocation.framework in Frameworks */,
 				4ACA1E1711D26EAD0072246E /* Foundation.framework in Frameworks */,
 				4ACA1E6111D2775A0072246E /* CoreGraphics.framework in Frameworks */,
-				4A75533111DBD3CA003E8D8A /* libSGClient.a in Frameworks */,
-				4A75533211DBD3CA003E8D8A /* libSGClient.a in Frameworks */,
+				4A6464D812284D61008B1339 /* libSGClient.a in Frameworks */,
+				4A6464D912284D64008B1339 /* libSGClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,16 +571,16 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGMapKit_Prefix.pch;
-				HEADER_SEARCH_PATHS = "SGiPhoneSDK/SGClient/$(PLATFORM_NAME)/Headers/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "DemoApp/SGMapKitDemoApp-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/SGClient/$(PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"SGiPhoneSDK/SGClient/$(PLATFORM_NAME)",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphoneos\"",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphonesimulator\"",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
 					"-ObjC",
 					"-l",
 					SGClient,
@@ -603,7 +603,11 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				INFOPLIST_FILE = "SGMapKitDemoApp-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphoneos\"",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGClient/iphonesimulator\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,

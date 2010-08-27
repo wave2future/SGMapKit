@@ -36,6 +36,9 @@
 #import "SGAdditions.h"
 #import "SGLatLonNearbyQuery.h"
 #import "SGRecordLine.h"
+#import "SGRegion.h"
+
+#import "SGAdditions.h"
 
 @interface SGLayerMapView (Private)
 
@@ -78,8 +81,6 @@
     [[SGLocationService sharedLocationService] addDelegate:self];
     
     layerResponseIds = [[NSMutableArray alloc] init];
-    historyRecords = [[NSMutableDictionary alloc] init];
-    historyResponseIds = [[NSMutableArray alloc] init];
     newRecordAnnotations = [[NSMutableArray alloc] init];
     
     addRetrievedRecordsToLayer = YES;
@@ -87,6 +88,9 @@
     
     requestStartTime = 0.0;
     requestEndTime = 0.0;
+    
+    containsResponseId = nil;
+    validRegionTypes = nil;
     
     [super setDelegate:self];    
 }
@@ -239,7 +243,7 @@
 }
 
 - (void) mapView:(MKMapView*)mapView didAddOverlayViews:(NSArray*)overlayViews
-{
+{   
     if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didAddOverlayViews:)])
         [trueDelegate mapView:mapView didAddOverlayViews:overlayViews];
 }
@@ -272,6 +276,18 @@
 {
     if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didFailToLocateUserWithError:)])
         [trueDelegate mapView:mapView didFailToLocateUserWithError:error];
+}
+
+- (void) drawRegionsForLocation:(CLLocation*)location types:(NSArray*)types
+{
+    if(!containsResponseId) {
+        SGLocationService* locationService = [SGLocationService sharedLocationService];
+        containsResponseId = [locationService contains:location.coordinate];
+        if(types)
+            validRegionTypes = [types retain];
+        else
+            validRegionTypes = nil;
+    }
 }
 
 #endif
@@ -315,6 +331,32 @@
         [layerResponseIds removeObject:requestId];
         if(![layerResponseIds count])
             [self addNewRecordAnnotations];
+    } else if(containsResponseId && [containsResponseId isEqualToString:requestId]) {
+        // Fire of more requests because we will need to have the polygon information
+        // for each boundary
+        NSMutableArray* validRegionIds = [NSMutableArray array];
+        for(NSDictionary* feature in (NSArray*)objects) {
+            if(validRegionTypes && [validRegionTypes count]) {
+                if([validRegionTypes containsObject:[[feature properties] objectForKey:@"type"]])
+                    [validRegionIds addObject:[feature recordId]];
+            } else
+                [validRegionIds addObject:[feature objectForKey:@"id"]];
+        }
+        
+        if([validRegionIds count]) {
+            SGLocationService* locationService = [SGLocationService sharedLocationService];
+            boundaryResponseIds = [[NSMutableArray alloc] init];
+            for(NSString* validRegionId in validRegionIds)
+                [boundaryResponseIds addObject:[locationService boundary:validRegionId]];
+        }
+        containsResponseId = nil;
+    } else if(boundaryResponseIds && [boundaryResponseIds containsObject:requestId]) {
+        NSDictionary* feature = (NSDictionary*)objects;
+        SGRegion* region = [SGRegion regionFromFeature:feature];
+        [regions addObject:region];
+        for(MKPolygon* polygon in region.polygons)
+            [self addOverlay:polygon];
+        [boundaryResponseIds removeObject:requestId];        
     }
 }
 
@@ -324,6 +366,11 @@
         [layerResponseIds removeObject:requestId];
         if(![layerResponseIds count])
             [self addNewRecordAnnotations];
+    } else if(containsResponseId && [containsResponseId isEqualToString:requestId]) {
+        [boundaryResponseIds release];
+        containsResponseId = nil;
+    } else if(boundaryResponseIds && [boundaryResponseIds containsObject:requestId]) {
+        [boundaryResponseIds removeObject:requestId];
     }
 }
 
@@ -453,6 +500,8 @@
     [presentAnnotations release];
     [layerResponseIds release];
     [newRecordAnnotations release];
+    
+    [containsResponseId release];
     
     [[SGLocationService sharedLocationService] removeDelegate:self];
     

@@ -67,19 +67,20 @@
  
     @private
     NSMutableDictionary* sgLayers;
-    NSMutableDictionary* historyRecords;
     
     NSMutableArray* presentAnnotations;
     NSMutableArray* newRecordAnnotations;
     
     id<MKMapViewDelegate> trueDelegate;
- 
-    SGGeohash previousRegion;
     
     NSTimer* timer;
 
     NSMutableArray* layerResponseIds;
-    NSMutableArray* historyResponseIds;
+    
+    NSString* containsResponseId;
+    NSArray* validRegionTypes;
+    NSMutableArray* boundaryResponseIds;
+    NSMutableArray* regions;
 }
 
 /*!
@@ -167,5 +168,11 @@
 * @abstract Creates a nearby request for the current viewport and registered layers.
 */
 - (void) retrieveLayers;
+
+#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+
+- (void) drawRegionsForLocation:(CLLocation*)location types:(NSArray*)types;
+
+#endif
 
 @end

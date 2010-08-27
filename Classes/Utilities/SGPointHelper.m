@@ -58,27 +58,3 @@ NSArray* SGCLLocationCoordArrayToLonLatArray(CLLocationCoordinate2D* coordArray,
     
     return coordinates;
 }
-
-#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
-
-MKMapRect SGGetAxisAlignedBoundingBox(CLLocationCoordinate2D* coordArray, int length) {
-    
-    MKMapRect unionMapRect = MKMapRectWorld;
-    for(int i = 0; i < length; i++) {
-        CLLocationCoordinate2D coord = coordArray[i];
-        MKMapPoint point = MKMapPointForCoordinate(coord);
-        MKMapRect mapRect = MKMapRectMake(point.x, point.y, 1.0, 1.0);        
-        unionMapRect = MKMapRectUnion(mapRect, unionMapRect);
-    }
-
-    return unionMapRect;
-}
-
-MKMapRect SGEnvelopeToMKMapRect(SGEnvelope envelope) {
-    NSString* stringEnvelope = SGEnvelopeGetString(envelope);
-    NSArray* coords = [stringEnvelope componentsSeparatedByString:@","];
-    CLLocationCoordinate2D* locationCoords = SGLonLatArrayToCLLocationCoordArray(coords);
-    return SGGetAxisAlignedBoundingBox(locationCoords, [coords count]);
-}
-
-#endif

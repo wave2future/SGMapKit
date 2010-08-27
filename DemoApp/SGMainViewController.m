@@ -83,15 +83,18 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self addLine];    
-    [self startTimer];
+//    [self addLine];    
+//    [self startTimer];
+    
+    CLLocation* location = [[CLLocation alloc] initWithLatitude:37.763116 longitude:-122.452240];
+    [mapView drawRegionsForLocation:location types:nil];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self removeLine];
-    [self stopTimer];
+//    [self removeLine];
+//    [self stopTimer];
 }
 
 - (void) startTimer
@@ -147,9 +150,53 @@
 
 - (MKOverlayView*) mapView:(MKMapView*)mv viewForOverlay:(id<MKOverlay>)overlay
 {
-    MKPolyline* polyline = (MKPolyline*)overlay;
-    overlayView = [[SGDynamicPolylineView alloc] initWithOverlay:polyline];
-    return overlayView;
+    MKPolygonView* polygonView = [[MKPolygonView alloc] initWithPolygon:overlay];
+    polygonView.fillColor = [self color];
+    return polygonView;
+}
+
+- (UIColor*) color
+{
+    int i = (rand() % 10);
+    
+    UIColor* color = nil;
+    switch (i) {
+        case 0:
+            color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+            break;
+        case 1:
+            color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.2];
+            break;
+        case 2:
+            color = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.2];
+            break;
+        case 3:
+            color = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:0.2];
+            break;
+        case 4:
+            color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.2];
+            break;
+        case 5:
+            color = [UIColor colorWithRed:0.0 green:1.0 blue:1.0 alpha:0.2];
+            break;
+        case 6:
+            color = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:0.2];
+            break;
+        case 7:
+            color = [UIColor colorWithRed:1.0 green:0.5 blue:1.0 alpha:0.2];
+            break;
+        case 8:
+            color = [UIColor colorWithRed:0.7 green:1.0 blue:1.0 alpha:0.2];
+            break;
+        case 9:
+            color = [UIColor colorWithRed:0.1 green:0.5 blue:1.0 alpha:0.2];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return color;
 }
 
 - (void) dealloc

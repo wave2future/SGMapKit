@@ -33,22 +33,48 @@
 //
 
 #import "SGRegion.h"
-
-#import "SGMapRectHelper.h"
+#import "SGAdditions.h"
 #import "SGPointHelper.h"
 
 @implementation SGRegion
-@synthesize gazetteer, boundingMapRect, polygon, coordinates;
+@synthesize gazetteer, polygons;
 @dynamic type;
 
-- (id) initWithEnvelope:(SGEnvelope)envelope gazetteer:(NSDictionary*)newGazetteer
++ (SGRegion*) regionFromFeature:(NSDictionary*)feature
 {
-    if(self = [super init]) {
-        boundingMapRect = SGEnvelopeToMKMapRect(envelope);;
-        self.gazetteer = newGazetteer;
+    SGRegion* region = [[SGRegion alloc] init];
+    
+    NSMutableArray* polygons = [NSMutableArray array];
+    NSDictionary* geometry = [feature geometry];
+    NSArray* coordinates = [geometry coordinates];
+    if([geometry isPolygon])
+        coordinates = [NSArray arrayWithObject:coordinates];
+    
+    for(NSArray* linearRing in coordinates) {
+        NSArray* exteriorPolygon = [linearRing objectAtIndex:0];
+        
+        NSRange range;
+        range.location = 1;
+        range.length = [linearRing count] - 1;
+        
+        NSArray* interiorGaps = [linearRing subarrayWithRange:range];
+        NSMutableArray* interiorPolygons = [NSMutableArray array];
+        for(NSArray* gap in interiorGaps) {
+            CLLocationCoordinate2D* coords = SGLonLatArrayToCLLocationCoordArray(gap);
+            [interiorPolygons addObject:[MKPolygon polygonWithCoordinates:coords
+                                                                    count:[gap count]]];
+        }
+        
+        CLLocationCoordinate2D* coords = SGLonLatArrayToCLLocationCoordArray(exteriorPolygon);
+        [polygons addObject:[MKPolygon polygonWithCoordinates:coords
+                                                        count:[exteriorPolygon count]
+                                             interiorPolygons:interiorPolygons]];
     }
     
-    return self;
+    region.polygons = polygons;
+    region.gazetteer = [feature properties];
+    
+    return region;
 }
 
 #pragma mark -
@@ -61,27 +87,6 @@
         regionType = [gazetteer objectForKey:@"type"];
     
     return regionType;
-}
-
-- (MKMapRect) boundingMapRect
-{
-    return boundingMapRect;
-}
-
-- (CLLocationCoordinate2D) coordinate
-{
-    return MKCoordinateForMapPoint(boundingMapRect.origin);
-}
-
-- (void) setCoordinates:(NSArray*)newCoordinates
-{
-    if(coordinates)
-        [coordinates release];
-    
-    coordinates = [newCoordinates retain];
-    CLLocationCoordinate2D* coords = SGLonLatArrayToCLLocationCoordArray(coordinates);
-    polygon = [[MKPolygon polygonWithCoordinates:coords
-                                           count:[coordinates count]] retain];
 }
 
 - (void) dealloc
