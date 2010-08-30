@@ -98,8 +98,6 @@ static BOOL lineIntersectsRect(MKMapPoint p0, MKMapPoint p1, MKMapRect r) {
     return MKMapRectIntersectsRect(r, r2);
 }
 
-
-
 - (CGPathRef) createPathForPoints:(MKMapPoint *)points
                       pointCount:(NSUInteger)pointCount
                         clipRect:(MKMapRect)mapRect
