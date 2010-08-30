@@ -80,10 +80,8 @@
         for(NSDictionary* geometry in [history geometries])
             [coords addObject:[geometry coordinates]];
         
-        [self addCoordinates:SGLonLatArrayToCLLocationCoordArray(coords) count:[coords count]];
+        boundingMapRect = [self addCoordinates:SGLonLatArrayToCLLocationCoordArray(coords) count:[coords count]];
     }
-    
-    [self generateBoundingMapRect];
 }
 
 - (void) generateBoundingMapRect
@@ -176,7 +174,6 @@
     double maxY = MAX(newPoint.y, prevPoint.y);
     return MKMapRectMake(minX, minY, maxX - minX, maxY - minY);
 }
-
 
 - (void) dealloc
 {
