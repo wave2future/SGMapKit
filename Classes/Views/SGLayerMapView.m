@@ -231,7 +231,7 @@
         [trueDelegate mapView:mapView didAddAnnotationViews:views];
 }
 
-#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+#if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
 
 - (MKOverlayView*) mapView:(MKMapView*)mapView viewForOverlay:(id<MKOverlay>)overlay
 {
@@ -350,7 +350,11 @@
                 [boundaryResponseIds addObject:[locationService boundary:validRegionId]];
         }
         containsResponseId = nil;
-    } else if(boundaryResponseIds && [boundaryResponseIds containsObject:requestId]) {
+    } 
+
+#if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+
+    else if(boundaryResponseIds && [boundaryResponseIds containsObject:requestId]) {
         NSDictionary* feature = (NSDictionary*)objects;
         SGRegion* region = [SGRegion regionFromFeature:feature];
         [regions addObject:region];
@@ -358,6 +362,9 @@
             [self addOverlay:polygon];
         [boundaryResponseIds removeObject:requestId];        
     }
+
+#endif
+
 }
 
 - (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error

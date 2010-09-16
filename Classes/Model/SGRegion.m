@@ -49,7 +49,9 @@
     NSArray* coordinates = [geometry coordinates];
     if([geometry isPolygon])
         coordinates = [NSArray arrayWithObject:coordinates];
-    
+
+#if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+
     for(NSArray* linearRing in coordinates) {
         NSArray* exteriorPolygon = [linearRing objectAtIndex:0];
         
@@ -59,6 +61,7 @@
         
         NSArray* interiorGaps = [linearRing subarrayWithRange:range];
         NSMutableArray* interiorPolygons = [NSMutableArray array];
+
         for(NSArray* gap in interiorGaps) {
             CLLocationCoordinate2D* coords = SGLonLatArrayToCLLocationCoordArray(gap);
             [interiorPolygons addObject:[MKPolygon polygonWithCoordinates:coords
@@ -70,6 +73,8 @@
                                                         count:[exteriorPolygon count]
                                              interiorPolygons:interiorPolygons]];
     }
+
+#endif
     
     region.polygons = polygons;
     region.gazetteer = [feature properties];

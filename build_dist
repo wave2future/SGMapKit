@@ -2,7 +2,7 @@
 
 MAPKIT_PATH=.
 NAME=SGMapKit
-VERSION=0.4.1
+VERSION=0.4.2
 MAPKIT_DIR=$MAPKIT_PATH/$NAME-v$VERSION
 
 ./update_sg_sdk
@@ -34,7 +34,7 @@ done
 if [ $1 ]; then
   VERSION=$1
 else
-  VERSION=4.0
+  VERSION=4.1
 fi
 SDKs=( iphoneos$VERSION iphonesimulator$VERSION )
 

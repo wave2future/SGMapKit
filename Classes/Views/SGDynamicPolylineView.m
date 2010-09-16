@@ -37,6 +37,8 @@
 #import "SGHistoryQuery.h"
 #import "SGRecordLine.h"
 
+#if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+
 @interface SGDynamicPolylineView (Private)
 
 - (CGPathRef) createPathForPoints:(MKMapPoint *)points
@@ -163,3 +165,5 @@ static BOOL lineIntersectsRect(MKMapPoint p0, MKMapPoint p1, MKMapRect r) {
 }
 
 @end
+
+#endif

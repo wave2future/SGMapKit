@@ -32,8 +32,6 @@
 //  Created by Derek Smith.
 //
 
-#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
-
 @interface SGRegion : NSObject {
 
     NSDictionary* gazetteer;
@@ -49,5 +47,3 @@
 + (SGRegion*) regionFromFeature:(NSDictionary*)feature;
 
 @end
-
-#endif

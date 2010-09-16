@@ -36,7 +36,7 @@
 #import "SGAdditions.h"
 #import "SGPointHelper.h"
 
-#if __IPHONE_4_0 >= __IPHONE_OS_VERSION_MAX_ALLOWED
+#if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
 
 #define INITIAL_POINT_SPACE 1000
 #define MINIMUM_DELTA_METERS 10.0

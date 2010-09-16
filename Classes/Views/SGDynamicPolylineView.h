@@ -34,6 +34,8 @@
 
 #import <MapKit/MapKit.h>
 
+#if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+
 /*!
 * @class SGDynamicPolylineView 
 * @abstract An overlay view that redraws itself properly when
@@ -72,3 +74,5 @@
 @property (nonatomic, assign) CGLineJoin lineJoin;
 
 @end
+
+#endif
