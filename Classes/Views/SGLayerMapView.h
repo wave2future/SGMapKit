@@ -64,10 +64,9 @@
     
     double requestStartTime;
     double requestEndTime;
- 
+
     @private
     NSMutableDictionary* sgLayers;
-    
     NSMutableArray* presentAnnotations;
     NSMutableArray* newRecordAnnotations;
     
@@ -119,6 +118,8 @@
 * the layers. The default is 0.
 */
 @property (nonatomic, assign) double requestEndTime;
+
+- (NSArray*) layers;
 
 /*!
 * @method startRetrieving

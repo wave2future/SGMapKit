@@ -53,7 +53,6 @@
 @end
 
 @implementation SGLayerMapView
-
 @dynamic reloadTimeInterval;
 @synthesize limit, addRetrievedRecordsToLayer, requestStartTime, requestEndTime;
 
@@ -119,6 +118,11 @@
 #pragma mark -
 #pragma mark Accessor methods 
 
+- (NSArray*) layers
+{
+    return [sgLayers allValues];
+}
+
 - (void) setReloadTimeInterval:(NSTimeInterval)time
 {
     reloadTimeInterval = time;
@@ -162,7 +166,10 @@
 - (void) removeLayer:(SGLayer*)sgLayer
 {
     if(sgLayer){
-        [sgLayers removeObjectForKey:sgLayer];
+        if(sgLayer.recentNearbyQuery && sgLayer.recentNearbyQuery.requestId)
+            [layerResponseIds removeObject:sgLayer.recentNearbyQuery.requestId];
+
+        [sgLayers removeObjectForKey:sgLayer.layerId];
         [self removeAnnotations:[sgLayer recordAnnotations]];   
     }
 }
@@ -223,8 +230,9 @@
     id<SGRecordAnnotation> annotation;
     for(MKAnnotationView* annotationView in views) {
         annotation = (id<SGRecordAnnotation>)annotationView.annotation;
-        if([annotation conformsToProtocol:@protocol(SGRecordAnnotation)])
-            [presentAnnotations addObject:[self getKeyForAnnotation:annotation]];
+        NSString* key = [self getKeyForAnnotation:annotation];
+        if(key)
+            [presentAnnotations addObject:key];
     }    
     
     if(trueDelegate && [trueDelegate respondsToSelector:@selector(mapView:didAddAnnotationViews:)])
@@ -318,7 +326,7 @@
             for(NSDictionary* recordDictionary in nearbyRecords) {
                     recordAnnotation = [recordLayer recordAnnotationFromGeoJSONObject:recordDictionary];
                     annotationKey = [self getKeyForAnnotation:recordAnnotation];
-                    if(![presentAnnotations containsObject:annotationKey])
+                    if(annotationKey && ![presentAnnotations containsObject:annotationKey])
                         [newRecords addObject:recordAnnotation];
             }
             
@@ -497,7 +505,7 @@
 
 - (NSString*) getKeyForAnnotation:(id<SGRecordAnnotation>)annotation
 {
-    return [NSString stringWithFormat:@"%@-%@", annotation.layer, annotation.recordId];
+    return [annotation conformsToProtocol:@protocol(SGRecordAnnotation)] ? [NSString stringWithFormat:@"%@-%@", annotation.layer, annotation.recordId] : nil;
 }
 
 - (void) dealloc
