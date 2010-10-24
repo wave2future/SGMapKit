@@ -170,6 +170,12 @@
 */
 - (void) retrieveLayers;
 
+/*!
+* @method layers
+* @abstract Returns the layers the map view is handling.
+*/
+- (NSArray*) layers;
+
 #if __IPHONE_4_0 && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
 
 - (void) drawRegionsForLocation:(CLLocation*)location types:(NSArray*)types;
